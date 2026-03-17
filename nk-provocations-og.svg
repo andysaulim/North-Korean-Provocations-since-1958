@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020b1f"/>
+      <stop offset="100%" stop-color="#004165"/>
+    </linearGradient>
+    <!-- Bar sparkline data: roughly proportional to actual provocation counts by decade -->
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Left gold accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="#ffc726"/>
+
+  <!-- CSIS mark -->
+  <text x="56" y="72" font-family="'IBM Plex Mono', monospace" font-size="13" fill="rgba(255,199,36,0.7)" letter-spacing="4" text-transform="uppercase">CSIS BEYOND PARALLEL</text>
+  <rect x="56" y="82" width="60" height="2" fill="rgba(255,199,36,0.4)"/>
+
+  <!-- Main headline -->
+  <text x="56" y="170" font-family="Georgia, serif" font-size="66" font-weight="700" fill="#ffffff" letter-spacing="-1">North Korean</text>
+  <text x="56" y="250" font-family="Georgia, serif" font-size="66" font-weight="700" fill="#ffffff" letter-spacing="-1">Provocations</text>
+  <text x="56" y="316" font-family="Georgia, serif" font-size="38" font-weight="400" font-style="italic" fill="rgba(255,255,255,0.5)">since 1958</text>
+
+  <!-- Stats row -->
+  <rect x="56" y="370" width="900" height="1" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- Stat 1 -->
+  <text x="56" y="420" font-family="'IBM Plex Mono', monospace" font-size="52" font-weight="500" fill="#ffc726">483</text>
+  <text x="56" y="450" font-family="'IBM Plex Mono', monospace" font-size="13" fill="rgba(255,255,255,0.4)" letter-spacing="2">TOTAL EVENTS</text>
+
+  <!-- Stat 2 -->
+  <text x="260" y="420" font-family="'IBM Plex Mono', monospace" font-size="52" font-weight="500" fill="#e05050">6</text>
+  <text x="260" y="450" font-family="'IBM Plex Mono', monospace" font-size="13" fill="rgba(255,255,255,0.4)" letter-spacing="2">NUCLEAR TESTS</text>
+
+  <!-- Stat 3 -->
+  <text x="430" y="420" font-family="'IBM Plex Mono', monospace" font-size="52" font-weight="500" fill="#ffffff">231</text>
+  <text x="430" y="450" font-family="'IBM Plex Mono', monospace" font-size="13" fill="rgba(255,255,255,0.4)" letter-spacing="2">MISSILE EVENTS</text>
+
+  <!-- Stat 4 -->
+  <text x="660" y="420" font-family="'IBM Plex Mono', monospace" font-size="52" font-weight="500" fill="#ffffff">1958</text>
+  <text x="660" y="450" font-family="'IBM Plex Mono', monospace" font-size="13" fill="rgba(255,255,255,0.4)" letter-spacing="2">TO PRESENT</text>
+
+  <!-- Mini bar chart (stylized) -->
+  <!-- bars: roughly proportional volumes by era, purely decorative -->
+  <g transform="translate(900, 130)" opacity="0.7">
+    <!-- Pre-2000: low bars -->
+    <rect x="0"   y="320" width="10" height="12"  fill="#989797" rx="1"/>
+    <rect x="14"  y="308" width="10" height="24"  fill="#989797" rx="1"/>
+    <rect x="28"  y="316" width="10" height="16"  fill="#989797" rx="1"/>
+    <rect x="42"  y="304" width="10" height="28"  fill="#989797" rx="1"/>
+    <rect x="56"  y="310" width="10" height="22"  fill="#989797" rx="1"/>
+    <rect x="70"  y="318" width="10" height="14"  fill="#989797" rx="1"/>
+    <!-- Kim Jong-il era: growing -->
+    <rect x="84"  y="300" width="10" height="32"  fill="#115178" rx="1"/>
+    <rect x="98"  y="290" width="10" height="42"  fill="#115178" rx="1"/>
+    <rect x="112" y="270" width="10" height="62"  fill="#115178" rx="1"/>
+    <rect x="126" y="258" width="10" height="74"  fill="#e05050" rx="1"/>
+    <rect x="140" y="282" width="10" height="50"  fill="#115178" rx="1"/>
+    <rect x="154" y="296" width="10" height="36"  fill="#115178" rx="1"/>
+    <rect x="168" y="286" width="10" height="46"  fill="#115178" rx="1"/>
+    <!-- Kim Jong-un: high volume -->
+    <rect x="182" y="240" width="10" height="92"  fill="#b8651a" rx="1"/>
+    <rect x="196" y="248" width="10" height="84"  fill="#b8651a" rx="1"/>
+    <rect x="210" y="220" width="10" height="112" fill="#b8651a" rx="1"/>
+    <rect x="224" y="232" width="10" height="100" fill="#e05050" rx="1"/>
+    <rect x="238" y="210" width="10" height="122" fill="#b8651a" rx="1"/>
+    <rect x="252" y="180" width="10" height="152" fill="#b8651a" rx="1"/>
+    <rect x="266" y="160" width="10" height="172" fill="#b8651a" rx="1"/>
+    <rect x="280" y="140" width="10" height="192" fill="#ffc726" rx="1"/>
+    <!-- baseline -->
+    <rect x="0" y="332" width="290" height="1" fill="rgba(255,255,255,0.15)"/>
+    <text x="0" y="350" font-family="'IBM Plex Mono', monospace" font-size="10" fill="rgba(255,255,255,0.25)">1960</text>
+    <text x="120" y="350" font-family="'IBM Plex Mono', monospace" font-size="10" fill="rgba(255,255,255,0.25)">1994</text>
+    <text x="210" y="350" font-family="'IBM Plex Mono', monospace" font-size="10" fill="rgba(255,255,255,0.25)">2012</text>
+    <text x="272" y="350" font-family="'IBM Plex Mono', monospace" font-size="10" fill="rgba(255,255,255,0.25)">2026</text>
+  </g>
+
+  <!-- Category pills -->
+  <g transform="translate(56, 492)">
+    <rect x="0" y="0" width="92" height="26" rx="13" fill="rgba(184,101,26,0.25)" stroke="rgba(184,101,26,0.5)" stroke-width="1"/>
+    <text x="46" y="17.5" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#f5dfc0" text-anchor="middle" letter-spacing="1">MISSILE</text>
+
+    <rect x="104" y="0" width="118" height="26" rx="13" fill="rgba(168,48,42,0.3)" stroke="rgba(168,48,42,0.6)" stroke-width="1"/>
+    <text x="163" y="17.5" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#f2d0ce" text-anchor="middle" letter-spacing="1">NUCLEAR TEST</text>
+
+    <rect x="234" y="0" width="120" height="26" rx="13" fill="rgba(26,95,168,0.25)" stroke="rgba(26,95,168,0.5)" stroke-width="1"/>
+    <text x="294" y="17.5" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#e5eff6" text-anchor="middle" letter-spacing="1">CONVENTIONAL</text>
+
+    <rect x="366" y="0" width="90" height="26" rx="13" fill="rgba(107,63,160,0.25)" stroke="rgba(107,63,160,0.5)" stroke-width="1"/>
+    <text x="411" y="17.5" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#ddd0f5" text-anchor="middle" letter-spacing="1">TERROR</text>
+
+    <rect x="468" y="0" width="88" height="26" rx="13" fill="rgba(26,126,110,0.25)" stroke="rgba(26,126,110,0.5)" stroke-width="1"/>
+    <text x="512" y="17.5" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#d0ebe5" text-anchor="middle" letter-spacing="1">HYBRID</text>
+  </g>
+
+  <!-- Bottom URL -->
+  <text x="56" y="598" font-family="'IBM Plex Mono', monospace" font-size="13" fill="rgba(255,199,36,0.5)" letter-spacing="1">beyondparallel.csis.org</text>
+</svg>
