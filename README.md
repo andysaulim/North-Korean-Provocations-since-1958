@@ -28,7 +28,7 @@ Hosted via GitHub Pages: [`(https://andysaulim.github.io/North-Korean-Provocatio
 ### GitHub Pages
 1. Push this repo to GitHub
 2. Go to **Settings → Pages → Source → Deploy from branch → main → / (root)**
-3. Your database will be live at `(https://andysaulim.github.io/North-Korean-Provocations-since-1958/)`
+3. Your database will be live at [`(https://andysaulim.github.io/North-Korean-Provocations-since-1958/)`](https://andysaulim.github.io/North-Korean-Provocations-since-1958/)
 
 ### WordPress (Beyond Parallel)
 1. Open `index.html` in a text editor, copy everything
