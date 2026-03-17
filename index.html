@@ -628,7 +628,7 @@ details.about-panel[open] .about-arrow{transform:rotate(180deg)}
   <input class="search-input" id="searchInput" placeholder="Search… (press / to focus)" oninput="applyFilters()" title="Press / to focus search">
   <select class="filter-select" id="leaderFilter" onchange="applyFilters()">
     <option value="">All DPRK leaders</option>
-    <option value="kim_jong_un">Kim Jong-un (2012–)</option>
+    <option value="kim_jong_un">Kim Jong-un (2011–)</option>
     <option value="kim_jong_il">Kim Jong-il (1994–2011)</option>
     <option value="kim_il_sung">Kim Il-sung (1948–1994)</option>
   </select>
@@ -645,7 +645,7 @@ details.about-panel[open] .about-arrow{transform:rotate(180deg)}
     <option value="Carter">Carter (1977–1981)</option>
     <option value="Ford">Ford (1974–1977)</option>
     <option value="Nixon">Nixon (1969–1974)</option>
-    <option value="LBJ">L.B. Johnson (1963–1969)</option>
+    <option value="LBJ">Johnson (1963–1969)</option>
     <option value="Kennedy">Kennedy (1961–1963)</option>
     <option value="Eisenhower">Eisenhower (1953–1961)</option>
   </select>
@@ -676,7 +676,7 @@ details.about-panel[open] .about-arrow{transform:rotate(180deg)}
 <!-- LEADER ERA LEGEND -->
 <div class="leader-legend">
   <span class="leader-legend-label">Leader era:</span>
-  <span class="leader-legend-item"><span class="leader-dot" style="background:#b8651a"></span>Kim Jong-un (2012–)</span>
+  <span class="leader-legend-item"><span class="leader-dot" style="background:#b8651a"></span>Kim Jong-un (2011–)</span>
   <span class="leader-legend-item"><span class="leader-dot" style="background:#115178"></span>Kim Jong-il (1994–2011)</span>
   <span class="leader-legend-item"><span class="leader-dot" style="background:#989797"></span>Kim Il-sung (1948–1994)</span>
 </div>
@@ -1163,8 +1163,8 @@ const RECORDS = [
   {date:'1995-08-01',cat:'conventional',event:'Detainment of South Korean Vessel',desc:'North Korea captured a South Korean ship, named the Samsun Venus, and held the vessel and its 21-man crew near the east coast port of Chongjin. The ship and crew were released August 13, 1995.',sev:2,source:'Source',sourceType:'intl',url:'http://articles.latimes.com/1995-08-13/news/mn-34749_1_north-korea',leader:'kim_jong_il'},
   {date:'1995-03-31',cat:'missile',event:'Anti-Ship Cruise Missile Launch',desc:'North Korea conducted a third test of an anti-ship cruise missile claimed to be part of normal training exercises.',sev:2,source:'Source',sourceType:'intl',url:'http://www.dod.gov/pubs/prolif/ne_asia.html',leader:'kim_jong_il'},
   {date:'1994-12-17',cat:'conventional',event:'U.S. Helicopter Shot Down',desc:'A U.S. Army OH-58 helicopter accidently strayed 6 miles North of the military demarcation line (MDL) and was shot down by DPRK forces. One crew member was killed in the downing and the other was held for thirteen days and released on December 30, 1994.',sev:2,source:'NYT',sourceType:'intl',url:'http://www.nytimes.com/1994/12/31/world/freed-pilot-tells-how-he-was-downed-by-north-koreans.html',leader:'kim_jong_il'},
-  {date:'1994-06-02',cat:'missile',event:'Anti-Ship Cruise Missile Launch',desc:'North Korea conducted a second test of an anti-ship cruise missile that flew into the sea between Korea and Japan.',sev:2,source:'Source',sourceType:'intl',url:'http://www.dod.gov/pubs/prolif/ne_asia.html',leader:'kim_jong_il'},
-  {date:'1994-05-31',cat:'missile',event:'Anti-Ship Cruise Missile Launch',desc:'North Korea tested an anti-ship cruise missile modelled after the Chinese HY-2 Silkworm missile.',sev:2,source:'NYT',sourceType:'intl',url:'http://www.nytimes.com/1994/06/01/world/north-korea-tests-cruise-missile-designed-to-sink-ships.html',leader:'kim_jong_il'},
+  {date:'1994-06-02',cat:'missile',event:'Anti-Ship Cruise Missile Launch',desc:'North Korea conducted a second test of an anti-ship cruise missile that flew into the sea between Korea and Japan.',sev:2,source:'Source',sourceType:'intl',url:'http://www.dod.gov/pubs/prolif/ne_asia.html',leader:'kim_il_sung'},
+  {date:'1994-05-31',cat:'missile',event:'Anti-Ship Cruise Missile Launch',desc:'North Korea tested an anti-ship cruise missile modelled after the Chinese HY-2 Silkworm missile.',sev:2,source:'NYT',sourceType:'intl',url:'http://www.nytimes.com/1994/06/01/world/north-korea-tests-cruise-missile-designed-to-sink-ships.html',leader:'kim_il_sung'},
   {date:'1993-05-30',cat:'missile',event:'Medium-range Ballistic Missile Launch',desc:'North Korea test-launched Nodong-1 missile and also fired at least 2 Hwasongs-5 and 6 missiles. The missiles were fired at a target buoy in the direction of Japan off the coastal city of Wonsan into the sea between Korea and Japan. ',sev:3,source:'NYT',sourceType:'intl',url:'http://www.nytimes.com/1993/06/13/world/missile-is-tested-by-north-koreans.html',leader:'kim_il_sung'},
   {date:'1993-05-29',cat:'missile',event:'Medium-range Ballistic Missile Launch',desc:'North Korea test-launched Nodong-1 missile and also fired at least 2 Hwasongs-5 and 6 missiles. The missiles were fired at a target buoy in the direction of Japan off the coastal city of Wonsan into the sea between Korea and Japan.',sev:3,source:'Source',sourceType:'intl',url:'http://www.archives.go.kr/next/search/listSubjectDescription.do?id=002943&pageFlag=',leader:'kim_il_sung'},
   {date:'1993-03-12',cat:'nuclear_program',event:'Withdrawal from NPT',desc:'North Korea announced its intention to withdraw from the NPT, declaring that the NPT and IAEA were \"being appropriated to realize the impure U.S. political goal of eliminating\" the North Korean system.',sev:3,source:'Source',sourceType:'intl',url:'http://nkinfo.unikorea.go.kr/nkp/term/viewNkKnwldgDicary.do?pageIndex=22&koreanChrctr=&dicaryId=213',leader:'kim_il_sung'},
@@ -1310,7 +1310,7 @@ function buildStats(){
 const US_PRES = [
   {id:'Eisenhower', label:'Eisenhower',  party:'R', start:1953, end:1961},
   {id:'Kennedy',    label:'Kennedy',     party:'D', start:1961, end:1963},
-  {id:'LBJ',        label:'L.B. Johnson',party:'D', start:1963, end:1969},
+  {id:'LBJ',        label:'Johnson',party:'D', start:1963, end:1969},
   {id:'Nixon',      label:'Nixon',       party:'R', start:1969, end:1974},
   {id:'Ford',       label:'Ford',        party:'R', start:1974, end:1977},
   {id:'Carter',     label:'Carter',      party:'D', start:1977, end:1981},
@@ -1335,8 +1335,8 @@ let bandMode = 'off';
 
 const LEADER_BANDS = [
   {label:'Kim Il-sung', start:1958, end:1994, color:'rgba(150,150,150,0.10)', labelColor:'rgba(80,80,80,0.7)'},
-  {label:'Kim Jong-il', start:1994, end:2012, color:'rgba(17,81,120,0.10)', labelColor:'rgba(17,81,120,0.7)'},
-  {label:'Kim Jong-un', start:2012, end:2027, color:'rgba(184,101,26,0.10)', labelColor:'rgba(184,101,26,0.7)'},
+  {label:'Kim Jong-il', start:1994, end:2011, color:'rgba(17,81,120,0.10)', labelColor:'rgba(17,81,120,0.7)'},
+  {label:'Kim Jong-un', start:2011, end:2027, color:'rgba(184,101,26,0.10)', labelColor:'rgba(184,101,26,0.7)'},
 ];
 
 const PRES_BANDS = US_PRES.map(p=>({
@@ -2076,7 +2076,7 @@ function buildSummaryTables(){
   const leaders = [
     {key:'kim_il_sung',  label:'Kim Il-sung',  years:'1948–1994'},
     {key:'kim_jong_il',  label:'Kim Jong-il',  years:'1994–2011'},
-    {key:'kim_jong_un',  label:'Kim Jong-un',  years:'2012–'},
+    {key:'kim_jong_un',  label:'Kim Jong-un',  years:'2011–'},
   ];
   const cats = ['missile','nuclear_test','nuclear_program','conventional','terror','hybrid','other'];
   const catShort = {missile:'Msle',nuclear_test:'Nucl.',nuclear_program:'Prog.',conventional:'Conv.',terror:'Terror',hybrid:'Hybrid',other:'Other'};
