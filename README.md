@@ -6,7 +6,7 @@
 An interactive database tracking 483 verified North Korean provocations since 1958 — missile tests, nuclear detonations, conventional military attacks, terror operations, and hybrid/psyops activities.
 
 ## Live database
-Hosted via GitHub Pages: `https://[your-username].github.io/[repo-name]/`
+Hosted via GitHub Pages: `(https://andysaulim.github.io/North-Korean-Provocations-since-1958/)`
 
 ## Features
 - 483 records across 7 categories (Missile, Nuclear Test, Nuclear Program, Conventional, Terror/Assassination, Hybrid/Psyops, Other)
@@ -28,7 +28,7 @@ Hosted via GitHub Pages: `https://[your-username].github.io/[repo-name]/`
 ### GitHub Pages
 1. Push this repo to GitHub
 2. Go to **Settings → Pages → Source → Deploy from branch → main → / (root)**
-3. Your database will be live at `https://[username].github.io/[repo]/`
+3. Your database will be live at `(https://andysaulim.github.io/North-Korean-Provocations-since-1958/)`
 
 ### WordPress (Beyond Parallel)
 1. Open `index.html` in a text editor, copy everything
