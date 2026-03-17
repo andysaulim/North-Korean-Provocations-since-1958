@@ -6,7 +6,7 @@
 An interactive database tracking 483 verified North Korean provocations since 1958 — missile tests, nuclear detonations, conventional military attacks, terror operations, and hybrid/psyops activities.
 
 ## Live database
-Hosted via GitHub Pages: `(https://andysaulim.github.io/North-Korean-Provocations-since-1958/)`
+Hosted via GitHub Pages: [`(https://andysaulim.github.io/North-Korean-Provocations-since-1958/)`](https://andysaulim.github.io/North-Korean-Provocations-since-1958/)
 
 ## Features
 - 483 records across 7 categories (Missile, Nuclear Test, Nuclear Program, Conventional, Terror/Assassination, Hybrid/Psyops, Other)
