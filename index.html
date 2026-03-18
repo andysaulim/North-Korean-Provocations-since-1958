@@ -1369,6 +1369,24 @@ thead th,.td-source a,.td-source span{
   text-align: center !important;
 }
 .summary-tbl td.total-cell { text-align: center !important; }
+
+.filter-by-label {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-right: 1px solid var(--rule-strong);
+  background: var(--surface2);
+  opacity: 0.7;
+}
+@media (max-width: 640px) { .filter-by-label { display: none; } }
 </style>
 <div id="bp-nk-db">
 
@@ -1597,6 +1615,7 @@ thead th,.td-source a,.td-source span{
 <div class="filter-bar" id="filterBar" style="">
   <span class="filter-label">Filter</span>
   <input class="search-input" id="searchInput" placeholder="Search… (press / to focus)" oninput="applyFilters()" title="Press / to focus search">
+  <span class="filter-by-label">Filter by</span>
   <select class="filter-select" id="leaderFilter" onchange="applyFilters()">
     <option value="">All DPRK leaders</option>
     <option value="kim_jong_un">Kim Jong-un (2011–)</option>
@@ -3224,7 +3243,7 @@ document.addEventListener('keydown',e=>{
 
 /* ── SUMMARY TABLES ── */
 let _lSortField='total',_lSortDir=-1;
-let _pSortField='total',_pSortDir=-1;
+let _pSortField='year',_pSortDir=1;
 function sortLeaderTable(f){if(_lSortField===f)_lSortDir*=-1;else{_lSortField=f;_lSortDir=-1;}buildSummaryTables();}
 function sortPresTable(f){if(_pSortField===f)_pSortDir*=-1;else{_pSortField=f;_pSortDir=-1;}buildSummaryTables();}
 
@@ -3284,6 +3303,7 @@ function buildSummaryTables(){
   // Sort by total desc for this view
   const sortedPres = [...US_PRES].sort((a,b)=>{
     if(_pSortField==='name') return _pSortDir*(a.label.localeCompare(b.label));
+    if(_pSortField==='year') return _pSortDir*(a.start-b.start);
     const av = _pSortField==='total' ? presCounts[a.id].total : (presCounts[a.id][_pSortField]||0);
     const bv = _pSortField==='total' ? presCounts[b.id].total : (presCounts[b.id][_pSortField]||0);
     return _pSortDir*(bv-av);
