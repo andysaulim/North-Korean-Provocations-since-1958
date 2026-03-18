@@ -1710,6 +1710,7 @@ thead th,.td-source a,.td-source span{
   <div class="db-footer-text">
     &copy; 2026 <a href="https://www.csis.org" target="_blank" rel="noopener">CSIS</a> &nbsp;·&nbsp;
     <a href="https://beyondparallel.csis.org" target="_blank" rel="noopener">Beyond Parallel</a> &nbsp;·&nbsp;
+    Built with <a href="https://claude.ai" target="_blank" rel="noopener" style="color:rgba(255,199,36,0.7);transition:color .15s" onmouseover="this.style.color='#ffc726'" onmouseout="this.style.color='rgba(255,199,36,0.7)'">Claude</a> &nbsp;·&nbsp;
     <button class="db-cite-inline" onclick="copyDbCite()" title="Copy database citation">Cite this database</button>
   </div>
   <div class="db-footer-share">
@@ -3278,7 +3279,7 @@ document.addEventListener('keydown',e=>{
 });
 
 /* ── SUMMARY TABLES ── */
-let _lSortField='total',_lSortDir=-1;
+let _lSortField='year',_lSortDir=1;
 let _pSortField='year',_pSortDir=1;
 function sortLeaderTable(f){if(_lSortField===f)_lSortDir*=-1;else{_lSortField=f;_lSortDir=-1;}buildSummaryTables();}
 function sortPresTable(f){if(_pSortField===f)_pSortDir*=-1;else{_pSortField=f;_pSortDir=-1;}buildSummaryTables();}
@@ -3307,6 +3308,7 @@ function buildSummaryTables(){
   cats.forEach(cat=>lHtml+='<th class="sum-cat sortable" onclick="sortLeaderTable(\''+cat+'\')">' +catShort[cat]+'</th>');
   lHtml+='<th class="sortable" onclick="sortLeaderTable(\'total\')" style="color:var(--navy);font-weight:700">Total</th></tr></thead><tbody>';
   const sortedLeaders = [...leaders].sort((a,b)=>{
+    if(_lSortField==='year') return _lSortDir*(leaders.indexOf(a)-leaders.indexOf(b));
     if(_lSortField==='name') return _lSortDir*(a.label.localeCompare(b.label));
     const av = _lSortField==='total' ? leaderCounts[a.key].total : (leaderCounts[a.key][_lSortField]||0);
     const bv = _lSortField==='total' ? leaderCounts[b.key].total : (leaderCounts[b.key][_lSortField]||0);
