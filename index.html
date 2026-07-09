@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>North Korean Provocations, 1958–2026 | CSIS Beyond Parallel</title>
-<meta name="description" content="An editorial database of 540 documented North Korean provocations since 1958 — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions. CSIS Beyond Parallel, Korea Chair.">
+<title>Timeline of North Korean Provocations Since 1958 | CSIS Beyond Parallel</title>
+<meta name="description" content="An editorial database of documented North Korean provocations since 1958 — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions. CSIS Beyond Parallel, Korea Chair.">
 <meta name="author" content="CSIS Beyond Parallel · Korea Chair">
-<meta name="theme-color" content="#111">
+<meta name="theme-color" content="#faf8f2">
 <link rel="canonical" href="https://andysaulim.github.io/North-Korean-Provocations-since-1958/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="North Korean Provocations, 1958–2026">
-<meta property="og:description" content="An editorial CSIS Beyond Parallel database of 540 documented North Korean provocations since 1958.">
+<meta property="og:title" content="Timeline of North Korean Provocations Since 1958">
+<meta property="og:description" content="An editorial CSIS Beyond Parallel database of documented North Korean provocations since 1958.">
 <meta property="og:url" content="https://andysaulim.github.io/North-Korean-Provocations-since-1958/">
 <meta property="og:image" content="https://andysaulim.github.io/North-Korean-Provocations-since-1958/nk-provocations-og.svg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="North Korean Provocations, 1958–2026">
-<meta name="twitter:description" content="An editorial CSIS Beyond Parallel database of 540 documented North Korean provocations since 1958.">
+<meta name="twitter:title" content="Timeline of North Korean Provocations Since 1958">
+<meta name="twitter:description" content="An editorial CSIS Beyond Parallel database of documented North Korean provocations since 1958.">
 <meta name="twitter:image" content="https://andysaulim.github.io/North-Korean-Provocations-since-1958/nk-provocations-og.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,12 +55,26 @@ a{color:var(--link)}
 .mast{padding:34px 0 18px}
 .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
 h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1.06;letter-spacing:-.01em;margin:12px 0 0}
-.standfirst{font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink2);max-width:62ch;margin:14px 0 0}
+.standfirst{font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink2);max-width:none;margin:14px 0 0}
 .byline{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;margin-top:18px;font-size:12.5px;color:var(--muted)}
 .byline .who{color:var(--ink2);font-weight:600}
 .byline .sep{color:var(--hair2)}
 .linkbtn{background:none;border:none;font-family:var(--sans);font-size:12.5px;color:var(--link);cursor:pointer;padding:0;border-bottom:1px solid transparent}
 .linkbtn:hover{border-bottom-color:var(--link)}
+/* At-a-glance stat band */
+.statband{margin:18px 0 4px}
+.sb-stats{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:baseline;padding-bottom:14px;border-bottom:1px solid var(--hair2)}
+.sb-stat{display:flex;align-items:baseline;gap:6px}
+.sb-n{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.sb-n.tot{color:var(--gold)}
+.sb-l{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sb-figs{display:flex;flex-wrap:wrap;margin-top:14px;border:1px solid var(--hair2);border-radius:6px;overflow:hidden;background:var(--surface)}
+.sb-fig{flex:1 1 0;min-width:150px;border-left:1px solid var(--hair);padding:10px 14px}
+.sb-fig:first-child{border-left:none}
+.sb-fv{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1;letter-spacing:-.02em}
+.sb-fl{font-family:var(--sans);font-size:11.5px;color:var(--ink2);line-height:1.35;margin-top:4px}
+.sb-fn{display:block;font-family:var(--mono);font-size:9.5px;color:var(--muted);margin-top:3px}
+@media (max-width:720px){.sb-fig{min-width:46%}.sb-n{font-size:19px}}
 /* Section nav */
 nav.sec{display:flex;gap:26px;border-bottom:1px solid var(--hair2);margin-top:6px;flex-wrap:wrap}
 nav.sec button{font-family:var(--sans);background:none;border:none;font-size:13px;color:var(--muted);cursor:pointer;padding:12px 0;border-bottom:2px solid transparent;margin-bottom:-1px;font-weight:500}
@@ -104,6 +118,12 @@ nav.sec button:hover{color:var(--ink)}
 .search input::placeholder{color:var(--muted)}
 .search .mag{position:absolute;left:0;top:9px;color:var(--muted);font-size:14px}
 .sel{font-family:var(--sans);font-size:13px;color:var(--ink2);background:transparent;border:1px solid var(--hair2);border-radius:2px;padding:7px 26px 7px 11px;-webkit-appearance:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0l4.5 6L9 0z' fill='%238c887c'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center}
+.decaderow{display:flex;flex-wrap:wrap;gap:6px;padding:10px 0 4px;align-items:center}
+.decaderow .dlabel{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.decbtn{font-family:var(--mono);font-size:11.5px;color:var(--ink2);background:var(--surface);border:1px solid var(--hair2);cursor:pointer;padding:4px 9px;border-radius:100px;display:inline-flex;align-items:baseline;gap:5px;transition:border-color .15s,background .15s}
+.decbtn:hover{border-color:var(--gold);background:var(--hover)}
+.decbtn[aria-pressed="true"]{border-color:var(--gold);background:var(--gold);color:#fff}
+.decbtn .dct{font-variant-numeric:tabular-nums;font-size:10px;opacity:.65}
 .catrow{display:flex;flex-wrap:wrap;gap:4px 2px;padding:6px 0 2px}
 .catbtn{font-family:var(--sans);font-size:12.5px;color:var(--muted);background:none;border:none;cursor:pointer;padding:5px 10px;border-radius:2px;display:inline-flex;align-items:center;gap:7px}
 .catbtn:hover{color:var(--ink);background:var(--hover)}
@@ -217,8 +237,8 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
 <div class="wrap">
  <header class="mast">
    <div class="eyebrow">CSIS Beyond Parallel · Korea Chair</div>
-   <h1>North Korean Provocations, 1958–2026</h1>
-   <p class="standfirst" id="standfirst">The CSIS Beyond Parallel team compiled an original database of all North Korean provocations since the Korean War in 1953, beginning with the first provocation documented in 1958. There has been a record of 540 documented provocations — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions across three generations of the Kim regime.</p>
+   <h1>Timeline of North Korean Provocations Since 1958</h1>
+   <p class="standfirst" id="standfirst">The CSIS Beyond Parallel team compiled an original database of North Korean provocations since the Korean War, beginning with the first discretely documented incident in 1958. It records hundreds of individually dated provocations — missile launches, nuclear tests, armed incursions and infiltrations, terror attacks, cyber operations, and hybrid influence actions — spanning three generations of the Kim regime, from Kim Il-sung through Kim Jong-un, each entry carrying a date, a category, and at least one open-source citation.</p>
    <div class="byline">
      <span class="who">Compiled by the Beyond Parallel team</span><span class="sep">·</span>
      <span id="updatedLine">Updated March 2026</span><span class="sep">·</span>
@@ -226,9 +246,14 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
      <button class="linkbtn" onclick="exportJSON()">JSON</button><span class="sep">·</span>
      <button class="linkbtn" onclick="citeDatabase()">Cite database</button><span class="sep">·</span>
      <button class="linkbtn" onclick="shareDb()">Share</button><span class="sep">·</span>
+     <button class="linkbtn" onclick="embedDatabase()">Embed</button><span class="sep">·</span>
+     <button class="linkbtn" onclick="window.print()">Print</button><span class="sep">·</span>
      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☾ Dark</button>
    </div>
  </header>
+
+ <!-- At-a-glance stat band (live from RECORDS) -->
+ <div class="statband" id="statband"></div>
 
  <nav class="sec" role="tablist" aria-label="Sections">
    <button role="tab" aria-selected="true" data-tab="database" onclick="showTab('database')">The database</button>
@@ -258,6 +283,7 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
      <select class="sel" id="yearFrom" onchange="onFilter()" aria-label="From year"></select>
      <select class="sel" id="yearTo" onchange="onFilter()" aria-label="To year"></select>
    </div>
+   <div class="decaderow" id="decaderow" role="group" aria-label="Jump to decade"></div>
    <div class="catrow" id="catrow" role="group" aria-label="Filter by category"></div>
    <div class="resultline" id="resultline"></div>
 
@@ -293,7 +319,7 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
  <section class="panel" id="panel-about" role="tabpanel">
    <div class="about">
      <h2>About the data</h2>
-     <p>This database records <strong id="aboutTotal">540</strong> individually documented North Korean provocations since 1958 — the first year for which discrete, dated incidents are reliably sourced. Each entry carries a date, an event description, a category, and at least one open-source citation.</p>
+     <p>This database records <strong id="aboutTotal">—</strong> individually documented North Korean provocations since 1958 — the first year for which discrete, dated incidents are reliably sourced. Each entry carries a date, an event description, a category, and at least one open-source citation.</p>
      <p>Records are cross-referenced against leading databases and primary reporting, including the Congressional Research Service, the Nuclear Threat Initiative, the ROK Ministry of National Defense, and contemporaneous wire coverage. The database is maintained by the CSIS Beyond Parallel team and updated as new incidents occur.</p>
      <h3>Categories</h3>
      <p id="aboutCats"></p>
@@ -322,6 +348,17 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
  </div>
 </div>
 
+<!-- Embed modal -->
+<div class="modal" id="embedModal" onclick="if(event.target===this)closeEmbed()">
+ <div class="modal-box" role="dialog" aria-modal="true" aria-label="Embed this database">
+   <div class="modal-hd"><h3>Embed this database</h3><button onclick="closeEmbed()" aria-label="Close">×</button></div>
+   <div class="modal-body">
+     <div class="citetext mono" id="embedText"></div>
+     <div class="copybar"><button class="copybtn" onclick="copyEmbed()">Copy embed code</button></div>
+   </div>
+ </div>
+</div>
+
 <div class="toast" id="toast"></div>
 <button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
@@ -331,7 +368,6 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
 /* ===== CONFIG ===== */
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIDbkfo6KR39AvB3mBweX0c0QxJEuLjJQ6hoHc0woW6eLrf64lOS4ff3znKJa0MWjFSRfG8Aw83ItE/pub?gid=1091942285&single=true&output=csv';
 const ESTIMATED_DEATHS = '600+';
-const ESTIMATED_DEATH_EVENTS = 66;
 
 const RECORDS = [
   {date:'2026-07-03',cat:'missile',event:'Strategic Cruise Missile (SCM)',desc:'According to state media, North Korean leader Kim Jong-un oversaw tests of a cruise missile, reportedly a Hwasal-series weapon, plus naval artillery, automatic guns, and electronic warfare systems aboard the destroyer Kang Kon on July 3, 2026. KCNA reported the tests were meant to confirm the ability to "apply various kinds of weapon systems on board the destroyer in combat," while South Korea\'s military stated it detected the cruise missile launch toward the sea between Korea and Japan.',sev:4,source:'Yonhap',sourceType:'yonhap',url:'https://en.yna.co.kr/view/AEN20260705000451315',leader:'kim_jong_un'},
@@ -1002,12 +1038,25 @@ function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','
 /* ===== RENDER: masthead / about ===== */
 function renderMeta(){
  STATS=stats();
- document.getElementById('standfirst').textContent='The CSIS Beyond Parallel team compiled an original database of all North Korean provocations since the Korean War in 1953, beginning with the first provocation documented in 1958. There has been a record of '+STATS.total+' documented provocations — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions across three generations of the Kim regime.';
+ document.getElementById('standfirst').textContent='The CSIS Beyond Parallel team compiled an original database of North Korean provocations since the Korean War, beginning with the first discretely documented incident in 1958. It records '+STATS.total+' individually dated provocations — missile launches, nuclear tests, armed incursions and infiltrations, terror attacks, cyber operations, and hybrid influence actions — spanning three generations of the Kim regime, from Kim Il-sung through Kim Jong-un, each entry carrying a date, a category, and at least one open-source citation.';
  const d=new Date(STATS.latest+'T00:00:00');
  document.getElementById('updatedLine').textContent='Updated '+d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
  document.getElementById('aboutTotal').textContent=STATS.total;
  document.getElementById('aboutDeaths').textContent=ESTIMATED_DEATHS;
  document.getElementById('aboutCats').textContent=CAT_ORDER.map(c=>CAT_LABEL[c]+' ('+STATS.byCat[c]+')').join(', ')+'.';
+}
+
+/* At-a-glance stat band — live totals + per-category counts + headline figures */
+function renderStatBand(){
+ const el=document.getElementById('statband'); if(!el) return;
+ let s='<div class="sb-stat"><span class="sb-n tot">'+STATS.total.toLocaleString()+'</span><span class="sb-l">Total</span></div>';
+ CAT_ORDER.forEach(c=>{ s+='<div class="sb-stat"><span class="sb-n" style="color:var(--c'+CAT_SLOT[c]+')">'+(STATS.byCat[c]||0)+'</span><span class="sb-l">'+CAT_LABEL[c]+'</span></div>'; });
+ const figs=''
+  +'<div class="sb-fig"><div class="sb-fv">3,693</div><div class="sb-fl">Armed-agent infiltrations<span class="sb-fn">ROK gov. estimate · 1954–1992</span></div></div>'
+  +'<div class="sb-fig"><div class="sb-fv">'+ESTIMATED_DEATHS+'</div><div class="sb-fl">Estimated deaths<span class="sb-fn">Conventional &amp; terror operations</span></div></div>'
+  +'<div class="sb-fig"><div class="sb-fv">'+STATS.peakYear+'</div><div class="sb-fl">Peak year<span class="sb-fn">'+STATS.peakCount+' provocations</span></div></div>'
+  +'<div class="sb-fig"><div class="sb-fv">3</div><div class="sb-fl">Kim-regime generations<span class="sb-fn">Il-sung · Jong-il · Jong-un</span></div></div>';
+ el.innerHTML='<div class="sb-stats">'+s+'</div><div class="sb-figs">'+figs+'</div>';
 }
 
 /* ===== RENDER: chart (inline SVG) ===== */
@@ -1092,6 +1141,28 @@ function renderCatButtons(){
 function renderCatCounts(){
  CAT_ORDER.forEach(c=>{const e=document.getElementById('cct-'+c);if(e)e.textContent=STATS.byCat[c];});
 }
+/* Decade jump-nav — chips that set the year-range filter */
+function renderDecadeNav(){
+ const el=document.getElementById('decaderow'); if(!el) return;
+ const[mn,mx]=yearsRange();
+ const d0=Math.floor(mn/10)*10, d1=Math.floor(mx/10)*10;
+ const dc={};RECORDS.forEach(r=>{const d=Math.floor(+r.date.slice(0,4)/10)*10;dc[d]=(dc[d]||0)+1;});
+ const allOn=(!state.yearFrom&&!state.yearTo);
+ let h='<span class="dlabel">Jump to decade</span>';
+ h+=`<button class="decbtn" aria-pressed="${allOn}" onclick="setDecade('','')">All years</button>`;
+ for(let d=d0;d<=d1;d+=10){
+   const from=String(d),to=String(d+9);
+   const on=(state.yearFrom===from&&state.yearTo===to);
+   h+=`<button class="decbtn" aria-pressed="${on}" onclick="setDecade('${from}','${to}')">${d}s <span class="dct">${dc[d]||0}</span></button>`;
+ }
+ el.innerHTML=h;
+}
+function setDecade(from,to){
+ if(from&&state.yearFrom===from&&state.yearTo===to){from='';to='';}
+ state.yearFrom=from;state.yearTo=to;state.page=1;
+ syncControls();applyFilters();
+ document.getElementById('resultline').scrollIntoView({behavior:'smooth',block:'start'});
+}
 function setCat(c){
  if(c===''){state.cats.clear();}
  else{if(state.cats.has(c))state.cats.delete(c);else state.cats.add(c);}
@@ -1105,7 +1176,7 @@ function syncControls(){
  document.getElementById('yearTo').value=state.yearTo;
  document.getElementById('ar-date').textContent=state.sort==='date'?(state.dir==='asc'?'↑':'↓'):'↕';
  document.getElementById('ar-cat').textContent=state.sort==='cat'?(state.dir==='asc'?'↑':'↓'):'↕';
- renderCatButtons();
+ renderCatButtons();renderDecadeNav();
 }
 function onFilter(){
  state.q=document.getElementById('q').value;
@@ -1223,10 +1294,13 @@ function fmtCite(r,fmt){
  const org='CSIS Korea Chair';
  if(r==='DB'){
    const url=location.origin+location.pathname;
-   if(fmt==='chicago')return `CSIS Korea Chair. "North Korean Provocations Database, 1958–2026." Beyond Parallel. Center for Strategic and International Studies, 2026. ${url}.`;
-   if(fmt==='apa')return `CSIS Korea Chair. (2026). North Korean provocations database, 1958–2026. Beyond Parallel. Center for Strategic and International Studies. ${url}`;
-   if(fmt==='mla')return `CSIS Korea Chair. "North Korean Provocations Database, 1958–2026." Beyond Parallel, Center for Strategic and International Studies, 2026, ${url}.`;
-   return `@misc{csis_nk_provocations,\n  author = {{CSIS Korea Chair}},\n  title = {North Korean Provocations Database, 1958--2026},\n  year = {2026},\n  publisher = {Center for Strategic and International Studies, Beyond Parallel},\n  url = {${url}}\n}`;
+   const fmtD=iso=>{try{return new Date(iso+'T00:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});}catch(e){return iso;}};
+   const upd=(typeof STATS!=='undefined'&&STATS&&STATS.latest)?fmtD(STATS.latest):'';
+   const acc=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+   if(fmt==='chicago')return `CSIS Korea Chair. "North Korean Provocations Database, 1958–2026." Beyond Parallel, Center for Strategic and International Studies.${upd?' Last updated '+upd+'.':''} Accessed ${acc}. ${url}.`;
+   if(fmt==='apa')return `CSIS Korea Chair. (n.d.). North Korean provocations database, 1958–2026. Beyond Parallel, Center for Strategic and International Studies.${upd?' Last updated '+upd+'.':''} Retrieved ${acc}, from ${url}`;
+   if(fmt==='mla')return `CSIS Korea Chair. "North Korean Provocations Database, 1958–2026." Beyond Parallel, Center for Strategic and International Studies.${upd?' Last updated '+upd+'.':''} Accessed ${acc}. ${url}.`;
+   return `@misc{csis_nk_provocations,\n  author = {{CSIS Korea Chair}},\n  title = {North Korean Provocations Database, 1958--2026},\n  ${upd?'note = {Last updated '+upd+'. Accessed '+acc+'.},\n  ':''}publisher = {Center for Strategic and International Studies, Beyond Parallel},\n  url = {${url}}\n}`;
  }
  const url=location.origin+location.pathname+'?event='+eventId(r);
  const yr=r.date.slice(0,4);const title=r.event;
@@ -1248,6 +1322,10 @@ function citeEvent(id){const r=RECORDS.find(x=>eventId(x)===id);if(r)openCite(r,
 function citeDatabase(){openCite('DB','Cite this database');}
 function closeCite(){document.getElementById('citeModal').classList.remove('on');}
 function copyCite(){navigator.clipboard.writeText(document.getElementById('citeText').textContent).then(()=>toast('Citation copied'));}
+function embedCode(){const u=location.origin+location.pathname;return '<iframe src="'+u+'" width="100%" height="900" frameborder="0" style="border:none" title="Timeline of North Korean Provocations Since 1958" loading="lazy"></iframe>';}
+function embedDatabase(){document.getElementById('embedText').textContent=embedCode();document.getElementById('embedModal').classList.add('on');}
+function closeEmbed(){document.getElementById('embedModal').classList.remove('on');}
+function copyEmbed(){navigator.clipboard.writeText(embedCode()).then(()=>toast('Embed code copied'));}
 
 /* ===== PERMALINK / SHARE / EXPORT ===== */
 function copyPermalink(id){const u=location.origin+location.pathname+'?event='+id;navigator.clipboard.writeText(u).then(()=>toast('Link copied'));state.event=id;encodeState();}
@@ -1272,7 +1350,7 @@ let toastT;
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),1900);}
 window.addEventListener('scroll',()=>{document.getElementById('totop').classList.toggle('on',window.scrollY>500);});
 document.addEventListener('keydown',e=>{
- if(e.key==='Escape')closeCite();
+ if(e.key==='Escape'){closeCite();closeEmbed();}
  if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){e.preventDefault();document.getElementById('q').focus();}
  if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('lg')){e.preventDefault();e.target.click();}
 });
@@ -1280,7 +1358,7 @@ document.addEventListener('keydown',e=>{
 /* ===== INIT ===== */
 function renderAll(){
  STATS=stats();YMATRIX=yearCatMatrix();
- renderMeta();buildControls();buildChart();renderSummaries();
+ renderMeta();renderStatBand();buildControls();renderDecadeNav();buildChart();renderSummaries();
  decodeState();syncControls();showTab(state.tab);updateThemeBtn();applyFilters();
  if(state.event){const el=document.getElementById('ev-'+state.event);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});}}
 }
