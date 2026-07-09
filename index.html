@@ -1,5 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>North Korean Provocations since 1958 | CSIS Beyond Parallel</title>
+<meta name="description" content="An interactive database tracking verified North Korean provocations since 1958 — missile tests, nuclear detonations, conventional attacks, terror operations, cyber, and hybrid/psyops activity. CSIS Beyond Parallel, Korea Chair.">
+<meta name="author" content="CSIS Beyond Parallel · Korea Chair">
+<meta name="theme-color" content="#020b1f">
+<link rel="canonical" href="https://andysaulim.github.io/North-Korean-Provocations-since-1958/">
+<!-- Open Graph / social cards -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="North Korean Provocations since 1958">
+<meta property="og:description" content="An interactive CSIS Beyond Parallel database of verified North Korean provocations since 1958.">
+<meta property="og:url" content="https://andysaulim.github.io/North-Korean-Provocations-since-1958/">
+<meta property="og:image" content="https://andysaulim.github.io/North-Korean-Provocations-since-1958/nk-provocations-og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="North Korean Provocations since 1958">
+<meta name="twitter:description" content="An interactive CSIS Beyond Parallel database of verified North Korean provocations since 1958.">
+<meta name="twitter:image" content="https://andysaulim.github.io/North-Korean-Provocations-since-1958/nk-provocations-og.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -57,11 +75,6 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);font-si
   letter-spacing:.09em;text-transform:uppercase;
   background-color:rgba(255,255,255,.07);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.15);
   padding:7px 15px;cursor:pointer;transition:all .15s;white-space:nowrap}
-.btn-ORIG{
-  background-alpha);color:var(--navy);
-  border:none;padding:7px 16px;border-radius:var(--radius-sm);
-  cursor:pointer;transition:background-color var(--trans-fast);
-}
 .btn:hover{background-color:var(--gold-hover);color:var(--navy)}
 
 /* STATS ROW */
@@ -429,7 +442,7 @@ details.about-panel[open] .about-arrow{transform:rotate(180deg)}
   margin-right:-32px;
 }
 .mc{
-  background:#fff;
+  background:var(--surface);
   padding:18px 20px 16px;
   border-right:1px solid var(--rule-strong);
   display:flex;flex-direction:column;gap:4px;
@@ -1388,7 +1401,37 @@ thead th,.td-source a,.td-source span{
   opacity: 0.7;
 }
 @media (max-width: 640px) { .filter-by-label { display: none; } }
+
+/* ============ ACCESSIBILITY UTILITIES ============ */
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[tabindex]:focus-visible,.pill:focus-visible,th[onclick]:focus-visible,tr[onclick]:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px}
+.chart-unavailable{margin:8px 0;padding:32px 24px;text-align:center;font-family:var(--font-sans);font-size:13px;color:var(--muted);background:var(--surface2);border:1px dashed var(--rule-strong);border-radius:var(--radius-md);line-height:1.6}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+
+/* ============ DARK MODE (auto, follows OS preference) ============ */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b0f1a; --surface:#141a28; --surface2:#1c2333; --surface-blue:#182739;
+    --text:#e7e9f0; --muted:#9aa4b4; --caption:#5f6675;
+    --rule:rgba(255,255,255,0.10); --rule-strong:rgba(255,255,255,0.20);
+    --navy:#1f5c8a; --navy-mid:#2c6e9e; --navy-bright:#3f8fce;
+    --gray-light:#222838; --gray-mid:#6b7280;
+    --amber:#e0904a; --amber-light:rgba(184,101,26,0.22); --amber-mid:rgba(224,144,74,0.45);
+    --red:#ea6d64; --red-light:rgba(168,48,42,0.24); --red-mid:rgba(234,109,100,0.45);
+    --crimson:#d67aa0; --crimson-light:rgba(130,20,60,0.30); --crimson-mid:rgba(214,122,160,0.45);
+    --blue:#5b9bd8; --blue-light:rgba(26,95,168,0.24);
+    --purple:#b18ce4; --purple-light:rgba(107,63,160,0.30); --purple-mid:rgba(177,140,228,0.45);
+    --teal:#4cc3ab; --teal-light:rgba(26,126,110,0.26); --teal-mid:rgba(76,195,171,0.45);
+    --gold-light:rgba(255,199,36,0.16);
+  }
+  body{color-scheme:dark}
+  mark{color:var(--text)!important}
+}
 </style>
+</head>
+<body>
 <div id="bp-nk-db">
 
 <!-- SECTION NAV -->
@@ -1466,8 +1509,8 @@ thead th,.td-source a,.td-source span{
     <!-- Card 6: Casualties -->
     <div class="mc">
       <div class="mc-label">Documented Deaths</div>
-      <div class="mc-val">600<span style="font-size:.55em;vertical-align:middle;margin-left:2px;font-weight:400">+</span></div>
-      <div class="mc-sub">Across 66 events · Conventional &amp; terror operations</div>
+      <div class="mc-val" id="stat-deaths">600<span style="font-size:.55em;vertical-align:middle;margin-left:2px;font-weight:400">+</span></div>
+      <div class="mc-sub" id="stat-deaths-sub">Across 66 events · Conventional &amp; terror operations</div>
       <span class="mc-badge">CSIS ESTIMATE</span>
     </div>
 
@@ -1814,10 +1857,20 @@ window.addEventListener('scroll',function(){
   (File → Share → Publish to web → your tab → CSV)
   Paste the published URL below.
   Leave empty to use the hardcoded RECORDS array below.
-  Column order: Date | Category | Event | Description |
-                Severity | Source | SourceType | URL | Leader
+  Column order (a header row is auto-detected and skipped):
+    Date | Category | Event | Description | Severity |
+    Source | SourceType | URL | Leader | Casualties(optional)
+  When set, records load from the sheet at page load; if the fetch
+  fails or returns too few rows, the hardcoded RECORDS below are used
+  as a fallback so the database always renders.
   ============================================================ */
 const SHEET_URL = ''; /* ← paste your published CSV URL here */
+
+/* Aggregate figures that are NOT derivable from the per-record data
+   (the dataset intentionally records only individually documented
+   incidents). Edit these when the CSIS estimate is revised. */
+const ESTIMATED_DEATHS = '600+';
+const ESTIMATED_DEATH_EVENTS = 66;
 
 
 const RECORDS = [
@@ -2513,7 +2566,6 @@ function buildStats(){
   const missile = RECORDS.filter(r=>r.cat==='missile').length;
   const kju = RECORDS.filter(r=>r.leader==='kim_jong_un').length;
   const kjuPct = Math.round(kju/total*100);
-  const cas = RECORDS.reduce((s,r)=>s+(r.cas||0),0);
   const yearCounts = {};
   RECORDS.forEach(r=>{const y=r.date.slice(0,4);yearCounts[y]=(yearCounts[y]||0)+1;});
   const peakEntry = Object.entries(yearCounts).sort((a,b)=>b[1]-a[1])[0];
@@ -2529,6 +2581,10 @@ function buildStats(){
   if(s('stat-year-sub'))s('stat-year-sub').textContent = peakCount+' events in '+peakYear+' — most in any single year';
   if(s('stat-kju'))    s('stat-kju').textContent    = kju.toLocaleString();
   if(s('stat-kju-sub'))s('stat-kju-sub').textContent= 'Since 2011 · '+kjuPct+'% of all events';
+  if(s('stat-deaths')){
+    s('stat-deaths').innerHTML = String(ESTIMATED_DEATHS).replace(/\+$/, '<span style="font-size:.55em;vertical-align:middle;margin-left:2px;font-weight:400">+</span>');
+  }
+  if(s('stat-deaths-sub'))s('stat-deaths-sub').textContent = 'Across '+ESTIMATED_DEATH_EVENTS+' events · Conventional & terror operations';
   if(s('metaLine'))    s('metaLine').textContent    = 'Last updated '+latestFmt+' · '+total+' records · CSIS Beyond Parallel';
 }
 
@@ -2689,10 +2745,27 @@ const annotationPlugin = {
   }
 };
 
-/* Register custom plugin with Chart.js v4 */
-Chart.register(eraBandPlugin, annotationPlugin);
+/* Register custom plugin with Chart.js v4 — guarded so the database still
+   renders if the Chart.js CDN is blocked, slow, or unavailable. */
+if(typeof Chart!=='undefined' && Chart.register){
+  Chart.register(eraBandPlugin, annotationPlugin);
+}
 
 function initChart(){
+  /* Degrade gracefully if Chart.js failed to load — the data table,
+     filters and stats must still work without the chart library. */
+  if(typeof Chart==='undefined'){
+    const panel = document.getElementById('section-chart');
+    if(panel && !panel.querySelector('.chart-unavailable')){
+      const note = document.createElement('div');
+      note.className = 'chart-unavailable';
+      note.setAttribute('role','note');
+      note.textContent = 'The frequency chart could not be loaded (the charting library is unavailable). All data below remains fully searchable and filterable.';
+      const wrap = panel.querySelector('.chart-wrap');
+      if(wrap) wrap.replaceWith(note); else panel.appendChild(note);
+    }
+    return;
+  }
   const yd = buildYearData();
   const years = Object.keys(yd).map(Number).sort();
   const ctx = document.getElementById('barChart').getContext('2d');
@@ -2900,7 +2973,7 @@ function renderTable(){
       +'<td><div class="td-desc'+(isExp?'':' clamped')+'">'+(isExp?applyGlossary(hl(r.desc)):applyGlossary(hl(short)))+'</div>'
         +(r.desc.length>150?'<button class="td-expand" data-key="'+key+'" onclick="toggleExpand(this)">'+(isExp?'Show less':'Show more')+'</button>':'')
       +'</td>'
-      +'<td class="td-sev">'+sevHtml(r.sev)+'</td>'
+      +'<td class="td-sev" aria-label="Severity '+r.sev+' of 5"><span class="sr-only">Severity '+r.sev+' of 5</span>'+sevHtml(r.sev)+'</td>'
       +'<td class="td-source">'
         +(hasUrl?'<a href="'+r.url+'" target="_blank" rel="noopener">'+r.source+'</a>':'<span>'+r.source+'</span>')
         
@@ -3378,39 +3451,103 @@ function applyPresFilter(presId){
   document.querySelector('.table-wrap').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-/* ── INIT: load from Sheets or fall back to hardcoded data ── */
+/* ── Render everything. Data-critical steps run first and are isolated
+   from the chart, so a missing/broken Chart.js never blanks the table. ── */
+function renderAll(){
+  populateYearFilters();
+  buildStats();
+  buildSummaryTables();
+  restoreState();
+  applyFilters();
+  /* Chart is enhancement-only — never let it break the page. */
+  try { initChart(); buildChartLegend(); }
+  catch(e){ console.warn('Chart could not be rendered:', e); }
+  enhanceA11y();
+}
+
+/* Make click-only controls (category pills, sortable headers, clickable
+   summary rows, era toggles) reachable and operable by keyboard. */
+function enhanceA11y(){
+  const sel = '.pill, th[onclick], tr[onclick], .era-toggle, .chart-tab';
+  document.querySelectorAll(sel).forEach(el=>{
+    if(el.tagName==='BUTTON'||el.tagName==='A') return;
+    if(!el.hasAttribute('tabindex')) el.setAttribute('tabindex','0');
+    if(!el.hasAttribute('role')) el.setAttribute('role','button');
+  });
+  if(!window.__a11yKeyBound){
+    window.__a11yKeyBound = true;
+    document.addEventListener('keydown', e=>{
+      if(e.key!=='Enter' && e.key!==' ') return;
+      const t = e.target;
+      if(!t || !t.matches) return;
+      if(t.tagName==='BUTTON'||t.tagName==='A'||t.tagName==='INPUT'||t.tagName==='SELECT'||t.tagName==='TEXTAREA') return;
+      if(t.matches('.pill, th[onclick], tr[onclick], .era-toggle, .chart-tab, [role="button"]')){
+        e.preventDefault();
+        t.click();
+      }
+    });
+  }
+}
+
+/* ── Parse a published-Google-Sheets CSV into record objects. ──
+   Handles CRLF line endings, a UTF-8 BOM, quoted fields containing
+   commas/newlines, and doubled "" escapes. A header row (first cell
+   "date", case-insensitive) is auto-detected and skipped. */
+function parseSheetCSV(text){
+  text = text.replace(/^﻿/, '');
+  const rows=[]; let row=[]; let cur=''; let inQ=false;
+  for(let i=0;i<text.length;i++){
+    const ch=text[i];
+    if(inQ){
+      if(ch==='"'){ if(text[i+1]==='"'){ cur+='"'; i++; } else inQ=false; }
+      else cur+=ch;
+    } else if(ch==='"') inQ=true;
+    else if(ch===','){ row.push(cur); cur=''; }
+    else if(ch==='\n'){ row.push(cur); rows.push(row); row=[]; cur=''; }
+    else if(ch!=='\r') cur+=ch;
+  }
+  if(cur.length||row.length){ row.push(cur); rows.push(row); }
+  return rows
+    .filter(r=>r.some(c=>c.trim()!==''))
+    .filter((r,idx)=>!(idx===0 && (r[0]||'').trim().toLowerCase()==='date'))
+    .map(parts=>{
+      if(parts.length<9) return null;
+      const rec={
+        date:parts[0].trim(), cat:parts[1].trim(), event:parts[2].trim(),
+        desc:parts[3].trim(), sev:parseInt(parts[4],10)||1,
+        source:parts[5].trim(), sourceType:parts[6].trim(),
+        url:parts[7].trim(), leader:parts[8].trim()
+      };
+      if(parts[9]!==undefined && parts[9].trim()!=='') rec.cas=parseInt(parts[9],10)||0;
+      return rec;
+    })
+    .filter(Boolean);
+}
+
+/* ── INIT: load from Sheets when configured, else use hardcoded data ── */
 if(SHEET_URL){
   fetch(SHEET_URL)
-    .then(r=>r.text())
+    .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
     .then(csv=>{
-      const lines=csv.split('\n').filter(l=>l.trim()&&!l.startsWith('Date'));
-      const loaded=lines.map(line=>{
-        /* Parse CSV row — handle quoted fields */
-        const parts=[]; let cur=''; let inQ=false;
-        for(let i=0;i<line.length;i++){
-          if(line[i]==='"'){inQ=!inQ;}
-          else if(line[i]===','&&!inQ){parts.push(cur.trim());cur='';}
-          else cur+=line[i];
-        }
-        parts.push(cur.trim());
-        if(parts.length<9) return null;
-        return {
-          date:parts[0], cat:parts[1], event:parts[2], desc:parts[3].replace(/^"|"$/g,''),
-          sev:parseInt(parts[4])||1, source:parts[5], sourceType:parts[6],
-          url:parts[7], leader:parts[8]
-        };
-      }).filter(Boolean);
+      const loaded=parseSheetCSV(csv);
       if(loaded.length>10){
         RECORDS.length=0;
         loaded.forEach(r=>RECORDS.push(r));
         console.log('Loaded '+RECORDS.length+' records from Google Sheets');
+        return true;
       }
+      console.warn('Sheet returned too few rows ('+loaded.length+'); using hardcoded data.');
+      return false;
     })
-    .catch(e=>console.warn('Sheet load failed, using hardcoded data:',e))
-    .finally(()=>{
-      populateYearFilters(); buildStats(); buildSummaryTables(); initChart(); buildChartLegend(); restoreState(); applyFilters();
+    .catch(e=>{ console.warn('Sheet load failed, using hardcoded data:',e); return false; })
+    .then(fromSheet=>{
+      renderAll();
+      const meta=document.getElementById('metaLine');
+      if(fromSheet && meta) meta.textContent += ' · synced live';
     });
 } else {
-  populateYearFilters(); buildStats(); buildSummaryTables(); initChart(); buildChartLegend(); restoreState(); applyFilters();
+  renderAll();
 }
 </script>
+</body>
+</html>
