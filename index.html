@@ -216,7 +216,7 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
  <header class="mast">
    <div class="eyebrow">CSIS Beyond Parallel · Korea Chair</div>
    <h1>North Korean Provocations, 1958–2026</h1>
-   <p class="standfirst" id="standfirst">A record of documented provocations — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions — across three generations of the Kim regime.</p>
+   <p class="standfirst" id="standfirst">The CSIS Beyond Parallel team compiled an original database of all North Korean provocations since the Korean War in 1953, beginning with the first provocation documented in 1958. There has been a record of 540 documented provocations — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions across three generations of the Kim regime.</p>
    <div class="byline">
      <span class="who">Compiled by the Beyond Parallel team</span><span class="sep">·</span>
      <span id="updatedLine">Updated March 2026</span><span class="sep">·</span>
@@ -1000,7 +1000,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','
 /* ===== RENDER: masthead / about ===== */
 function renderMeta(){
  STATS=stats();
- document.getElementById('standfirst').textContent='A record of '+STATS.total+' documented provocations — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions — across three generations of the Kim regime.';
+ document.getElementById('standfirst').textContent='The CSIS Beyond Parallel team compiled an original database of all North Korean provocations since the Korean War in 1953, beginning with the first provocation documented in 1958. There has been a record of '+STATS.total+' documented provocations — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions across three generations of the Kim regime.';
  const d=new Date(STATS.latest+'T00:00:00');
  document.getElementById('updatedLine').textContent='Updated '+d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
  document.getElementById('aboutTotal').textContent=STATS.total;
@@ -1276,6 +1276,23 @@ function renderAll(){
  decodeState();syncControls();showTab(state.tab);updateThemeBtn();applyFilters();
  if(state.event){const el=document.getElementById('ev-'+state.event);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});}}
 }
+/* Accept either machine codes (missile, kim_jong_un) or friendly labels
+   (Missile, Kim Jong-un) in the sheet's Category / Leader columns. */
+function normalizeCat(v){
+ const low=String(v||'').trim().toLowerCase();
+ if(CAT_ORDER.indexOf(low)>=0)return low;
+ for(const c of CAT_ORDER){if(CAT_LABEL[c].toLowerCase()===low)return c;}
+ const alias={'hybrid':'hybrid','hybrid/psyops':'hybrid','hybrid / psyops':'hybrid','psyops':'hybrid',
+  'nuclear':'nuclear_test','nuclear test':'nuclear_test','nuclear program':'nuclear_program',
+  'artillery':'conventional','conventional':'conventional','terror':'terror','cyber':'cyber','missile':'missile','other':'other'};
+ return alias[low]||'other';
+}
+function normalizeLeader(v){
+ const low=String(v||'').trim().toLowerCase().replace(/\s+/g,' ');
+ if(['kim_il_sung','kim_jong_il','kim_jong_un'].indexOf(low)>=0)return low;
+ const m={'kim il-sung':'kim_il_sung','kim il sung':'kim_il_sung','kim jong-il':'kim_jong_il','kim jong il':'kim_jong_il','kim jong-un':'kim_jong_un','kim jong un':'kim_jong_un'};
+ return m[low]||low.replace(/[\s-]+/g,'_');
+}
 function parseSheetCSV(text){
  text=text.replace(/^﻿/,'');const rows=[];let row=[],cur='',inQ=false;
  for(let i=0;i<text.length;i++){const ch=text[i];
@@ -1284,7 +1301,7 @@ function parseSheetCSV(text){
    else if(ch==='\n'){row.push(cur);rows.push(row);row=[];cur='';}else if(ch!=='\r')cur+=ch;}
  if(cur.length||row.length){row.push(cur);rows.push(row);}
  return rows.filter(r=>r.some(c=>c.trim()!=='')).filter((r,i)=>!(i===0&&(r[0]||'').trim().toLowerCase()==='date')).map(p=>{
-   if(p.length<9)return null;const rec={date:p[0].trim(),cat:p[1].trim(),event:p[2].trim(),desc:p[3].trim(),sev:parseInt(p[4],10)||1,source:p[5].trim(),sourceType:p[6].trim(),url:p[7].trim(),leader:p[8].trim()};return rec;
+   if(p.length<9)return null;const rec={date:p[0].trim(),cat:normalizeCat(p[1]),event:p[2].trim(),desc:p[3].trim(),sev:parseInt(p[4],10)||1,source:p[5].trim(),sourceType:p[6].trim(),url:p[7].trim(),leader:normalizeLeader(p[8])};return rec;
  }).filter(Boolean);
 }
 if(SHEET_URL){
