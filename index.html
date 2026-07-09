@@ -1006,7 +1006,6 @@ function renderMeta(){
  document.getElementById('aboutTotal').textContent=STATS.total;
  document.getElementById('aboutDeaths').textContent=ESTIMATED_DEATHS;
  document.getElementById('aboutCats').textContent=CAT_ORDER.map(c=>CAT_LABEL[c]+' ('+STATS.byCat[c]+')').join(', ')+'.';
- document.getElementById('chartNote').textContent='Activity has accelerated sharply under Kim Jong-un, peaking at '+STATS.peakCount+' events in '+STATS.peakYear+' — dominated by missile launches.';
 }
 
 /* ===== RENDER: chart (inline SVG) ===== */
@@ -1032,8 +1031,6 @@ function buildChart(){
  [1994,2011].forEach(yr=>{const x=bx(yr);svg+=`<line x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="${CH.T}" y2="${CH.B+6}" stroke="var(--hair2)" stroke-width="1"/>`;});
  LEADERS.forEach(l=>{if(l.end<mn)return;const s=Math.max(l.start,mn),e=Math.min(l.end,mx+1);const xc=(bx(s)+bx(e))/2;svg+=`<text x="${xc.toFixed(1)}" y="190" class="eralab" onclick="filterLeader('${l.id}')">${l.label}</text>`;});
  for(let yr=1960;yr<=2020;yr+=10){svg+=`<text x="${(bx(yr)+bw/2).toFixed(1)}" y="174" class="axtick">${yr}</text>`;}
- const px=bx(+STATS.peakYear)+bw/2, py=by(STATS.peakCount);
- svg+=`<text x="${px.toFixed(1)}" y="${(py-7).toFixed(1)}" class="peak">${STATS.peakYear} · ${STATS.peakCount}</text>`;
  // hover bands
  m.forEach(row=>{svg+=`<rect class="hoverband" x="${(CH.L+(row.year-mn)*band).toFixed(1)}" y="${CH.T}" width="${band.toFixed(1)}" height="${CH.B-CH.T}" data-year="${row.year}"/>`;});
  document.getElementById('chart').innerHTML=`<svg viewBox="0 0 ${CH.W} ${CH.H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="North Korean provocations per year by category, ${mn} to ${mx}, peaking at ${STATS.peakCount} in ${STATS.peakYear}">${svg}</svg>`;
