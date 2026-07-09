@@ -30,6 +30,7 @@
  --hair:#e7e3d8; --hair2:#dcd7c9; --link:#0d4c72; --gold:#bf9a2e; --grid:#eae6db; --axis:#cfcabc;
  --hover:#f2eee4; --focus:#0d4c72;
  --c1:#2a78d6; --c2:#1baf7a; --c3:#eda100; --c4:#008300; --c5:#4a3aa7; --c6:#e34948; --c7:#e87ba4; --c8:#eb6834;
+ --grp-missile:#2a78d6; --grp-conventional:#1baf7a; --grp-nuclear:#e34948; --grp-other:#b3ad9f;
  --serif:'Source Serif 4','Charter','Bitstream Charter',Georgia,serif;
  --sans:'Inter','Helvetica Neue','Liberation Sans',Arial,sans-serif;
  --mono:'IBM Plex Mono','Liberation Mono','SF Mono',ui-monospace,monospace;
@@ -40,6 +41,7 @@
  --hair:#2a2925; --hair2:#35342e; --link:#7cb8e0; --gold:#d6b048; --grid:#25241f; --axis:#3a3931;
  --hover:#20201b; --focus:#7cb8e0;
  --c1:#3987e5; --c2:#199e70; --c3:#c98500; --c4:#008300; --c5:#9085e9; --c6:#e66767; --c7:#d55181; --c8:#d95926;
+ --grp-missile:#3987e5; --grp-conventional:#199e70; --grp-nuclear:#e66767; --grp-other:#75726a;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -1010,6 +1012,15 @@ function renderMeta(){
 
 /* ===== RENDER: chart (inline SVG) ===== */
 const CH={W:1000,H:210,L:6,R:994,T:14,B:158};
+/* Chart stacks four display groups for legibility (the rare categories fold
+   into Nuclear / Other); the per-year hover tooltip still shows all 8. */
+const CHART_GROUPS=[
+ {key:'missile',      label:'Missile',      cats:['missile'],                        color:'var(--grp-missile)'},
+ {key:'conventional', label:'Conventional', cats:['conventional'],                   color:'var(--grp-conventional)'},
+ {key:'nuclear',      label:'Nuclear',      cats:['nuclear_test','nuclear_program'], color:'var(--grp-nuclear)'},
+ {key:'other',        label:'Other',        cats:['hybrid','terror','cyber','other'],color:'var(--grp-other)'}
+];
+function groupSum(row,g){return g.cats.reduce((s,c)=>s+(row[c]||0),0);}
 function buildChart(){
  const m=YMATRIX;const[mn,mx]=yearsRange();const maxc=75;
  const band=(CH.R-CH.L)/(mx-mn+1);const bw=Math.min(11,band-3);
@@ -1017,13 +1028,13 @@ function buildChart(){
  const by=c=>CH.B-(c/maxc)*(CH.B-CH.T);
  let svg='';
  [25,50,70].forEach(g=>{const y=by(g);svg+=`<line x1="${CH.L}" x2="${CH.R}" y1="${y}" y2="${y}" stroke="var(--grid)" stroke-width="1"/><text x="${CH.L}" y="${y-3}" class="axnum">${g}</text>`;});
- const activeCats=CAT_ORDER.filter(c=>!chartHidden.has(c));
  m.forEach(row=>{
-   let y0=CH.B;const last=CAT_ORDER.filter(c=>row[c]>0&&!chartHidden.has(c)).slice(-1)[0];
-   CAT_ORDER.forEach(c=>{
-     if(chartHidden.has(c))return;const v=row[c];if(!v)return;
+   let y0=CH.B;
+   const last=CHART_GROUPS.filter(g=>groupSum(row,g)>0&&!chartHidden.has(g.key)).slice(-1)[0];
+   CHART_GROUPS.forEach(g=>{
+     if(chartHidden.has(g.key))return;const v=groupSum(row,g);if(!v)return;
      const h=(v/maxc)*(CH.B-CH.T);const gap=h>2.6?1.3:0;const top=y0-h;
-     svg+=`<rect x="${bx(row.year).toFixed(1)}" y="${(top+gap).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h-gap,0.6).toFixed(1)}" rx="${c===last?1.5:0}" fill="var(--c${CAT_SLOT[c]})"/>`;
+     svg+=`<rect x="${bx(row.year).toFixed(1)}" y="${(top+gap).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h-gap,0.6).toFixed(1)}" rx="${g===last?1.5:0}" fill="${g.color}"/>`;
      y0-=h;
    });
  });
@@ -1039,9 +1050,9 @@ function buildChart(){
 }
 const chartHidden=new Set();
 function renderLegend(){
- document.getElementById('legend').innerHTML=CAT_ORDER.map(c=>`<span class="lg${chartHidden.has(c)?' off':''}" onclick="toggleChartCat('${c}')" role="button" tabindex="0"><span class="lgdot" style="background:var(--c${CAT_SLOT[c]})"></span>${CAT_LABEL[c]}</span>`).join('');
+ document.getElementById('legend').innerHTML=CHART_GROUPS.map(g=>`<span class="lg${chartHidden.has(g.key)?' off':''}" onclick="toggleChartCat('${g.key}')" role="button" tabindex="0"><span class="lgdot" style="background:${g.color}"></span>${g.label}</span>`).join('');
 }
-function toggleChartCat(c){if(chartHidden.has(c))chartHidden.delete(c);else chartHidden.add(c);buildChart();}
+function toggleChartCat(k){if(chartHidden.has(k))chartHidden.delete(k);else chartHidden.add(k);buildChart();}
 function wireChart(){
  const tip=document.getElementById('chartTip');const holder=document.getElementById('chartHolder');
  const[mn,mx]=yearsRange();
