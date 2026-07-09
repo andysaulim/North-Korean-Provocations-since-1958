@@ -3,1891 +3,333 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>North Korean Provocations since 1958 | CSIS Beyond Parallel</title>
-<meta name="description" content="An interactive database tracking verified North Korean provocations since 1958 — missile tests, nuclear detonations, conventional attacks, terror operations, cyber, and hybrid/psyops activity. CSIS Beyond Parallel, Korea Chair.">
+<title>North Korean Provocations, 1958–2026 | CSIS Beyond Parallel</title>
+<meta name="description" content="An editorial database of 540 documented North Korean provocations since 1958 — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions. CSIS Beyond Parallel, Korea Chair.">
 <meta name="author" content="CSIS Beyond Parallel · Korea Chair">
-<meta name="theme-color" content="#020b1f">
+<meta name="theme-color" content="#111">
 <link rel="canonical" href="https://andysaulim.github.io/North-Korean-Provocations-since-1958/">
-<!-- Open Graph / social cards -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="North Korean Provocations since 1958">
-<meta property="og:description" content="An interactive CSIS Beyond Parallel database of verified North Korean provocations since 1958.">
+<meta property="og:title" content="North Korean Provocations, 1958–2026">
+<meta property="og:description" content="An editorial CSIS Beyond Parallel database of 540 documented North Korean provocations since 1958.">
 <meta property="og:url" content="https://andysaulim.github.io/North-Korean-Provocations-since-1958/">
 <meta property="og:image" content="https://andysaulim.github.io/North-Korean-Provocations-since-1958/nk-provocations-og.svg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="North Korean Provocations since 1958">
-<meta name="twitter:description" content="An interactive CSIS Beyond Parallel database of verified North Korean provocations since 1958.">
+<meta name="twitter:title" content="North Korean Provocations, 1958–2026">
+<meta name="twitter:description" content="An editorial CSIS Beyond Parallel database of 540 documented North Korean provocations since 1958.">
 <meta name="twitter:image" content="https://andysaulim.github.io/North-Korean-Provocations-since-1958/nk-provocations-og.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#f5f2eb;
-  --surface:#fff;
-  --surface2:#f0ece2;
-  --surface-blue:#e5eff6;
-  --text:#1a1e2a;
-  --muted:#6e7280;
-  --caption:#bdbdbd;
-  --rule:rgba(0,0,0,0.08);
-  --rule-strong:rgba(0,0,0,0.14);
-  --navy:#004165;
-  --navy-mid:#115178;
-  --navy-bright:#0065a6;
-  --navy-dark:#020b1f;
-  --gold:#ffc726;
-  --gold-hover:#efb715;
-  --gold-alpha:rgba(255,199,36,0.6);
-  --gold-light:rgba(255,199,36,0.12);
-  --gray-light:#efefef;
-  --gray-mid:#989797;
-  /* Category colors */
-  --amber:#b8651a;--amber-light:#fdf3e7;--amber-mid:#f5dfc0;
-  --red:#a8302a;--red-light:#fdf0ef;--red-mid:#f2d0ce;
-  --crimson:#82143c;--crimson-light:#fdf0f5;--crimson-mid:#f5d0e0;
-  --blue:#1a5fa8;--blue-light:#eef4fc;
-  --purple:#6b3fa0;--purple-light:#f3eefb;--purple-mid:#ddd0f5;
-  --teal:#1a7e6e;--teal-light:#e8f4f1;--teal-mid:#d0ebe5;
-  /* Fonts */
-  --font-display:expo-serif-pro,'Libre Baskerville',Georgia,serif;
-  --font-serif:'Libre Baskerville',Georgia,'Times New Roman',serif;
-  --font-sans:'Source Sans 3','Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  --font-mono:'IBM Plex Mono','Courier New',Courier,monospace;
-  --radius-sm:3px;--radius-md:6px;
-  --trans-fast:0.2s ease-in-out;--trans-base:0.25s ease-in-out;
-}
-body{font-family:var(--font-sans);background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-
-/* MASTHEAD */
-.masthead{background:var(--navy-dark);border-bottom:3px solid var(--gold);padding:28px 32px 0}
-.masthead-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.kicker{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,199,36,0.75);margin-bottom:10px;font-weight:500}
-.masthead h1{font-family:var(--font-display);font-size:clamp(32px,4.5vw,54px);font-weight:400;color:#ffffff;line-height:1.05;margin-bottom:8px;letter-spacing:-.01em}
-.masthead h1 em{font-style:italic;font-weight:400;color:var(--muted)}
-.masthead-meta{font-family:var(--font-mono);font-size:12px;color:var(--muted);font-weight:400;letter-spacing:.03em}
-.masthead-actions{display:flex;gap:6px;align-items:center;flex-shrink:0;margin-top:8px;flex-wrap:wrap;padding-bottom:20px;border-top:1px solid rgba(255,255,255,0.08);padding-top:14px}
-
-/* BUTTONS — BP gold style */
-.btn{
-  font-family:var(--font-mono);font-size:11px;font-weight:500;
-  letter-spacing:.09em;text-transform:uppercase;
-  background-color:rgba(255,255,255,.07);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.15);
-  padding:7px 15px;cursor:pointer;transition:all .15s;white-space:nowrap}
-.btn:hover{background-color:var(--gold-hover);color:var(--navy)}
-
-/* STATS ROW */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:rgba(0,0,0,0.22);border-top:1px solid rgba(255,255,255,0.08);margin:20px -28px 0}
-.stat{background:transparent;padding:14px 20px;border-right:1px solid rgba(255,255,255,0.07);transition:background .15s}.stat:last-child{border-right:none}.stat:hover{background:rgba(255,255,255,0.05)}
-.stat-val{font-family:var(--font-mono);font-size:26px;font-weight:600;color:#ffffff;display:block;line-height:1;letter-spacing:-.02em}
-.stat-val.red{color:#f87171}
-.stat-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:6px;display:block}
-
-/* CHART PANEL */
-.chart-panel{background:var(--surface);border-bottom:1px solid var(--rule-strong);padding:20px 28px}
-.panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
-.panel-title{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
-.chart-legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.legend-item{display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;color:var(--muted)}
-.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.chart-wrap{position:relative;height:240px}
-.chart-tabs{display:flex;border:1px solid var(--rule-strong);border-radius:var(--radius-sm);overflow:hidden;width:fit-content}
-.chart-tab{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;cursor:pointer;background:transparent;border:none;color:var(--muted);transition:all var(--trans-fast);border-right:1px solid var(--rule-strong)}
-.chart-tab:last-child{border-right:none}
-.chart-tab.active{background:var(--navy);color:#fff}
-
-/* TYPE PILLS */
-.type-pills{display:flex;gap:6px;flex-wrap:wrap;padding:10px 28px;background:var(--surface);border-bottom:1px solid var(--rule)}
-.pill{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:4px 12px;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:all var(--trans-fast);white-space:nowrap;font-weight:500}
-.pill.all{background:var(--navy);color:#fff;border-color:var(--navy)}
-.pill.all.inactive{background:var(--surface2);color:var(--muted);border-color:var(--rule)}
-/* multi-active state indicator */
-.pills-multi-hint{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:.04em;padding:4px 0;display:none}
-.pills-multi-hint.show{display:block}
-.pill.missile{background:var(--amber-light);color:var(--amber);border-color:var(--amber-mid)}
-.pill.missile.active{background:var(--amber);color:#fff}
-.pill.nuclear_test{background:var(--red-light);color:var(--red);border-color:var(--red-mid)}
-.pill.nuclear_test.active{background:var(--red);color:#fff}
-.pill.nuclear_program{background:var(--crimson-light);color:var(--crimson);border-color:var(--crimson-mid)}
-.pill.nuclear_program.active{background:var(--crimson);color:#fff}
-.pill.conventional{background:var(--blue-light);color:var(--blue);border-color:rgba(26,95,168,0.2)}
-.pill.conventional.active{background:var(--blue);color:#fff}
-.pill.terror{background:var(--purple-light);color:var(--purple);border-color:var(--purple-mid)}
-.pill.terror.active{background:var(--purple);color:#fff}
-.pill.hybrid{background:var(--teal-light);color:var(--teal);border-color:var(--teal-mid)}
-.pill.hybrid.active{background:var(--teal);color:#fff}
-.pill.other{background:var(--surface2);color:var(--muted);border-color:var(--rule)}
-.pill.other.active{background:var(--muted);color:#fff}
-
-/* FILTER BAR */
-.filter-bar{background:var(--surface);border-bottom:1px solid var(--rule-strong);padding:0;display:flex;gap:0;align-items:stretch;overflow-x:auto;scrollbar-width:none}
-.filter-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);flex-shrink:0}
-.filter-select{
-  font-family:var(--font-sans);font-size:12.5px;background:var(--surface);
-  border:none;border-right:1px solid var(--rule-strong);color:var(--text);padding:10px 24px 10px 14px;
-  border-radius:var(--radius-sm);cursor:pointer;outline:none;
-  -webkit-appearance:none;padding-right:24px;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236e7280'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 8px center;
-  transition:border-color var(--trans-fast);
-}
-.filter-select:focus{border-color:var(--navy);box-shadow:0 0 0 2px var(--gold-light);outline:none}
-.search-input{
-  font-family:var(--font-sans);font-size:13px;background:var(--surface);
-  border:1px solid var(--rule-strong);color:var(--text);padding:7px 12px;
-  border-radius:var(--radius-sm);outline:none;flex:1;min-width:180px;max-width:280px;
-  transition:border-color var(--trans-fast);
-}
-.search-input:focus{border-color:var(--navy);box-shadow:0 0 0 2px var(--gold-light)}
-.search-input::placeholder{color:var(--muted)}
-.filter-clear{
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--navy-bright);background:none;border:none;cursor:pointer;padding:6px 4px;
-  text-decoration:underline;text-underline-offset:2px;transition:color var(--trans-fast);
-}
-.filter-clear:hover{background:var(--gold-alpha);color:var(--navy)}
-.result-count{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-left:auto;flex-shrink:0}
-
-/* CONTEXT BANNER */
-.context-banner{background:var(--navy);color:#fff;padding:8px 28px;font-size:12px;font-weight:300;display:none;align-items:center;gap:8px}
-.context-banner.show{display:flex}
-
-/* TABLE */
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse}
-thead th{
-  background:var(--surface);font-family:var(--font-mono);font-size:11px;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--muted);padding:10px 12px;text-align:left;
-  border-bottom:2px solid var(--navy);position:sticky;top:0;z-index:10;
-  white-space:nowrap;cursor:pointer;user-select:none;transition:color var(--trans-fast);
-}
-thead th:hover{color:var(--navy)}
-thead th .sort-arrow{margin-left:4px;opacity:.4}
-thead th.sorted{color:var(--navy)}
-thead th.sorted .sort-arrow{opacity:1}
-tbody tr{border-bottom:1px solid var(--rule);transition:background var(--trans-fast)}
-tbody tr:hover{background:var(--gold-light)}
-tbody tr:nth-child(even){background:rgba(240,236,226,0.4)}
-tbody tr:nth-child(even):hover{background:var(--gold-light)}
-tbody tr.row-nuclear_test{background:rgba(168,48,42,0.05)!important}
-tbody tr.row-nuclear_test:hover{background:rgba(168,48,42,0.1)!important}
-tbody tr.row-nuclear_program{background:rgba(192,96,90,0.04)!important}
-tbody tr.row-nuclear_program:hover{background:rgba(192,96,90,0.08)!important}
-td{padding:10px 12px;vertical-align:top;font-size:13px;color:var(--text);font-family:var(--font-sans)}
-.td-date{font-family:var(--font-mono);font-size:11px;color:var(--muted);white-space:nowrap;font-weight:500}
-
-/* BADGES — content-type style from house stylesheet */
-.type-badge{
-  font-family:var(--font-sans);font-size:11px;font-weight:700;
-  letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;
-  border-radius:var(--radius-sm);white-space:nowrap;display:inline-block;
-}
-.badge-missile{background:var(--amber-light);color:var(--amber)}
-.badge-nuclear_test{background:var(--red);color:#fff}
-.badge-nuclear_program{background:var(--crimson-light);color:var(--crimson);border:1px solid var(--crimson-mid)}
-.badge-conventional{background:var(--surface-blue);color:var(--navy-bright);border:1px solid rgba(0,65,101,0.15)}
-.badge-terror{background:var(--purple-light);color:var(--purple)}
-.badge-hybrid{background:var(--teal-light);color:var(--teal)}
-.badge-other{background:var(--surface2);color:var(--muted)}
-
-.td-event{font-weight:600;font-size:13px;min-width:120px;max-width:200px;color:var(--navy);font-family:var(--font-sans)}
-.td-desc{color:var(--text2,var(--muted));font-size:12.5px;font-weight:400;line-height:1.6;max-width:460px;font-family:var(--font-sans)}
-.td-desc.clamped{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.td-expand{
-  font-family:var(--font-mono);font-size:11px;color:var(--navy-bright);
-  background:none;border:none;cursor:pointer;padding:0;margin-top:4px;
-  display:block;text-decoration:underline;text-underline-offset:2px;
-  transition:color var(--trans-fast);
-}
-.td-expand:hover{color:var(--navy)}
-
-/* SEVERITY DOTS */
-
-/* SOURCE LINKS — topic-chip style */
-.td-source a{
-  font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.04em;
-  color:var(--navy-bright);text-decoration:none;background:var(--surface-blue);
-  padding:3px 8px;border-radius:var(--radius-md);
-  border:1px solid rgba(0,65,101,0.15);display:inline-block;white-space:nowrap;
-  max-width:100px;overflow:hidden;text-overflow:ellipsis;vertical-align:middle;
-  transition:all var(--trans-fast)}
-.td-source a:hover{background:var(--navy);color:#fff;border-color:var(--navy);max-width:none}
-.td-source{min-width:80px;max-width:120px;vertical-align:top}
-
-
-/* PAGINATION */
-.pagination{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;border-top:1px solid var(--rule-strong);background:var(--surface)}
-.page-info{font-family:var(--font-mono);font-size:11px;color:var(--muted)}
-.page-btns{display:flex;gap:4px;flex-wrap:wrap}
-.page-btn{
-  font-family:var(--font-mono);font-size:11px;padding:5px 10px;
-  border:1px solid var(--rule-strong);background:var(--surface);
-  cursor:pointer;border-radius:var(--radius-sm);color:var(--text);
-  transition:all var(--trans-fast);
-}
-.page-btn:hover{background:var(--gold-light);border-color:var(--gold-hover)}
-.page-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
-.page-btn:disabled{opacity:.4;cursor:not-allowed}
-
-/* EMPTY STATE */
-.empty{padding:60px 28px;text-align:center;color:var(--muted);font-weight:400}
-.empty strong{display:block;font-family:var(--font-mono);font-size:13px;color:var(--text);margin-bottom:6px}
-
-/* MAX-WIDTH WRAPPER */
-#bp-nk-db{width:100%;max-width:1280px;margin-left:auto;margin-right:auto}
-
-/* LEADER DOT */
-.leader-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;vertical-align:middle;flex-shrink:0}
-
-/* SEVERITY IN BADGE — left border */
-.type-badge{display:inline-block}
-/* severity column */
-.td-sev{text-align:center;min-width:52px}
-.sev-dots{display:flex;gap:3px;justify-content:center;align-items:center}
-.sev-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.sev-filled{background:var(--navy)}
-.sev-empty{background:var(--rule-strong)}
-.sev-5 .sev-dot.sev-filled{background:var(--red)}
-.sev-4 .sev-dot.sev-filled{background:var(--amber)}
-
-/* CHART ERA BAND TOGGLES */
-.era-toggles{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.era-toggle{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:var(--radius-sm);border:1px solid var(--rule-strong);background:transparent;color:var(--muted);cursor:pointer;transition:all var(--trans-fast)}
-.era-toggle.active-leader{background:var(--gold-alpha);color:var(--navy);border-color:var(--gold-hover)}
-.era-toggle.active-pres{background:var(--surface-blue);color:var(--navy-bright);border-color:rgba(0,65,101,0.3)}
-
-/* PERMALINK + CITE */
-.td-event-wrap{display:flex;align-items:flex-start;gap:6px}
-.event-actions{display:flex;gap:3px;opacity:0;transition:opacity var(--trans-fast);flex-shrink:0;margin-top:1px}
-tr:hover .event-actions{opacity:1}
-.ev-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.04em;color:var(--navy-bright);background:var(--surface-blue);border:1px solid rgba(0,65,101,0.15);border-radius:var(--radius-sm);padding:2px 6px;cursor:pointer;white-space:nowrap;transition:all var(--trans-fast)}
-.ev-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
-
-/* SHARE BUTTON PLATFORM COLORS */
-.db-footer .db-footer .db-footer 
-/* TOAST NOTIFICATION */
-.bp-toast{position:fixed;bottom:70px;right:20px;z-index:10001;background:var(--navy-dark);color:#fff;font-family:var(--font-mono);font-size:11px;padding:8px 16px;border-radius:var(--radius-md);border-left:3px solid var(--gold);opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s;pointer-events:none}
-.bp-toast.show{opacity:1;transform:translateY(0)}
-
-/* DATABASE-LEVEL CITATION BANNER */
-.db-cite-banner{background:var(--surface2);border-bottom:1px solid var(--rule);padding:7px 28px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.db-cite-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--caption);flex-shrink:0}
-.db-cite-text{font-family:var(--font-mono);font-size:11px;color:var(--muted);flex:1;min-width:0}
-.db-cite-copy{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:transparent;border:1px solid var(--rule-strong);color:var(--navy-bright);padding:3px 8px;border-radius:var(--radius-sm);cursor:pointer;white-space:nowrap;transition:all var(--trans-fast);flex-shrink:0}
-.db-cite-copy:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
-
-/* NOSCRIPT */
-.bp-noscript{background:#fff3cd;border:1px solid #ffc107;padding:12px 18px;font-family:var(--font-sans);font-size:13px;color:#664d03;border-radius:var(--radius-sm);margin:12px}
-
-/* CITE MODAL — MLA / BibTeX tabs */
-.cite-tabs{display:flex;border-bottom:1px solid var(--rule-strong);background:var(--surface2)}
-.cite-tab-btn{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all var(--trans-fast)}
-.cite-tab-btn.active{color:var(--navy);border-bottom-color:var(--gold-hover);background:var(--surface)}
-.cite-pane{display:none}
-.cite-pane.active{display:block}
-
-/* KEYBOARD SHORTCUT HINT */
-.search-hint{font-family:var(--font-mono);font-size:10px;color:var(--caption);margin-left:4px;display:inline}
-
-/* MOBILE RESPONSIVE for new share buttons */
-
-
-
-
-/* CITE MODAL */
-.cite-modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;background:rgba(2,11,31,0.7);padding:16px}
-.cite-modal.open{display:flex}
-.cite-box{background:var(--surface);max-width:580px;width:100%;border-radius:var(--radius-md);overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.4)}
-.cite-header{background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
-.cite-header h3{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;font-weight:500;margin:0}
-.cite-close{background:none;border:none;color:rgba(255,255,255,0.6);font-size:18px;cursor:pointer;padding:0;line-height:1}
-.cite-close:hover{color:#fff}
-.cite-body{padding:18px 20px;display:flex;flex-direction:column;gap:14px}
-.cite-format-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
-.cite-text{font-family:var(--font-sans);font-size:12px;line-height:1.7;color:var(--text);background:var(--surface2);border:1px solid var(--rule-strong);border-radius:var(--radius-sm);padding:10px 12px;cursor:text;user-select:all}
-.cite-copy-btn{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:var(--gold-alpha);color:var(--navy);border:none;padding:6px 14px;border-radius:var(--radius-sm);cursor:pointer;align-self:flex-start;transition:background var(--trans-fast)}
-.cite-copy-btn:hover{background:var(--gold-hover)}
-.leader-legend{display:flex;gap:14px;padding:6px 28px;background:var(--surface);border-bottom:1px solid var(--rule);align-items:center;flex-wrap:wrap}
-.leader-legend-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--caption)}
-.leader-legend-item{display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;color:var(--muted)}
-
-/* ABOUT / METHODOLOGY PANEL */
-details.about-panel{background:var(--surface-blue);border-bottom:1px solid var(--rule-strong)}
-.about-toggle{display:flex;align-items:center;justify-content:space-between;padding:9px 28px;cursor:pointer;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-bright);list-style:none;user-select:none}
-.about-toggle::-webkit-details-marker{display:none}
-.about-arrow{transition:transform var(--trans-fast);display:inline-block}
-details.about-panel[open] .about-arrow{transform:rotate(180deg)}
-.about-content{padding:14px 28px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-.about-section h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:7px;font-weight:500}
-.about-section p,.about-section li{font-size:12px;color:var(--muted);line-height:1.7}
-.about-section ul{list-style:none;padding:0}
-.about-section ul li{padding:1px 0 1px 14px;position:relative}
-.about-section ul li::before{content:'·';position:absolute;left:0;color:var(--gold-hover);font-weight:700}
-
-/* MOBILE FILTER TOGGLE */
-.filter-toggle-row{display:none;padding:8px 16px;background:var(--surface2);border-bottom:1px solid var(--rule-strong);align-items:center;justify-content:space-between}
-.filter-toggle-btn{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:var(--surface);border:1px solid var(--rule-strong);color:var(--navy);padding:6px 12px;border-radius:var(--radius-sm);cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all var(--trans-fast)}
-.filter-toggle-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
-.filter-badge{display:none!important}
-
-/* SHARE BUTTONS in masthead */
-
-/* DB FOOTER */
-.db-footer{background:var(--navy-dark);color:rgba(255,255,255,0.45);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.db-footer-text{font-family:var(--font-sans);font-size:12.5px;font-size:11px;letter-spacing:.03em;line-height:1.9}
-.db-footer-text a{color:rgba(255,199,36,0.7);text-decoration:none;transition:color var(--trans-fast)}
-.db-footer-text a:hover{color:var(--gold)}
-.db-footer-share{display:flex;gap:5px;align-items:center}
-.share-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:rgba(255,255,255,0.25);text-transform:uppercase}
-.db-footer .db-footer .db-footer .db-footer 
-/* BACK TO TOP */
-.back-to-top{position:fixed;bottom:20px;right:20px;z-index:9999;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;border:none;cursor:pointer;font-size:14px;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.3);transition:all var(--trans-fast)}
-.back-to-top.visible{display:flex}
-.back-to-top:hover{background:var(--navy-mid);transform:translateY(-2px)}
-
-/* PRINT */
-@media print{
-  .chart-panel,.type-pills,.filter-bar,.filter-toggle-row,
-  .masthead-actions,.pagination,.back-to-top,.db-footer,
-  details.about-panel,.context-banner,.leader-legend{display:none!important}
-  body{background:#fff}
-  .masthead{padding:8px 0;border:none}
-  .stats-row{margin:8px 0}
-  .table-wrap{overflow:visible}
-  thead th{position:static;background:#fff;border-bottom:2px solid #000}
-  td{font-size:10pt}
-  tbody tr:hover{background:none!important}
-  .td-desc.clamped{-webkit-line-clamp:unset;display:block;overflow:visible}
-  .td-expand{display:none}
-  a[href]::after{content:none!important}
-}
-
-/* RESPONSIVE — tablet */
-
-
-/* RESPONSIVE — mobile */
-/* Mobile cards: hidden by default, shown at ≤640px */
-.mobile-cards{display:none}
-
-
-
-
-
-
-
-}
-
-/* CLICKABLE CHART LEGEND */
-.legend-toggle{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;color:var(--muted);cursor:pointer;padding:3px 8px;border-radius:20px;border:1px solid transparent;transition:all var(--trans-fast);user-select:none}
-.legend-toggle:hover{background:var(--surface2);border-color:var(--rule-strong)}
-.legend-toggle.hidden{opacity:0.35;text-decoration:line-through}
-.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-
-/* MONTH FILTER */
-.month-input{font-family:var(--font-mono);font-size:12px;background:var(--surface);border:1px solid var(--rule-strong);color:var(--text);padding:6px 8px;border-radius:var(--radius-sm);outline:none;transition:border-color var(--trans-fast);width:130px}
-.month-input:focus{border-color:var(--navy);box-shadow:0 0 0 2px var(--gold-light)}
-.filter-divider{font-family:var(--font-mono);font-size:11px;color:var(--caption)}
-
-/* STICKY SECTION NAV */
-.section-nav{
-  position:sticky;top:0;z-index:50;
-  background:var(--navy-dark);
-  display:flex;gap:0;overflow-x:auto;
-  scrollbar-width:none;border-bottom:2px solid var(--gold);
-}
-.section-nav::-webkit-scrollbar{display:none}
-.section-nav a{
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-  color:rgba(255,255,255,0.45);text-decoration:none;padding:8px 16px;
-  white-space:nowrap;transition:all var(--trans-fast);border-right:1px solid rgba(255,255,255,0.07);
-  flex-shrink:0;
-}
-.section-nav a:hover{color:var(--gold);background:rgba(255,255,255,0.05)}
-.section-nav a.active-section{color:var(--gold);border-bottom:2px solid var(--gold);margin-bottom:-2px}
-
-
-.heatmap-details{border-top:1px solid var(--rule-strong);}
-.heatmap-summary{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:11px var(--pad);cursor:pointer;
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--muted);list-style:none;user-select:none;
-  background:var(--surface);border-bottom:1px solid transparent;
-  transition:color var(--t);
-}
-.heatmap-summary::-webkit-details-marker{display:none;}
-.heatmap-summary:hover{color:var(--navy);}
-.heatmap-details[open]>.heatmap-summary{color:var(--navy);border-bottom-color:var(--rule-strong);}
-.heatmap-summary-title{font-weight:600;}
-.heatmap-summary-hint{font-size:10px;color:var(--caption);transition:all var(--t);}
-.heatmap-details[open] .heatmap-summary-hint{opacity:0;}
-.heatmap-inner{background:var(--surface);padding:16px var(--pad) 20px;}
-
-/* Masthead dark bg text overrides */
-.masthead-kicker-text{color:rgba(255,199,36,0.75)!important}
-.masthead h1 em{color:rgba(255,255,255,0.45)!important}
-.masthead-meta{color:rgba(255,255,255,0.4)!important}
-.attr-text{color:rgba(255,255,255,0.6)!important}
-.masthead-attribution{color:rgba(255,255,255,0.55)!important}
-
-/* ── METRIC CARDS (Iran-tracker style) ── */
-.metric-cards{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:0;
-  border-top:1px solid rgba(255,255,255,0.08);
-  margin-top:24px;
-  margin-left:-32px;
-  margin-right:-32px;
-}
-.mc{
-  background:var(--surface);
-  padding:18px 20px 16px;
-  border-right:1px solid var(--rule-strong);
-  display:flex;flex-direction:column;gap:4px;
-  transition:background .15s;
-}
-.mc:hover{background:var(--surface2);}
-.mc:last-child{border-right:none;}
-/* Featured card — dark navy */
-.mc-featured{
-  background:var(--navy);
-  border-right:1px solid rgba(255,255,255,0.12);
-}
-.mc-featured:hover{background:var(--navy-mid);}
-.mc-label{
-  font-family:var(--font-mono);
-  font-size:10px;font-weight:500;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--muted);
-  line-height:1;
-}
-.mc-featured .mc-label{color:rgba(255,255,255,0.5);}
-.mc-val{
-  font-family:var(--font-display);
-  font-size:clamp(28px,3vw,42px);
-  font-weight:700;
-  color:var(--navy);
-  line-height:1;
-  margin:4px 0 2px;
-  letter-spacing:-.02em;
-}
-.mc-gold{color:var(--gold)!important;}
-.mc-red {color:#d93025!important;}
-.mc-sub{
-  font-family:var(--font-sans);
-  font-size:11.5px;font-weight:400;
-  color:var(--muted);
-  line-height:1.45;
-  margin-bottom:auto;
-  padding-bottom:10px;
-}
-.mc-featured .mc-sub{color:rgba(255,255,255,0.5);}
-.mc-badge{
-  display:inline-block;
-  font-family:var(--font-mono);
-  font-size:10px;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;
-  background:var(--surface2);
-  color:var(--muted);
-  border:1px solid var(--rule-strong);
-  padding:2px 7px;
-  align-self:flex-start;
-  margin-top:4px;
-}
-.mc-badge-blue{background:rgba(0,65,101,0.1);color:var(--navy);border-color:rgba(0,65,101,0.25);}
-.mc-badge-red {background:rgba(217,48,37,0.08);color:#d93025;border-color:rgba(217,48,37,0.2);}
-.mc-badge-gold{background:rgba(255,199,36,0.12);color:#9a6200;border-color:rgba(255,199,36,0.3);}
-/* remove old stats strip rules */
-.stats-row{display:none!important;}
-.stat,.stat-val,.stat-label{display:none!important;}
-
-.mc{border-bottom:1px solid var(--rule-strong)}}
-}
-}
-
-/* Masthead action pills — gold style */
-
-
-
-
-/* ── TYPE SYSTEM ADDITIONS ── */
-/* source tag (removed from table but keep for other uses) */
-.src-tag{display:none}
-/* consistent text colours */
---text2:#3d4b5c;
-.td-source a{font-family:var(--font-mono);font-size:11px;color:var(--muted);text-decoration:none}
-.td-source a:hover{color:var(--navy-bright);text-decoration:underline}
-/* page-info, result-count */
-.page-info,.result-count{font-family:var(--font-mono);font-size:11px;color:var(--muted)}
-/* db-footer */
-.db-footer-text{font-family:var(--font-sans);font-size:12.5px;letter-spacing:.01em;line-height:1.8}
-/* pagination buttons */
-.page-btn{font-family:var(--font-mono);font-size:11px}
-/* filter bar label */
-.filter-label{display:none}
-
-/* ── CLEAN TYPE SYSTEM ── */
-/* Rule: Libre Baskerville = hero h1 only
-         Source Sans 3 = all UI text, labels, descriptions  
-         IBM Plex Mono = dates, numbers, codes, data values */
-
-/* Ensure non-data UI uses Source Sans 3 */
-.about-toggle,.about-section h4,.callout-label,
-.summary-title,.summary-tbl thead th{
-  font-family:var(--font-mono);
-  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-}
-.about-section p,.about-section li,
-.td-desc,.td-event,.mc-sub,.intro-text p,
-.db-footer-text,.filter-label,
-.infiltration-callout,
-select.filter-select option{
-  font-family:var(--font-sans);
-}
-.td-date,.page-btn,.page-info,.result-count,
-.mc-label,.mc-badge,.stat-label,
-thead th,.td-source a,.td-source span{
-  font-family:var(--font-mono);
-}
-/* Consistent text sizes */
-.td-desc{font-size:13px;line-height:1.6;color:var(--text)}
-.td-event{font-size:13px;font-weight:600}
-.mc-sub{font-size:12px;font-weight:400}
-.summary-tbl td{font-size:12px}
-.summary-tbl .name-cell{font-size:13px;font-weight:600;font-family:var(--font-sans)}
-/* Sort indicator on table headers */
-.sortable{cursor:pointer;user-select:none}
-.sortable:hover{color:var(--navy)}
-.sortable::after{content:'';}
-.sortable.sort-active-asc::after{content:' ↑';opacity:.7;font-size:10px;font-family:var(--font-mono)}
-.sortable.sort-active-desc::after{content:' ↓';opacity:.7;font-size:10px;font-family:var(--font-mono)}
-
-/* Cyber category */
-.pill.cyber{background:rgba(13,92,138,0.08);color:#0d5c8a;border-color:rgba(13,92,138,0.25)}
-.pill.cyber.active{background:#0d5c8a;color:#fff}
-.badge-cyber{background:rgba(13,92,138,0.1);color:#0d5c8a}
-.row-cyber{background:rgba(13,92,138,0.03)!important}
-.row-cyber:hover{background:rgba(13,92,138,0.07)!important}
-
-/* ── SECTION FAB (fixed bottom-right) ── */
-.section-fab{
-  position:fixed;bottom:24px;right:24px;z-index:9000;
-}
-.section-fab-btn{
-  width:40px;height:40px;border-radius:50%;
-  background:var(--navy);border:2px solid var(--gold);
-  color:#fff;font-size:18px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 3px 12px rgba(0,0,0,0.25);
-  transition:all .15s;
-  line-height:1;
-}
-.section-fab-btn:hover{background:var(--navy-mid);transform:scale(1.05);}
-.section-fab-menu{
-  position:absolute;bottom:50px;right:0;
-  background:var(--navy-dark);
-  border:1px solid rgba(255,199,36,0.3);
-  box-shadow:0 8px 28px rgba(0,0,0,0.35);
-  overflow:hidden;min-width:180px;
-  display:none;
-}
-.section-fab-menu.open{display:block;}
-.section-fab-label{
-  display:block;
-  font-family:var(--font-mono);font-size:10px;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,199,36,0.5);
-  padding:9px 16px 5px;
-}
-.section-fab-menu a{
-  display:block;
-  font-family:var(--font-mono);font-size:11px;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:rgba(255,255,255,0.65);text-decoration:none;
-  padding:9px 16px;
-  border-top:1px solid rgba(255,255,255,0.06);
-  transition:all .15s;
-}
-.section-fab-menu a:hover{background:rgba(255,199,36,0.12);color:var(--gold);}
-/* Back to top */
-.back-to-top{
-  position:fixed;bottom:24px;right:72px;z-index:9000;
-  width:36px;height:36px;border-radius:50%;
-  background:var(--navy);color:#fff;
-  border:1px solid rgba(255,255,255,0.2);
-  cursor:pointer;font-size:14px;
-  display:none;align-items:center;justify-content:center;
-  box-shadow:0 2px 8px rgba(0,0,0,0.25);
-  transition:all .15s;
-}
-.back-to-top.visible{display:flex;}
-.back-to-top:hover{background:var(--navy-mid);transform:translateY(-2px);}
-
-/* ════════════════════════════════════════════════════════
-   MOBILE-FIRST RESPONSIVE — SINGLE AUTHORITATIVE BLOCK
-   Breakpoints: 900px (tablet), 640px (mobile), 420px (small)
-   Touch targets: min 44×44px per WCAG 2.5.8
-════════════════════════════════════════════════════════ */
-
-/* ── 900px: tablet ── */
-@media (max-width: 900px) {
-  .metric-cards { grid-template-columns: repeat(3, 1fr); }
-  .mc { border-bottom: 1px solid var(--rule-strong); }
-  .chart-legend .legend-item:nth-child(n+5) { display: none; }
-}
-
-/* ── 640px: mobile ── */
-@media (max-width: 640px) {
-
-  /* Masthead */
-  .masthead { padding: 16px 14px 0; }
-  .masthead h1 {
-    font-size: clamp(26px, 8vw, 38px);
-    letter-spacing: -.02em;
-  }
-  .masthead-top {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .masthead-actions {
-    flex-wrap: wrap;
-    gap: 6px;
-    padding-bottom: 14px;
-    border-top: 1px solid rgba(255,255,255,.08);
-    padding-top: 12px;
-    width: 100%;
-  }
-  .masthead-actions .btn {
-    font-size: 11px;
-    padding: 8px 12px;
-    min-height: 36px;       /* touch target */
-  }
-  .masthead-meta { font-size: 11px; }
-  .kicker { font-size: 10px; margin-bottom: 8px; }
-
-  /* Metric cards: 2 col */
-  .metric-cards { grid-template-columns: repeat(2, 1fr); }
-  .mc { padding: 14px 14px 12px; }
-  .mc-val { font-size: clamp(24px, 7vw, 34px); }
-  .mc-label { font-size: 10px; }
-  .mc-sub { font-size: 11px; }
-
-  /* Section nav: horizontally scrollable, larger tap targets */
-  .section-nav {
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-  .section-nav a {
-    font-size: 11px;
-    padding: 12px 14px;     /* min 44px height */
-    letter-spacing: .06em;
-  }
-
-  /* Intro band */
-  .intro-section { padding: 14px 14px; }
-  .intro-text p { font-size: 13px; }
-
-  /* Chart */
-  .chart-panel { padding: 14px 14px; }
-  .chart-wrap { height: 200px; }
-  .chart-tabs { flex-wrap: wrap; gap: 4px; }
-  .chart-tab { font-size: 11px; padding: 5px 8px; min-height: 36px; }
-  .chart-download { font-size: 11px; padding: 5px 10px; }
-  .era-toggles { display: none; }   /* overlay toggles collapse on mobile */
-  .panel-header { flex-wrap: wrap; gap: 8px; }
-
-  /* Filter bar: vertical stack on mobile */
-  .filter-bar {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0 14px;
-    gap: 0;
-  }
-  .search-input {
-    border-right: none;
-    border-bottom: 1px solid var(--rule-strong);
-    padding: 12px 0;
-    width: 100%;
-    flex: none;
-  }
-  .filter-select {
-    border-right: none;
-    border-bottom: 1px solid var(--rule-strong);
-    padding: 12px 24px 12px 0;
-    width: 100%;
-    font-size: 13px;
-    min-height: 44px;     /* touch target */
-  }
-  .filter-label { display: flex; align-items: center; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--navy); padding: 0 18px; white-space: nowrap; border-right: 1px solid var(--rule-strong); flex-shrink: 0; background: var(--surface2); }
-  .result-count { padding: 8px 0; font-size: 11px; border-left: none; }
-  .filter-toggle-row { display: flex; }
-
-  /* Category pills: wrap, smaller */
-  .type-pills { padding: 8px 14px; gap: 5px; }
-  .pill {
-    font-size: 11px;
-    padding: 6px 11px;
-    min-height: 36px;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  /* Summary tables: hide category cols, keep name+total */
-  .sum-cat { display: none; }
-  .summary-panel { padding: 14px 14px 16px; }
-  .summary-grid { grid-template-columns: 1fr; gap: 20px; }
-  .summary-tbl { min-width: 0 !important; width: 100%; }
-  .summary-table-wrap { overflow-x: visible; }
-  .summary-tbl thead th { font-size: 10px; padding: 7px 8px 7px 0; }
-  .summary-tbl td { font-size: 12px; padding: 7px 8px 7px 0; }
-
-  /* Main table: hidden, mobile cards shown */
-  .table-wrap table { display: none; }
-  .mobile-cards { display: block; }
-
-  /* About section */
-  .masthead, .chart-panel, .filter-bar, .type-pills,
-  .pagination, .summary-panel, .context-banner,
-  .leader-legend, .about-toggle {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-  .about-content { padding-left: 14px; padding-right: 14px; grid-template-columns: 1fr; }
-
-  /* Pagination */
-  .pagination { padding: 10px 14px; }
-  .page-btn { min-height: 36px; min-width: 36px; }
-  .page-size-wrap { gap: 6px; }
-
-  /* Footer */
-  .db-footer { padding: 12px 14px; flex-direction: column; align-items: flex-start; gap: 8px; }
-
-  /* FAB: slightly smaller */
-  .section-fab { bottom: 16px; right: 16px; }
-  .section-fab-btn { width: 36px; height: 36px; font-size: 16px; }
-  .section-fab-menu { min-width: 160px; }
-  .back-to-top { bottom: 16px; right: 60px; }
-}
-
-/* ── 420px: small phones ── */
-@media (max-width: 420px) {
-  .masthead h1 { font-size: 24px; }
-  .metric-cards { grid-template-columns: repeat(2, 1fr); }
-  .mc-val { font-size: 26px; }
-  .pill { font-size: 10.5px; padding: 5px 9px; }
-  .masthead-actions .btn { padding: 7px 10px; font-size: 11px; }
-  .section-nav a { font-size: 10px; padding: 11px 11px; }
-}
-
-/* ── 380px: very small ── */
-@media (max-width: 380px) {
-  .metric-cards { grid-template-columns: 1fr 1fr; }
-  .mc-val { font-size: 24px; }
-}
-
-
-/* ════════════════════════════════════════════════════════
-   MOBILE CARDS — desktop table aesthetic adapted for touch
-   Each card = one table row, same visual language
-════════════════════════════════════════════════════════ */
-
-/* ══════════════════════════════════════════════════
-   MOBILE CARDS — clean, readable, desktop-consistent
-══════════════════════════════════════════════════ */
-
-/* Card container */
-.m-card {
-  background: var(--surface);
-  border-bottom: 2px solid var(--surface2);
-  padding: 0;
-  position: relative;
-  transition: background .12s;
-}
-.m-card:active { background: var(--gold-light); }
-
-/* Category accent: left border per category color */
-.m-card { border-left: 3px solid transparent; }
-.m-card.badge-missile        { border-left-color: rgba(210,100,10,0.7); }
-.m-card.badge-nuclear_test   { border-left-color: rgba(168,48,42,0.9); }
-.m-card.badge-nuclear_program{ border-left-color: rgba(130,20,60,0.8); }
-.m-card.badge-conventional   { border-left-color: rgba(26,95,168,0.6); }
-.m-card.badge-terror         { border-left-color: rgba(107,63,160,0.7); }
-.m-card.badge-hybrid         { border-left-color: rgba(26,126,110,0.65); }
-.m-card.badge-cyber          { border-left-color: rgba(13,92,138,0.85); }
-.m-card.badge-other          { border-left-color: #ccc; }
-
-/* Nuclear highlight */
-.m-card.row-nuclear_test   { background: rgba(168,48,42,0.03) !important; }
-.m-card.row-nuclear_program{ background: rgba(130,20,60,0.02) !important; }
-
-/* Inner padding wrapper */
-.m-card-inner {
-  padding: 13px 14px 12px 13px;
-}
-
-/* ── Row 1: badge + date ── */
-.m-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-.m-card-date {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--muted);
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
-}
-.leader-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  display: inline-block;
-  flex-shrink: 0;
-}
-
-/* ── Row 2: event name ── */
-.m-card-event {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1.25;
-  margin-bottom: 7px;
-}
-
-/* ── Row 3: description ── */
-.m-card-desc {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-.m-card-desc.clamped {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* ── Row 4: footer — severity + source + expand ── */
-.m-card-footer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-top: 9px;
-  border-top: 1px solid var(--rule);
-}
-.m-card-sev-wrap {
-  display: flex;
-  gap: 3px;
-  align-items: center;
-  flex-shrink: 0;
-}
-.m-sev-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--rule-strong);
-}
-.m-sev-dot.filled { background: var(--navy-mid); }
-.m-sev-dot.filled.high { background: var(--amber, #b8651a); }
-.m-sev-dot.filled.critical { background: var(--red, #a8302a); }
-.m-card-source {
-  flex: 1;
-}
-.m-card-source a,
-.m-card-source span {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  color: var(--caption);
-  text-decoration: none;
-  letter-spacing: .02em;
-}
-.m-card-source a:hover { color: var(--navy-bright); }
-.m-expand-btn {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  color: var(--navy-bright);
-  background: none;
-  border: 1px solid rgba(0,101,166,0.2);
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 2px;
-  min-height: 32px;
-  white-space: nowrap;
-  transition: all .12s;
-  flex-shrink: 0;
-}
-.m-expand-btn:active { background: var(--surface-blue); }
-
-
-/* ── MASTHEAD ACTION BUTTONS (on dark navy bg) ── */
-.masthead-actions .btn-action {
-  background: rgba(255,199,36,0.12);
-  color: rgba(255,255,255,0.7);
-  border: 1px solid rgba(255,199,36,0.25);
-  font-family: var(--font-mono);
-  font-size: 11px; font-weight: 600;
-  letter-spacing: .1em; text-transform: uppercase;
-  padding: 7px 13px;
-  cursor: pointer; transition: all .15s;
-  white-space: nowrap; border-radius: 2px;
-}
-.masthead-actions .btn-action:hover {
-  background: var(--gold);
-  color: var(--navy-dark);
-  border-color: var(--gold);
-}
-
-/* Social icon buttons — compact, distinctive */
-.masthead-actions .btn-social {
-  background: rgba(255,255,255,0.07);
-  color: rgba(255,255,255,0.55);
-  border: 1px solid rgba(255,255,255,0.12);
-  font-size: 12px; font-weight: 700;
-  padding: 7px 10px; min-width: 34px;
-  cursor: pointer; transition: all .15s;
-  border-radius: 2px; line-height: 1;
-  display: inline-flex; align-items: center; justify-content: center;
-}
-.masthead-actions .btn-social:hover { opacity: 1; }
-.masthead-actions .btn-social-x:hover    { background: #1a1a1a; color: #fff; border-color: #333; }
-.masthead-actions .btn-social-bsky:hover { background: #0085ff; color: #fff; border-color: #0085ff; }
-.masthead-actions .btn-social-li:hover   { background: #0077b5; color: #fff; border-color: #0077b5; }
-
-/* Cite button — gold accent, stands out */
-.masthead-actions .btn-cite {
-  background: var(--gold);
-  color: var(--navy-dark);
-  border: 1px solid var(--gold);
-  font-family: var(--font-mono);
-  font-size: 11px; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  padding: 7px 14px;
-  cursor: pointer; transition: all .15s;
-  white-space: nowrap; border-radius: 2px;
-}
-.masthead-actions .btn-cite:hover {
-  background: var(--gold-hover);
-  border-color: var(--gold-hover);
-}
-
-/* Vertical divider between button groups */
-.btn-divider {
-  width: 1px;
-  height: 20px;
-  background: rgba(255,255,255,0.12);
-  align-self: center;
-  flex-shrink: 0;
-}
-
-/* ── FOOTER SHARE BUTTONS (on dark navy-dark bg) ── */
-.btn-share {
-  font-family: var(--font-sans);
-  font-size: 11px; font-weight: 700;
-  background: rgba(255,255,255,0.07);
-  color: rgba(255,255,255,0.55);
-  border: 1px solid rgba(255,255,255,0.12);
-  padding: 5px 10px; min-width: 30px;
-  cursor: pointer; transition: all .15s;
-  border-radius: 2px;
-  display: inline-flex; align-items: center; justify-content: center;
-}
-.btn-share:hover         { background: rgba(255,255,255,0.15); color: #fff; }
-.btn-share.x:hover       { background: #1a1a1a; color: #fff; border-color: #555; }
-.btn-share.bsky:hover    { background: #0085ff; color: #fff; border-color: #0085ff; }
-.btn-share.fb:hover      { background: #1877f2; color: #fff; border-color: #1877f2; }
-.btn-share.li:hover      { background: #0077b5; color: #fff; border-color: #0077b5; }
-
-/* Cite inline button in footer */
-.db-cite-inline {
-  background: none;
-  border: none;
-  color: rgba(255,199,36,0.7);
-  font-family: var(--font-sans);
-  font-size: inherit;
-  cursor: pointer;
-  padding: 0;
-  text-decoration: underline dotted;
-  text-underline-offset: 2px;
-  transition: color .15s;
-}
-.db-cite-inline:hover { color: var(--gold); }
-
-/* Share label */
-.share-label {
-  font-family: var(--font-mono);
-  font-size: 10px; font-weight: 600;
-  letter-spacing: .12em; text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-}
-
-/* ── MOBILE: stack action buttons sensibly ── */
-@media (max-width: 640px) {
-  .masthead-actions {
-    gap: 5px;
-  }
-  .btn-divider { display: none; }
-  .masthead-actions .btn-action,
-  .masthead-actions .btn-social,
-  .masthead-actions .btn-cite {
-    padding: 8px 11px;
-    font-size: 11px;
-    min-height: 36px;
-  }
-  /* Hide JSON on mobile (less needed) */
-  .masthead-actions .btn-action[onclick*="exportJSON"] { display: none; }
-}
-@media (max-width: 420px) {
-  .masthead-actions .btn-action,
-  .masthead-actions .btn-social,
-  .masthead-actions .btn-cite {
-    padding: 7px 9px;
-    font-size: 11px;
-  }
-}
-
-
-/* ── SUMMARY TABLE REDESIGN ── */
-/* Tighter rows */
-.summary-tbl td {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  padding: 8px 10px 8px 0;
-  border-bottom: 1px solid var(--rule);
-  white-space: nowrap;
-}
-.summary-tbl thead th {
-  font-size: 11px;
-  padding: 8px 10px 8px 0;
-  letter-spacing: .1em;
-  white-space: nowrap;
-}
-/* Name cell: no wrapping, sans-serif */
-.summary-tbl td.name-cell {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--navy);
-  white-space: nowrap;
-  min-width: 100px;
-  max-width: 160px;
-}
-/* Total: bold navy, stands out */
-.summary-tbl td.total-cell {
-  font-weight: 900;
-  font-size: 13px;
-  color: var(--navy);
-  letter-spacing: -.01em;
-}
-/* Party chips */
-.party-chip {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  padding: 2px 6px;
-  border-radius: 2px;
-  display: inline-block;
-}
-.party-chip.party-d {
-  background: rgba(37,99,235,0.1);
-  color: #1d4ed8;
-  border: 1px solid rgba(37,99,235,0.2);
-}
-.party-chip.party-r {
-  background: rgba(220,38,38,0.08);
-  color: #b91c1c;
-  border: 1px solid rgba(220,38,38,0.18);
-}
-/* Sort cursor */
-.summary-tbl thead th.sortable { cursor: pointer; transition: color .12s; }
-.summary-tbl thead th.sortable:hover { color: var(--navy); }
-/* Hover row */
-.summary-tbl tbody tr:hover { background: var(--gold-light) !important; cursor: pointer; }
-/* Sum-cat values: right-aligned, muted */
-.summary-tbl td.sum-cat { text-align: center; color: var(--muted); }
-/* Zebra: very subtle */
-.summary-tbl tbody tr:nth-child(even) { background: rgba(0,0,0,0.015); }
-
-/* ── DATA NOTE CALLOUT ── */
-.data-note-callout p {
-  font-family: var(--font-sans);
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: var(--text2, var(--text));
-  margin: 0;
-}
-.data-note-callout strong { color: var(--navy); font-weight: 700; }
-@media (max-width: 640px) {
-    .data-note-callout p { font-size: 13px; }
-}
-
-
-/* ══════════════════════════════════════════════════
-   CONTEXT BAND — intro + data note, unified design
-══════════════════════════════════════════════════ */
-.context-band {
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 0;
-  background: var(--navy);
-  border-bottom: 3px solid var(--gold);
-}
-
-/* Left: main intro */
-.context-main {
-  padding: 20px 28px 20px 32px;
-  border-right: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-}
-.context-lead {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
-  line-height: 1.55;
-  margin: 0;
-}
-.context-lead strong {
-  color: var(--gold);
-  font-weight: 700;
-}
-.context-body {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.65;
-  margin: 0;
-}
-.context-body strong {
-  color: rgba(255,255,255,0.8);
-  font-weight: 600;
-}
-
-/* Right: data note aside */
-.context-aside {
-  background: rgba(255,199,36,0.06);
-  border-left: 3px solid var(--gold);
-  padding: 18px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.context-aside-label {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.85;
-}
-.context-aside-title {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.8);
-  letter-spacing: .01em;
-  margin-bottom: 2px;
-}
-.context-aside-body {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.6;
-  margin: 0;
-}
-.context-aside-body strong {
-  color: var(--gold);
-  font-weight: 700;
-}
-
-/* Mobile: stack vertically */
-@media (max-width: 800px) {
-  .context-band {
-    grid-template-columns: 1fr;
-  }
-  .context-main {
-    padding: 16px 14px;
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .context-aside {
-    padding: 14px 14px 14px 16px;
-    border-left: 3px solid var(--gold);
-  }
-  .context-lead { font-size: 14px; }
-  .context-body { font-size: 12.5px; }
-}
-
-
-@media (max-width: 640px) {
-  .metric-cards { margin-left: -14px; margin-right: -14px; }
-}
-@media (max-width: 900px) and (min-width: 641px) {
-  .metric-cards { margin-left: -32px; margin-right: -32px; }
-}
-
-/* ══════════════════════════════════════════════════════════
-   SUMMARY PANEL — unified analytics section
-══════════════════════════════════════════════════════════ */
-.summary-panel {
-  background: var(--surface);
-  border-bottom: none;
-}
-
-/* Section-level header — spans full width */
-.summary-section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  padding: 18px 28px 12px;
-  border-bottom: 1px solid var(--rule-strong);
-  background: var(--surface2);
-}
-.summary-section-title {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 800;
-  color: var(--navy);
-  letter-spacing: -.01em;
-  text-transform: none;
-}
-.summary-section-sub {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-/* Side-by-side grid — 40/60 split (leader table smaller, president bigger) */
-.summary-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-}
-
-.summary-table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 16px 24px 20px;
-}
-.summary-table-wrap:first-child {
-  border-right: none;
-  border-bottom: 2px solid var(--navy);
-}
-
-/* Individual panel headers */
-.summary-panel-header {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--navy);
-}
-.summary-panel-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--navy);
-}
-.summary-panel-hint {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-style: italic;
-  color: var(--muted);
-  font-weight: 400;
-}
-
-/* ══════════════════════════════════════════════════════════
-   DATABASE SECTION HEADER
-══════════════════════════════════════════════════════════ */
-.db-section-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 28px 10px;
-  background: var(--navy-dark);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.db-section-title {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -.01em;
-}
-.db-section-sub {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: rgba(255,255,255,0.65);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-
-/* Type pills: now live just below the dark db-section-header */
-.type-pills {
-  padding: 10px 28px;
-  gap: 5px;
-  background: var(--surface);
-  border-bottom: 1px solid var(--rule-strong);
-}
-
-/* Filter bar: clean borderless row */
-.filter-bar {
-  background: var(--surface);
-  border-bottom: 1px solid var(--rule-strong);
-  padding: 0;
-  display: flex; align-items: stretch; gap: 0;
-  overflow-x: auto; scrollbar-width: none;
-}
-
-/* Mobile */
-@media (max-width: 800px) {
-  .summary-grid { grid-template-columns: 1fr; }
-  .summary-table-wrap:first-child { border-right: none; border-bottom: 2px solid var(--navy); }
-  .summary-section-header { padding: 14px 14px 10px; flex-wrap: wrap; gap: 6px; }
-  .summary-table-wrap { padding: 12px 14px 16px; }
-  .db-section-header { padding: 12px 14px; flex-wrap: wrap; }
-}
-@media (max-width: 640px) {
-  .type-pills { padding: 8px 14px; }
-}
-
-
-/* Chart legend pills = same as filter pills */
-#chartLegend { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
-.pill.legend-hidden { opacity: 0.35; text-decoration: line-through; }
-
-/* Force center on all numeric summary cols */
-.summary-tbl td:not(.name-cell):not(:first-child),
-.summary-tbl thead th:not(:first-child) {
-  text-align: center !important;
-}
-.summary-tbl td.total-cell { text-align: center !important; }
-
-.filter-by-label {
-  display: flex;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 0 14px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  border-right: 1px solid var(--rule-strong);
-  background: var(--surface2);
-  opacity: 0.7;
-}
-@media (max-width: 640px) { .filter-by-label { display: none; } }
-
-/* ============ ACCESSIBILITY UTILITIES ============ */
-.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[tabindex]:focus-visible,.pill:focus-visible,th[onclick]:focus-visible,tr[onclick]:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px}
-.chart-unavailable{margin:8px 0;padding:32px 24px;text-align:center;font-family:var(--font-sans);font-size:13px;color:var(--muted);background:var(--surface2);border:1px dashed var(--rule-strong);border-radius:var(--radius-md);line-height:1.6}
-@media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-}
-
-/* ============ DARK MODE (manual toggle, defaults to OS preference) ============
-   Theme is applied via a data-theme attribute on <html>, set by the inline init
-   script in <head> (a saved preference overrides, otherwise the OS setting is
-   used). This lets the masthead toggle override the OS default. */
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --bg:#0b0f1a; --surface:#141a28; --surface2:#1c2333; --surface-blue:#182739;
-  --text:#e7e9f0; --muted:#9aa4b4; --caption:#5f6675;
-  --rule:rgba(255,255,255,0.10); --rule-strong:rgba(255,255,255,0.20);
-  --navy:#1f5c8a; --navy-mid:#2c6e9e; --navy-bright:#3f8fce;
-  --gray-light:#222838; --gray-mid:#6b7280;
-  --amber:#e0904a; --amber-light:rgba(184,101,26,0.22); --amber-mid:rgba(224,144,74,0.45);
-  --red:#ea6d64; --red-light:rgba(168,48,42,0.24); --red-mid:rgba(234,109,100,0.45);
-  --crimson:#d67aa0; --crimson-light:rgba(130,20,60,0.30); --crimson-mid:rgba(214,122,160,0.45);
-  --blue:#5b9bd8; --blue-light:rgba(26,95,168,0.24);
-  --purple:#b18ce4; --purple-light:rgba(107,63,160,0.30); --purple-mid:rgba(177,140,228,0.45);
-  --teal:#4cc3ab; --teal-light:rgba(26,126,110,0.26); --teal-mid:rgba(76,195,171,0.45);
-  --gold-light:rgba(255,199,36,0.16);
-}
-:root[data-theme="dark"] mark{color:var(--text)!important}
-/* Masthead theme toggle button */
-.btn-theme{min-width:74px;text-align:center}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>
-/* Set the theme before first paint to avoid a flash: use a saved preference
-   if present, otherwise follow the OS color-scheme. */
-(function(){try{
-  var t=localStorage.getItem('bp-theme');
-  if(t!=='dark'&&t!=='light'){
-    t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
-  }
-  document.documentElement.setAttribute('data-theme',t);
-}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+/* Set theme before first paint (saved preference, else OS). */
+(function(){try{var t=localStorage.getItem('bp-theme');if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
 </script>
+<style>
+:root{
+ --paper:#faf8f2; --surface:#fffefb; --ink:#1b1a15; --ink2:#57544b; --muted:#8c887c;
+ --hair:#e7e3d8; --hair2:#dcd7c9; --link:#0d4c72; --gold:#bf9a2e; --grid:#eae6db; --axis:#cfcabc;
+ --hover:#f2eee4; --focus:#0d4c72;
+ --c1:#2a78d6; --c2:#1baf7a; --c3:#eda100; --c4:#008300; --c5:#4a3aa7; --c6:#e34948; --c7:#e87ba4; --c8:#eb6834;
+ --serif:'Source Serif 4','Charter','Bitstream Charter',Georgia,serif;
+ --sans:'Inter','Helvetica Neue','Liberation Sans',Arial,sans-serif;
+ --mono:'IBM Plex Mono','Liberation Mono','SF Mono',ui-monospace,monospace;
+}
+:root[data-theme="dark"]{
+ color-scheme:dark;
+ --paper:#121210; --surface:#181814; --ink:#f2efe5; --ink2:#bab6a8; --muted:#8c887c;
+ --hair:#2a2925; --hair2:#35342e; --link:#7cb8e0; --gold:#d6b048; --grid:#25241f; --axis:#3a3931;
+ --hover:#20201b; --focus:#7cb8e0;
+ --c1:#3987e5; --c2:#199e70; --c3:#c98500; --c4:#008300; --c5:#9085e9; --c6:#e66767; --c7:#d55181; --c8:#d95926;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--link)}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+.goldrule{height:2px;background:var(--gold)}
+/* Masthead */
+.mast{padding:34px 0 18px}
+.eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1.06;letter-spacing:-.01em;margin:12px 0 0}
+.standfirst{font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink2);max-width:62ch;margin:14px 0 0}
+.byline{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;margin-top:18px;font-size:12.5px;color:var(--muted)}
+.byline .who{color:var(--ink2);font-weight:600}
+.byline .sep{color:var(--hair2)}
+.linkbtn{background:none;border:none;font-family:var(--sans);font-size:12.5px;color:var(--link);cursor:pointer;padding:0;border-bottom:1px solid transparent}
+.linkbtn:hover{border-bottom-color:var(--link)}
+/* Section nav */
+nav.sec{display:flex;gap:26px;border-bottom:1px solid var(--hair2);margin-top:6px;flex-wrap:wrap}
+nav.sec button{font-family:var(--sans);background:none;border:none;font-size:13px;color:var(--muted);cursor:pointer;padding:12px 0;border-bottom:2px solid transparent;margin-bottom:-1px;font-weight:500}
+nav.sec button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+nav.sec button:hover{color:var(--ink)}
+.panel{display:none}
+.panel.on{display:block;animation:fade .18s ease}
+@keyframes fade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.panel.on{animation:none}}
+/* Overview / chart */
+.overview{padding:24px 0 6px}
+.ov-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.ov-title{font-family:var(--serif);font-size:19px;font-weight:700}
+.ov-note{font-size:12.5px;color:var(--muted);max-width:54ch;text-align:right}
+.chart-holder{position:relative}
+.chart-holder svg{display:block;width:100%;height:auto}
+.axnum{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.axtick{font-family:var(--mono);font-size:10px;fill:var(--muted);text-anchor:middle}
+.eralab{font-family:var(--sans);font-size:11px;fill:var(--ink2);text-anchor:middle;font-weight:600;cursor:pointer}
+.eralab:hover{fill:var(--ink)}
+.peak{font-family:var(--sans);font-size:11px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.hoverband{fill:transparent;cursor:pointer}
+.hoverband:hover{fill:rgba(120,120,120,0.08)}
+.legend{display:flex;flex-wrap:wrap;gap:5px 16px;margin:12px 0 2px}
+.lg{display:inline-flex;align-items:center;font-size:12px;color:var(--ink2);cursor:pointer;user-select:none}
+.lg.off{opacity:.4}
+.lgdot{width:9px;height:9px;border-radius:2px;margin-right:6px;flex:none}
+.source-line{font-size:11.5px;color:var(--muted);margin-top:8px}
+.chart-tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--hair2);border-radius:3px;padding:9px 11px;font-size:12px;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:20;min-width:150px;opacity:0;transition:opacity .1s}
+.chart-tip.show{opacity:1}
+.chart-tip .tt-year{font-weight:700;margin-bottom:5px;font-family:var(--mono);font-size:12px}
+.chart-tip .tt-row{display:flex;align-items:center;justify-content:space-between;gap:14px;line-height:1.5;color:var(--ink2)}
+.chart-tip .tt-row .k{display:flex;align-items:center}
+.chart-tip .tt-row .k i{width:8px;height:8px;border-radius:2px;margin-right:6px;display:inline-block}
+.chart-tip .tt-row b{font-variant-numeric:tabular-nums;color:var(--ink)}
+.chart-tip .tt-tot{border-top:1px solid var(--hair);margin-top:5px;padding-top:5px;font-weight:700}
+/* Tools */
+.tools{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;padding:22px 0 10px;border-top:1px solid var(--hair);margin-top:22px}
+.search{flex:1;min-width:230px;position:relative}
+.search input{width:100%;font-family:var(--sans);font-size:14px;color:var(--ink);background:transparent;border:none;border-bottom:1.5px solid var(--hair2);padding:8px 2px 8px 22px;outline:none}
+.search input::placeholder{color:var(--muted)}
+.search .mag{position:absolute;left:0;top:9px;color:var(--muted);font-size:14px}
+.sel{font-family:var(--sans);font-size:13px;color:var(--ink2);background:transparent;border:1px solid var(--hair2);border-radius:2px;padding:7px 26px 7px 11px;-webkit-appearance:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0l4.5 6L9 0z' fill='%238c887c'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center}
+.catrow{display:flex;flex-wrap:wrap;gap:4px 2px;padding:6px 0 2px}
+.catbtn{font-family:var(--sans);font-size:12.5px;color:var(--muted);background:none;border:none;cursor:pointer;padding:5px 10px;border-radius:2px;display:inline-flex;align-items:center;gap:7px}
+.catbtn:hover{color:var(--ink);background:var(--hover)}
+.catbtn[aria-pressed="true"]{color:var(--ink);font-weight:600}
+.catbtn .cdot{width:8px;height:8px;border-radius:2px;flex:none;opacity:.35}
+.catbtn[aria-pressed="true"] .cdot{opacity:1}
+.catbtn .cct{color:var(--muted);font-variant-numeric:tabular-nums;font-size:11.5px}
+.resultline{font-size:12.5px;color:var(--muted);padding:8px 0 12px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;border-bottom:1px solid var(--hair)}
+.resultline b{color:var(--ink);font-weight:700}
+.clearall{color:var(--link);cursor:pointer;background:none;border:none;font-size:12.5px;font-family:var(--sans)}
+/* Table */
+table{width:100%;border-collapse:collapse}
+thead th{font-family:var(--sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;text-align:left;padding:10px 14px 9px 0;border-bottom:1px solid var(--hair2);position:sticky;top:0;background:var(--paper);z-index:3}
+thead th.sortable{cursor:pointer}
+thead th.sortable:hover{color:var(--ink)}
+thead th .arrow{opacity:.4;font-size:10px;margin-left:3px}
+thead th[aria-sort]:not([aria-sort="none"]) .arrow{opacity:1}
+tbody td{padding:16px 14px 16px 0;border-bottom:1px solid var(--hair);vertical-align:top}
+tbody tr:hover{background:var(--hover)}
+tbody tr.hl{background:var(--gold);background:rgba(191,154,46,0.12)}
+.c-date{font-family:var(--mono);font-size:12.5px;color:var(--ink2);white-space:nowrap;font-variant-numeric:tabular-nums;width:104px}
+.c-event{max-width:460px}
+.c-event .ev{font-family:var(--serif);font-size:16px;font-weight:700;line-height:1.28;color:var(--ink)}
+.c-event .de{font-size:13px;color:var(--ink2);line-height:1.5;margin-top:4px}
+.c-event .de.clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rowacts{margin-top:7px;display:flex;gap:14px;font-size:12px}
+.rowacts button{background:none;border:none;color:var(--link);cursor:pointer;font-family:var(--sans);font-size:12px;padding:0}
+.rowacts button:hover{text-decoration:underline}
+.c-cat{font-size:13px;color:var(--ink2);white-space:nowrap}
+.c-cat .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.c-src{font-size:13px;white-space:nowrap}
+.c-src a{color:var(--link);text-decoration:none}
+.c-src a:hover{text-decoration:underline}
+mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:2px}
+/* Mobile cards */
+.cards{display:none}
+.card{border-bottom:1px solid var(--hair);padding:16px 0}
+.card .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.card .cdate{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.card .ccat{font-size:12px;color:var(--ink2);display:inline-flex;align-items:center}
+.card .ccat .dot{width:7px;height:7px;border-radius:50%;margin-right:6px}
+.card .cev{font-family:var(--serif);font-size:17px;font-weight:700;line-height:1.3;margin:7px 0 0}
+.card .cde{font-size:13.5px;color:var(--ink2);margin-top:5px;line-height:1.5}
+.card .cft{margin-top:9px;font-size:12.5px;display:flex;gap:16px}
+.card .cft a,.card .cft button{color:var(--link);background:none;border:none;padding:0;font-family:var(--sans);font-size:12.5px;cursor:pointer;text-decoration:none}
+/* Pagination */
+.pager{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:20px 0 8px}
+.pager .pinfo{font-size:12.5px;color:var(--muted)}
+.pbtns{display:flex;gap:4px}
+.pbtns button{font-family:var(--sans);font-size:13px;background:transparent;border:1px solid var(--hair2);color:var(--ink2);border-radius:2px;padding:6px 11px;cursor:pointer;min-width:34px}
+.pbtns button:hover:not(:disabled){border-color:var(--muted);color:var(--ink)}
+.pbtns button[aria-current="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pbtns button:disabled{opacity:.4;cursor:default}
+.empty{padding:48px 0;text-align:center;color:var(--muted);font-size:14px}
+/* Summary tables */
+.sumgrid{padding:22px 0}
+.sumgrid h2,.about h2{font-family:var(--serif);font-size:22px;font-weight:700;margin-bottom:6px}
+.sumgrid .lede{font-size:13.5px;color:var(--ink2);margin-bottom:18px;max-width:70ch}
+.sumtbl{width:100%;border-collapse:collapse;margin-bottom:28px;font-size:13px}
+.sumtbl caption{font-family:var(--sans);text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-bottom:8px}
+.sumtbl th,.sumtbl td{padding:9px 10px 9px 0;text-align:right;border-bottom:1px solid var(--hair);font-variant-numeric:tabular-nums}
+.sumtbl th:first-child,.sumtbl td:first-child{text-align:left}
+.sumtbl thead th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+.sumtbl tbody tr{cursor:pointer}
+.sumtbl tbody tr:hover{background:var(--hover)}
+.sumtbl .nm{font-weight:600;color:var(--ink)}
+.sumtbl .yr{color:var(--muted);font-weight:400;font-family:var(--mono);font-size:11px}
+.sumtbl .tot{font-weight:700}
+.sumtbl .zero{color:var(--muted);opacity:.5}
+/* About */
+.about{padding:22px 0 10px;max-width:74ch}
+.about p{margin:0 0 14px;color:var(--ink2);font-size:14.5px;line-height:1.65}
+.about p strong{color:var(--ink)}
+.about h3{font-family:var(--sans);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px;font-weight:600}
+/* Footer */
+.foot{padding:26px 0 56px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--hair);margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between}
+/* Cite modal */
+.modal{position:fixed;inset:0;background:rgba(20,18,12,0.55);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal.on{display:flex}
+.modal-box{background:var(--paper);border:1px solid var(--hair2);border-radius:4px;max-width:620px;width:100%;max-height:86vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.modal-hd{display:flex;justify-content:space-between;align-items:baseline;padding:20px 22px 12px}
+.modal-hd h3{font-family:var(--serif);font-size:19px;font-weight:700}
+.modal-hd button{background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer;line-height:1}
+.modal-tabs{display:flex;gap:2px;padding:0 22px;border-bottom:1px solid var(--hair2);flex-wrap:wrap}
+.modal-tabs button{font-family:var(--sans);background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;font-size:12.5px;color:var(--muted);padding:9px 10px;cursor:pointer}
+.modal-tabs button.on{color:var(--ink);border-bottom-color:var(--gold);font-weight:600}
+.modal-body{padding:18px 22px 22px}
+.citetext{font-family:var(--serif);font-size:14px;line-height:1.6;color:var(--ink);background:var(--surface);border:1px solid var(--hair);border-radius:3px;padding:14px;white-space:pre-wrap}
+.citetext.mono{font-family:var(--mono);font-size:12px}
+.copybar{margin-top:12px;display:flex;justify-content:flex-end}
+.copybtn{font-family:var(--sans);font-size:12.5px;background:var(--ink);color:var(--paper);border:none;border-radius:2px;padding:8px 16px;cursor:pointer}
+/* Toast */
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);font-size:13px;padding:10px 18px;border-radius:3px;opacity:0;pointer-events:none;transition:all .2s;z-index:200}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+/* Back to top */
+.totop{position:fixed;bottom:24px;right:24px;width:40px;height:40px;border-radius:50%;background:var(--surface);border:1px solid var(--hair2);color:var(--ink2);font-size:16px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50}
+.totop.on{opacity:1;pointer-events:auto}
+.theme-toggle{background:none;border:none;color:var(--link);cursor:pointer;font-size:12.5px;font-family:var(--sans);padding:0}
+/* Responsive */
+@media (max-width:720px){
+ .wrap{padding:0 18px}
+ table{display:none}
+ .cards{display:block}
+ .ov-note{text-align:left;max-width:none}
+ thead th{position:static}
+}
+</style>
 </head>
 <body>
-<div id="bp-nk-db">
+<div class="goldrule"></div>
+<div class="wrap">
+ <header class="mast">
+   <div class="eyebrow">CSIS Beyond Parallel · Korea Chair</div>
+   <h1>North Korean Provocations, 1958–2026</h1>
+   <p class="standfirst" id="standfirst">A record of documented provocations — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions — across three generations of the Kim regime.</p>
+   <div class="byline">
+     <span class="who">Compiled by the Beyond Parallel team</span><span class="sep">·</span>
+     <span id="updatedLine">Updated March 2026</span><span class="sep">·</span>
+     <button class="linkbtn" onclick="exportCSV()">Download CSV</button><span class="sep">·</span>
+     <button class="linkbtn" onclick="exportJSON()">JSON</button><span class="sep">·</span>
+     <button class="linkbtn" onclick="citeDatabase()">Cite database</button><span class="sep">·</span>
+     <button class="linkbtn" onclick="shareDb()">Share</button><span class="sep">·</span>
+     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☾ Dark</button>
+   </div>
+ </header>
 
-<!-- SECTION NAV -->
-<nav class="section-nav" aria-label="Jump to section">
-  <a href="#section-chart">Chart</a>
-  <a href="#section-by-leader">By Leader</a>
-  <a href="#section-by-president">By President</a>
-  <a href="#section-database">Database</a>
-</nav>
+ <nav class="sec" role="tablist" aria-label="Sections">
+   <button role="tab" aria-selected="true" data-tab="database" onclick="showTab('database')">The database</button>
+   <button role="tab" aria-selected="false" data-tab="breakdown" onclick="showTab('breakdown')">By leader &amp; president</button>
+   <button role="tab" aria-selected="false" data-tab="about" onclick="showTab('about')">About the data</button>
+ </nav>
 
-<noscript><div class="bp-noscript">⚠️ JavaScript is required to use this interactive database. Please enable JavaScript in your browser.</div></noscript>
+ <!-- DATABASE PANEL -->
+ <section class="panel on" id="panel-database" role="tabpanel">
+   <div class="overview">
+     <div class="ov-head">
+       <div class="ov-title">Provocations per year, by type</div>
+       <div class="ov-note" id="chartNote"></div>
+     </div>
+     <div class="chart-holder" id="chartHolder">
+       <div id="chart"></div>
+       <div class="chart-tip" id="chartTip"></div>
+     </div>
+     <div class="legend" id="legend"></div>
+     <div class="source-line">Chart: CSIS Beyond Parallel · Bars stack individually documented incidents by category; vertical rules mark leadership transitions. Hover a year for the breakdown; click to filter the table.</div>
+   </div>
 
-<div class="masthead">
-  <div class="masthead-top">
-    <div>
-      <div class="kicker">CSIS Beyond Parallel — Database</div>
-      <h1>North Korean Provocations <em>since 1958</em></h1>
-      <div class="masthead-meta" id="metaLine">Updated March 2026 · Compiled by the CSIS Beyond Parallel</div>
-    </div>
-    <div class="masthead-actions">
-      <button class="btn btn-action btn-theme" id="themeToggle" onclick="toggleTheme()" title="Toggle light / dark theme">☾ Dark</button>
-      <div class="btn-divider"></div>
-      <button class="btn btn-action" onclick="exportCSV()" title="Download CSV">↓ CSV</button>
-      <button class="btn btn-action" onclick="exportJSON()" title="Download JSON">↓ JSON</button>
-      <button class="btn btn-action" id="copyBtn" onclick="copyLink()" title="Copy link">⎘ Link</button>
-      <div class="btn-divider"></div>
-      <button class="btn btn-social btn-social-x" onclick="shareX()" title="Share on X / Twitter">𝕏</button>
-      <button class="btn btn-social btn-social-bsky" onclick="shareBluesky()" title="Share on Bluesky">🦋</button>
-      <button class="btn btn-social btn-social-li" onclick="shareLinkedIn()" title="Share on LinkedIn">in</button>
-      <div class="btn-divider"></div>
-      <button class="btn btn-cite" onclick="copyDbCite()" title="Cite this database">Cite</button>
-    </div>
-  </div>
-  <!-- METRIC CARDS -->
-  <div class="metric-cards">
+   <div class="tools">
+     <div class="search"><span class="mag">⌕</span><input id="q" type="search" placeholder="Search events, weapons, places…" aria-label="Search events" oninput="onFilter()"></div>
+     <select class="sel" id="leaderFilter" onchange="onFilter()" aria-label="Filter by DPRK leader"></select>
+     <select class="sel" id="presFilter" onchange="onFilter()" aria-label="Filter by U.S. president"></select>
+     <select class="sel" id="yearFrom" onchange="onFilter()" aria-label="From year"></select>
+     <select class="sel" id="yearTo" onchange="onFilter()" aria-label="To year"></select>
+   </div>
+   <div class="catrow" id="catrow" role="group" aria-label="Filter by category"></div>
+   <div class="resultline" id="resultline"></div>
 
-    <!-- Card 1: Total — featured (dark navy, gold number) -->
-    <div class="mc mc-featured">
-      <div class="mc-label">Total Provocations</div>
-      <div class="mc-val mc-gold" id="stat-total">—</div>
-      <div class="mc-sub">Verified incidents · 1958–present</div>
-      <span class="mc-badge mc-badge-blue">CSIS DATABASE</span>
-    </div>
+   <table id="tbl">
+     <thead><tr>
+       <th class="sortable" aria-sort="descending" onclick="setSort('date')">Date <span class="arrow" id="ar-date">↓</span></th>
+       <th>Event</th>
+       <th class="sortable" aria-sort="none" onclick="setSort('cat')">Category <span class="arrow" id="ar-cat">↕</span></th>
+       <th>Source</th>
+     </tr></thead>
+     <tbody id="tbody"></tbody>
+   </table>
+   <div class="cards" id="cards"></div>
+   <div class="empty" id="empty" style="display:none">No events match these filters. <button class="clearall" onclick="clearFilters()">Clear all</button></div>
 
-    <!-- Card 2: Nuclear Tests -->
-    <div class="mc">
-      <div class="mc-label">Nuclear Tests</div>
-      <div class="mc-val mc-red" id="stat-nuclear">6</div>
-      <div class="mc-sub">Confirmed detonations at Punggye-ri</div>
-      <span class="mc-badge mc-badge-red">CONFIRMED</span>
-    </div>
+   <div class="pager">
+     <div class="pinfo" id="pinfo"></div>
+     <div class="pbtns" id="pbtns"></div>
+   </div>
+ </section>
 
-    <!-- Card 3: Missile Events -->
-    <div class="mc">
-      <div class="mc-label">Missile Events</div>
-      <div class="mc-val" id="stat-missile">—</div>
-      <div class="mc-sub">Ballistic, cruise &amp; MLRS launches</div>
-      <span class="mc-badge">LARGEST CATEGORY</span>
-    </div>
+ <!-- BREAKDOWN PANEL -->
+ <section class="panel" id="panel-breakdown" role="tabpanel">
+   <div class="sumgrid">
+     <h2>By leader &amp; president</h2>
+     <p class="lede">Documented provocations grouped by the DPRK leader in power and by U.S. presidential era. Click any row to filter the database. Totals are raw counts of individually documented incidents.</p>
+     <table class="sumtbl" id="leaderTbl"></table>
+     <table class="sumtbl" id="presTbl"></table>
+   </div>
+ </section>
 
-    <!-- Card 4: Kim Jong-un Era -->
-    <div class="mc">
-      <div class="mc-label">Kim Jong-un Era</div>
-      <div class="mc-val" id="stat-kju">—</div>
-      <div class="mc-sub" id="stat-kju-sub">Since 2011 · — of all events</div>
-      <span class="mc-badge">2011–PRESENT</span>
-    </div>
+ <!-- ABOUT PANEL -->
+ <section class="panel" id="panel-about" role="tabpanel">
+   <div class="about">
+     <h2>About the data</h2>
+     <p>This database records <strong id="aboutTotal">540</strong> individually documented North Korean provocations since 1958 — the first year for which discrete, dated incidents are reliably sourced. Each entry carries a date, an event description, a category, and at least one open-source citation.</p>
+     <p>Records are cross-referenced against leading databases and primary reporting, including the Congressional Research Service, the Nuclear Threat Initiative, the ROK Ministry of National Defense, and contemporaneous wire coverage. The database is maintained by the CSIS Beyond Parallel team and updated as new incidents occur.</p>
+     <h3>Categories</h3>
+     <p id="aboutCats"></p>
+     <h3>A note on aggregate figures</h3>
+     <p>The database records only <strong>individually documented incidents</strong> with known dates and sources. Some broader figures are estimates that are not derived from the per-record data: the ROK government documented <strong>3,693 armed-agent infiltrations</strong> between 1954–1992 (1967–68 alone accounting for roughly 740), and an estimated <strong id="aboutDeaths">600+</strong> deaths across conventional and terror operations. Those aggregates are noted here but not recorded as individual entries.</p>
+     <h3>Sourcing &amp; corrections</h3>
+     <p>Every event links to at least one open-source citation; see the per-event links in the database. To suggest a correction or a missing incident, contact the Korea Chair team.</p>
+   </div>
+ </section>
 
-    <!-- Card 5: Peak Year -->
-    <div class="mc">
-      <div class="mc-label">Peak Year</div>
-      <div class="mc-val" id="stat-year">—</div>
-      <div class="mc-sub" id="stat-year-sub">Most provocations in a single year</div>
-      <span class="mc-badge mc-badge-gold">RECORD HIGH</span>
-    </div>
-
-    <!-- Card 6: Casualties -->
-    <div class="mc">
-      <div class="mc-label">Documented Deaths</div>
-      <div class="mc-val" id="stat-deaths">600<span style="font-size:.55em;vertical-align:middle;margin-left:2px;font-weight:400">+</span></div>
-      <div class="mc-sub" id="stat-deaths-sub">Across 66 events · Conventional &amp; terror operations</div>
-      <span class="mc-badge">CSIS ESTIMATE</span>
-    </div>
-
-  </div>
+ <div class="foot">
+   <span>© 2026 Center for Strategic and International Studies · Data compiled from open-source reporting.</span>
+   <span id="syncNote"></span>
+ </div>
 </div>
 
-<!-- CONTEXT BAND -->
-<div class="context-band">
-  <div class="context-main">
-    <p class="context-lead">The CSIS Beyond Parallel team compiled this database of all verified North Korean provocations since 1958 — <strong>540 incidents</strong> across 8 categories, sourced, dated, and severity-scored.</p>
-    <p class="context-body">Records span missile launches, nuclear tests, conventional military attacks, terror operations, maritime incursions, and hybrid/psyops activities. Each entry is cross-referenced against leading databases including the <strong>Congressional Research Service (CRS)</strong>, <strong>NTI</strong>, and <strong>ROK Ministry of National Defense</strong>. Updated continuously as new incidents occur.</p>
-  </div>
-  <div class="context-aside">
-    <div class="context-aside-label">⚠ Data Note</div>
-    <div class="context-aside-title">Undocumented Infiltrations</div>
-    <p class="context-aside-body">The ROK government documented <strong>3,693 armed agent infiltrations</strong> between 1954–1992 — with 1967–68 alone accounting for ~740. This database covers only individually documented incidents with known dates and sources. Aggregate figures are noted here but not recorded as individual entries.</p>
-  </div>
+<!-- Cite modal -->
+<div class="modal" id="citeModal" onclick="if(event.target===this)closeCite()">
+ <div class="modal-box" role="dialog" aria-modal="true" aria-label="Citation">
+   <div class="modal-hd"><h3 id="citeTitle">Cite</h3><button onclick="closeCite()" aria-label="Close">×</button></div>
+   <div class="modal-tabs" id="citeTabs"></div>
+   <div class="modal-body">
+     <div class="citetext" id="citeText"></div>
+     <div class="copybar"><button class="copybtn" onclick="copyCite()">Copy citation</button></div>
+   </div>
+ </div>
 </div>
 
+<div class="toast" id="toast"></div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
-<details class="about-panel">
-  <summary class="about-toggle">About this database &amp; methodology <span class="about-arrow">↓</span></summary>
-  <div class="about-content">
-    <div class="about-section">
-      <h4>About</h4>
-      <p>This database tracks 483 verified North Korean provocations since 1958 — missile tests, nuclear detonations, conventional military attacks, terror operations, and hybrid activities — compiled by the CSIS Beyond Parallel as part of the Beyond Parallel project.</p>
-    </div>
-    <div class="about-section">
-      <h4>Categories</h4>
-      <ul>
-        <li><strong>Missile</strong> — All ballistic/cruise launches, MLRS, SLBM, satellite launches</li>
-        <li><strong>Nuclear Test</strong> — 6 confirmed detonations at Punggye-ri only</li>
-        <li><strong>Nuclear Program</strong> — MIRV, Haeil drones, reactor restarts, NPT withdrawal</li>
-        <li><strong>Conventional</strong> — Exchanges of fire, infiltrations, naval clashes, artillery</li>
-        <li><strong>Terror / Assassination</strong> — Bombings, hijackings, assassination attempts</li>
-        <li><strong>Hybrid / Psyops</strong> — Balloon campaigns, GPS jamming, loudspeakers, UAVs</li>
-        <li><strong>Other</strong> — Rocket engine tests, controlled experiments, declarations</li>
-      </ul>
-    </div>
-    <div class="about-section">
-      <h4>Severity Scale (1–5)</h4>
-      <ul>
-        <li><strong>5 Critical</strong> — ICBMs, all 6 nuclear tests, Cheonan sinking, Yeonpyeong shelling</li>
-        <li><strong>4 High</strong> — IRBMs, long-range cruise missiles, major terror acts, nuclear program events</li>
-        <li><strong>3 Moderate</strong> — SRBMs, MLRS, exchanges of fire with casualties</li>
-        <li><strong>2 Low</strong> — Artillery fire, minor infiltrations, anti-ship missiles</li>
-        <li><strong>1 Minor</strong> — Balloon launches, GPS jamming, no-sail zones</li>
-      </ul>
-    </div>
-    <div class="about-section">
-      <h4>Cross-References</h4>
-      <ul>
-        <li><strong>CRS RL30004</strong> — Congressional Research Service (2007)</li>
-        <li><strong>ROK MND White Papers</strong> — Annual threat assessments (2008–2024)</li>
-        <li><strong>CSIS Missile Threat DB</strong> — Missile launch database</li>
-        <li><strong>FBI/DOJ indictments</strong> — Cyber attribution (Lazarus Group, APT38)</li>
-        <li><strong>US/UK 5-Eyes</strong> — Multilateral cyber attributions</li>
-      </ul>
-    </div>
-    <div class="about-section">
-      <h4>Notes</h4>
-      <ul>
-        <li>492 records · Nuclear Tests = 6 confirmed detonations at Punggye-ri only</li>
-        <li>Sources verified against ROK/US government statements, wire services, and specialist outlets (Yonhap, NK News, KCNA Watch)</li>
-        <li>Leader era shown as colored dot in the Date column — see legend below filters</li>
-        <li>Filters are URL-encoded — use Copy Link to share a filtered view</li>
-      </ul>
-    </div>
-  </div>
-</details>
+<noscript><div style="padding:24px;text-align:center">This interactive database requires JavaScript.</div></noscript>
 
-<div class="chart-panel" id="section-chart">
-  <div class="panel-header">
-    <div class="panel-title">Provocation frequency by year</div>
-    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-      <div class="era-toggles">
-        <span style="font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:.06em">Overlay:</span>
-        <button class="era-toggle" id="bandLeader" onclick="setBandMode('leader')">DPRK Leaders</button>
-        <button class="era-toggle" id="bandPres" onclick="setBandMode('president')">US Presidents</button>
-        <button class="era-toggle" id="bandOff" onclick="setBandMode('off')" style="background:var(--surface2);border-color:var(--gold-hover);color:var(--navy)">Off</button>
-      </div>
-      <div class="chart-legend" id="chartLegend" style="display:flex;gap:4px;align-items:center;flex-wrap:wrap">
-        <!-- populated by buildChartLegend() -->
-      </div>
-      <div class="chart-tabs">
-        <button class="chart-tab active" onclick="setChartMode('stacked',this)">Stacked</button>
-        <button class="chart-tab" onclick="setChartMode('total',this)">Total</button>
-      </div>
-      <button class="chart-download" onclick="downloadChart()" title="Download chart as PNG">↓ PNG</button>
-    </div>
-  </div>
-  <div class="chart-wrap"><canvas id="barChart"></canvas></div>
-  <div class="chart-hint">Click any bar to filter the table by year</div>
-</div>
-
-<!-- SUMMARY STATS TABLE -->
-<div class="summary-panel" id="section-summary">
-  <div class="summary-section-header">
-    <div class="summary-section-title">Provocation Breakdown</div>
-    <div class="summary-section-sub">Click any row to filter the database below</div>
-  </div>
-  <div class="summary-grid">
-    <div class="summary-table-wrap" id="section-by-leader">
-      <div class="summary-panel-header">
-        <div class="summary-panel-label">By DPRK Leader</div>
-        <div class="summary-panel-hint">Which leader was most provocative?</div>
-      </div>
-      <table class="summary-tbl" id="leaderSummaryTbl"></table>
-    </div>
-    <div class="summary-table-wrap" id="section-by-president">
-      <div class="summary-panel-header">
-        <div class="summary-panel-label">By U.S. President</div>
-        <div class="summary-panel-hint">Which presidential era saw the most?</div>
-      </div>
-      <table class="summary-tbl" id="presSummaryTbl"></table>
-    </div>
-  </div>
-</div>
-
-
-<!-- DATABASE SECTION HEADER -->
-<div class="db-section-header" id="section-database-header">
-  <div class="db-section-title">Events Database</div>
-  <div class="db-section-sub" id="resultCountLabel">All 540 records · sorted by date</div>
-</div>
-
-<div class="type-pills">
-  <span class="pill all active" id="pill-all" onclick="filterPill('all',this)">All</span>
-  <span class="pill missile" id="pill-missile" onclick="filterPill('missile',this)">Missile</span>
-  <span class="pill nuclear_test" id="pill-nuclear_test" onclick="filterPill('nuclear_test',this)">☢ Nuclear Test</span>
-  <span class="pill nuclear_program" id="pill-nuclear_program" onclick="filterPill('nuclear_program',this)">◉ Nuclear Program</span>
-  <span class="pill conventional" id="pill-conventional" onclick="filterPill('conventional',this)">Artillery / Conventional</span>
-  <span class="pill terror" id="pill-terror" onclick="filterPill('terror',this)">Terror / Assassination</span>
-  <span class="pill hybrid" id="pill-hybrid" onclick="filterPill('hybrid',this)">Hybrid / Psyops</span>
-  <span class="pill cyber" id="pill-cyber" onclick="filterPill('cyber',this)">⌨ Cyber Operations</span>
-  <span class="pill other" id="pill-other" onclick="filterPill('other',this)">Other</span>
-  <span class="pills-multi-hint" id="pillsHint">Multiple categories selected — click All to reset</span>
-</div>
-
-<!-- MOBILE FILTER TOGGLE -->
-<div class="filter-toggle-row">
-  <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterBar()">⚙ Filters <span class="filter-badge" id="filterBadge"></span></button>
-  <span class="result-count" id="resultCountMobile"></span>
-</div>
-
-<div class="filter-bar" id="filterBar" style="">
-  <span class="filter-label">Filter</span>
-  <input class="search-input" id="searchInput" placeholder="Search… (press / to focus)" oninput="applyFilters()" title="Press / to focus search">
-  <span class="filter-by-label">Filter by</span>
-  <select class="filter-select" id="leaderFilter" onchange="applyFilters()">
-    <option value="">All DPRK leaders</option>
-    <option value="kim_jong_un">Kim Jong-un (2011–)</option>
-    <option value="kim_jong_il">Kim Jong-il (1994–2011)</option>
-    <option value="kim_il_sung">Kim Il-sung (1948–1994)</option>
-  </select>
-  <select class="filter-select" id="presFilter" onchange="applyFilters()">
-    <option value="">All US presidents</option>
-    <option value="Trump2">Trump II (2025–)</option>
-    <option value="Biden">Biden (2021–2025)</option>
-    <option value="Trump1">Trump I (2017–2021)</option>
-    <option value="Obama">Obama (2009–2017)</option>
-    <option value="Bush2">Bush Jr. (2001–2009)</option>
-    <option value="Clinton">Clinton (1993–2001)</option>
-    <option value="Bush1">Bush Sr. (1989–1993)</option>
-    <option value="Reagan">Reagan (1981–1989)</option>
-    <option value="Carter">Carter (1977–1981)</option>
-    <option value="Ford">Ford (1974–1977)</option>
-    <option value="Nixon">Nixon (1969–1974)</option>
-    <option value="LBJ">Johnson (1963–1969)</option>
-    <option value="Kennedy">Kennedy (1961–1963)</option>
-    <option value="Eisenhower">Eisenhower (1953–1961)</option>
-  </select>
-  <select class="filter-select" id="yearFromFilter" onchange="applyFilters()" aria-label="From year">
-    <option value="">From year</option>
-  </select>
-  <select class="filter-select" id="yearToFilter" onchange="applyFilters()" aria-label="To year">
-    <option value="">To year</option>
-  </select>
-  <select class="filter-select" id="sevFilter" onchange="applyFilters()">
-    <option value="">Any severity</option>
-    <option value="5">5 — Critical</option>
-    <option value="4">4 — High</option>
-    <option value="3">3 — Moderate</option>
-    <option value="2">2 — Low</option>
-    <option value="1">1 — Minor</option>
-  </select>
-  <button class="filter-clear" onclick="clearFilters()">Clear all</button>
-</div>
-
-<!-- LEADER ERA LEGEND -->
-<div class="leader-legend">
-  <span class="leader-legend-label">Leader era:</span>
-  <span class="leader-legend-item"><span class="leader-dot" style="background:#b8651a"></span>Kim Jong-un (2011–)</span>
-  <span class="leader-legend-item"><span class="leader-dot" style="background:#115178"></span>Kim Jong-il (1994–2011)</span>
-  <span class="leader-legend-item"><span class="leader-dot" style="background:#989797"></span>Kim Il-sung (1948–1994)</span>
-</div>
-
-<div class="context-banner" id="contextBanner"><span>◉</span><span id="contextText"></span></div>
-
-<div class="table-wrap" id="section-database">
-  <table>
-    <thead>
-      <tr>
-        <th onclick="sortBy('date')" class="sorted" id="th-date">Date <span class="sort-arrow">↓</span></th>
-        <th>Category</th>
-        <th id="th-event">Event</th>
-        <th>Description</th>
-        <th onclick="sortBy('sev')" id="th-sev">Sev. <span class="sort-arrow">↕</span></th>
-        <th>Source</th>
-      </tr>
-    </thead>
-    <tbody id="tableBody"></tbody>
-  </table>
-  <div class="empty" id="emptyState" style="display:none">
-    <strong>No matching records</strong>Try adjusting your filters or search term.
-  </div>
-</div>
-<div class="mobile-cards" id="mobileCards"></div>
-
-<div class="pagination">
-  <span class="page-info" id="pageInfo"></span>
-  <div class="page-size-wrap">
-    <span>Rows:</span>
-    <select class="page-size-select" id="pageSizeSelect" onchange="changePageSize(this.value)">
-      <option value="15">15</option>
-      <option value="25" selected>25</option>
-      <option value="50">50</option>
-      <option value="9999">All</option>
-    </select>
-  </div>
-  <div class="page-btns" id="pageBtns"></div>
-</div>
-
-
-
-
-
-<!-- DB FOOTER -->
-<div class="db-footer">
-  <div class="db-footer-text">
-    &copy; 2026 <a href="https://www.csis.org" target="_blank" rel="noopener">CSIS</a> &nbsp;·&nbsp;
-    <a href="https://beyondparallel.csis.org" target="_blank" rel="noopener">Beyond Parallel</a> &nbsp;·&nbsp;
-    Built with <a href="https://claude.ai" target="_blank" rel="noopener" style="color:rgba(255,199,36,0.7);transition:color .15s" onmouseover="this.style.color='#ffc726'" onmouseout="this.style.color='rgba(255,199,36,0.7)'">Claude</a> &nbsp;·&nbsp;
-    <button class="db-cite-inline" onclick="copyDbCite()" title="Copy database citation">Cite this database</button>
-  </div>
-  <div class="db-footer-share">
-    <span class="share-label">Share</span>
-    <button class="btn-share x" onclick="shareX()" title="X / Twitter">𝕏</button>
-    <button class="btn-share bsky" onclick="shareBluesky()" title="Bluesky">🦋</button>
-    <button class="btn-share fb" onclick="shareFacebook()" title="Facebook">f</button>
-    <button class="btn-share li" onclick="shareLinkedIn()" title="LinkedIn">in</button>
-    
-    <button class="btn-share" id="footerCopyBtn" onclick="copyLink()">⎘ Copy</button>
-  </div>
-</div>
-
-
-<!-- SECTION NAV FAB -->
-<div class="section-fab" id="sectionFab">
-  <div class="section-fab-menu" id="sectionFabMenu">
-    <span class="section-fab-label">Jump to</span>
-    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});closeFab();return false">↑ Top</a>
-    <a href="#section-chart" onclick="closeFab()">Chart</a>
-    <a href="#section-by-leader" onclick="closeFab()">By Leader</a>
-    <a href="#section-by-president" onclick="closeFab()">By President</a>
-    <a href="#section-database" onclick="closeFab()">Database</a>
-  </div>
-  <button class="section-fab-btn" onclick="toggleFab(event)" title="Navigate sections" aria-label="Navigate sections">≡</button>
-</div>
-</div><!-- /#bp-nk-db -->
-
-<!-- TOAST -->
-<div class="bp-toast" id="bpToast"></div>
-
-<!-- CITE MODAL -->
-<div class="cite-modal" id="citeModal" onclick="if(event.target===this)closeCite()">
-  <div class="cite-box">
-    <div class="cite-header">
-      <h3>Cite this event</h3>
-      <button class="cite-close" onclick="closeCite()">×</button>
-    </div>
-    <div class="cite-tabs">
-      <button class="cite-tab-btn active" onclick="switchCiteTab('chicago',this)">Chicago</button>
-      <button class="cite-tab-btn" onclick="switchCiteTab('apa',this)">APA</button>
-      <button class="cite-tab-btn" onclick="switchCiteTab('mla',this)">MLA</button>
-      <button class="cite-tab-btn" onclick="switchCiteTab('bibtex',this)">BibTeX</button>
-      <button class="cite-tab-btn" onclick="switchCiteTab('permalink',this)">URL</button>
-    </div>
-    <div class="cite-body">
-      <div class="cite-pane active" id="pane-chicago">
-        <div class="cite-format-label">Chicago Author-Date</div>
-        <div class="cite-text" id="citeChicago"></div>
-        <button class="cite-copy-btn" onclick="copyCite('chicago')">Copy</button>
-      </div>
-      <div class="cite-pane" id="pane-apa">
-        <div class="cite-format-label">APA 7th Edition</div>
-        <div class="cite-text" id="citeAPA"></div>
-        <button class="cite-copy-btn" onclick="copyCite('apa')">Copy</button>
-      </div>
-      <div class="cite-pane" id="pane-mla">
-        <div class="cite-format-label">MLA 9th Edition</div>
-        <div class="cite-text" id="citeMLA"></div>
-        <button class="cite-copy-btn" onclick="copyCite('mla')">Copy</button>
-      </div>
-      <div class="cite-pane" id="pane-bibtex">
-        <div class="cite-format-label">BibTeX</div>
-        <div class="cite-text" id="citeBibTeX" style="font-family:var(--font-mono);font-size:11px;white-space:pre-wrap"></div>
-        <button class="cite-copy-btn" onclick="copyCite('bibtex')">Copy</button>
-      </div>
-      <div class="cite-pane" id="pane-permalink">
-        <div class="cite-format-label">Permanent link to this event</div>
-        <div class="cite-text" id="citePermalink"></div>
-        <button class="cite-copy-btn" onclick="copyCite('permalink')">Copy URL</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- BACK TO TOP -->
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top" aria-label="Back to top">↑</button>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <script>
-function toggleFab(e){
-  if(e) e.stopPropagation();
-  const m=document.getElementById('sectionFabMenu');
-  if(m) m.classList.toggle('open');
-}
-function closeFab(){
-  const m=document.getElementById('sectionFabMenu');
-  if(m) m.classList.remove('open');
-}
-document.addEventListener('click',function(e){
-  if(!e.target.closest('.section-fab')) closeFab();
-});
-window.addEventListener('scroll',function(){
-  const btn=document.getElementById('backToTop');
-  if(btn) btn.classList.toggle('visible', window.scrollY>400);
-});
-</script>
-<script>/* ============================================================
-  GOOGLE SHEETS LIVE SYNC
-  To enable: publish your Google Sheet as CSV
-  (File → Share → Publish to web → your tab → CSV)
-  Paste the published URL below.
-  Leave empty to use the hardcoded RECORDS array below.
-  Column order (a header row is auto-detected and skipped):
-    Date | Category | Event | Description | Severity |
-    Source | SourceType | URL | Leader | Casualties(optional)
-  When set, records load from the sheet at page load; if the fetch
-  fails or returns too few rows, the hardcoded RECORDS below are used
-  as a fallback so the database always renders.
-  ============================================================ */
-const SHEET_URL = ''; /* ← paste your published CSV URL here */
-
-/* Aggregate figures that are NOT derivable from the per-record data
-   (the dataset intentionally records only individually documented
-   incidents). Edit these when the CSIS estimate is revised. */
+/* ===== CONFIG ===== */
+const SHEET_URL = '';
 const ESTIMATED_DEATHS = '600+';
 const ESTIMATED_DEATH_EVENTS = 66;
-
 
 const RECORDS = [
   {date:'2026-03-11',cat:'missile',event:'Strategic Cruise Missile (SCM)',desc:'North Korea\'s state media KCNA reported that Kim Jong-un oversaw a strategic cruise missile test launch from Pyongyang\'s destroyer Choe Hyon, just days after a similar test. According to KCNA, the missiles flew over the Yellow Sea for between 10,116 and 10,138 seconds before striking their designated targets. Photos from the inspection also showed Kim Jong-un\'s daughter, Kim Ju-ae, accompanying her father during the exercise. The consecutive launches come amid the annual U.S.-South Korea joint military drills and the ongoing crisis in Iran.',sev:4,source:'Korea Times',sourceType:'kor',url:'https://www.koreatimes.co.kr/amp/foreignaffairs/northkorea/20260311/n-koreas-kim-oversees-another-cruise-missile-test-from-destroyer-amid-seoul-washington-military-drills',leader:'kim_jong_un'},
@@ -2436,1156 +878,412 @@ const RECORDS = [
   {date:'2016-03-07',cat:'hybrid',event:'GPS Signal Jamming',desc:'North Korea conducted large-scale GPS jamming coinciding with U.S.-ROK Foal Eagle exercises. ROK authorities reported interference affecting over 700 aircraft and 60 vessels. ROK MND 2016 white paper identifies this as one of the most extensive GPS attacks to date.',sev:2,source:'ROK MND',sourceType:'kor',url:'https://www.mnd.go.kr/user/mndEN/upload/pblictn/PBLICTNEBOOK_202307280406019810.pdf',leader:'kim_jong_un'},
   {date:'2016-01-13',cat:'conventional',event:'NLL Exchange of Fire',desc:'North Korean patrol vessels crossed the Northern Limit Line in the West Sea following the January 6 nuclear test. ROK Navy responded. ROK MND 2016 white paper documents heightened NLL tensions in the weeks following the fourth nuclear test.',sev:2,source:'ROK MND',sourceType:'kor',url:'https://www.mnd.go.kr/user/mndEN/upload/pblictn/PBLICTNEBOOK_202307280406019810.pdf',leader:'kim_jong_un'}
 ];
-/* Fast lookup map for cite/permalink */
-const RECORD_MAP=new Map(RECORDS.map(r=>[(r.date+r.event).replace(/[^a-z0-9]/gi,""),r]));
-const CAT_LABEL = {
-  missile:'Missile', nuclear_test:'Nuclear Test', nuclear_program:'Nuclear Program',
-  conventional:'Conventional', terror:'Terror / Assassination', hybrid:'Hybrid / Psyops', cyber:'Cyber Operations', other:'Other'
-};
-const CAT_COLOR = {
-  missile:'rgba(210,100,10,0.85)', nuclear_test:'rgba(168,48,42,0.9)',
-  nuclear_program:'rgba(130,20,60,0.85)', conventional:'rgba(26,95,168,0.65)',
-  terror:'rgba(107,63,160,0.7)', hybrid:'rgba(26,126,110,0.65)', cyber:'rgba(13,92,138,0.85)', other:'rgba(110,114,128,0.5)'
-};
-const SRC_LABEL = {
-  yonhap:'Yonhap', kcna:'KCNA Watch', nknews:'NK News',
-  kor:'Korean Press', intl:"Int'l Press", archive:'Archive'
-};
-/* Normalise source names shown in chip */
-const SRC_NORMALIZE = {
-  'U.S. DOD':'U.S. DOD', 'U.S. State Dept':'State Dept',
-  'White House':'White House', 'ROK MND':'ROK MND', 'ROK MOFA':'ROK MOFA',
-  'CIA':'CIA', 'FAS':'FAS', 'CFR':'CFR', 'NTI':'NTI',
-  'Washington Post':'Wash. Post', 'NK News':'NK News',
-};
 
-/* ── HEATMAP ── */
-function buildHeatmap(){
-  const el = document.getElementById('heatmapTable');
-  if(!el) return;
-  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-  /* Build month→count map */
-  const counts = {};
-  RECORDS.forEach(r=>{
-    const key = r.date.slice(0,7); /* YYYY-MM */
-    counts[key] = (counts[key]||0) + 1;
-  });
-
-  const maxCount = Math.max(...Object.values(counts));
-  function intensityClass(n){
-    if(!n) return 'hm-0';
-    const t = n/maxCount;
-    if(t<0.1) return 'hm-1';
-    if(t<0.25) return 'hm-2';
-    if(t<0.45) return 'hm-3';
-    if(t<0.7)  return 'hm-4';
-    return 'hm-5';
-  }
-
-  const years = [];
-  for(let y=1958;y<=2026;y++) years.push(y);
-
-  /* Header row: month labels */
-  let html = '<thead><tr><th class="year-label"></th>';
-  MONTHS.forEach(m=>html+='<th>'+m+'</th>');
-  html += '</tr></thead><tbody>';
-
-  years.forEach(y=>{
-    html += '<tr><th class="year-label">'+y+'</th>';
-    for(let m=1;m<=12;m++){
-      const key = y+'-'+(m<10?'0':'')+m;
-      const n = counts[key]||0;
-      const cls = intensityClass(n);
-      const title = n ? y+' '+MONTHS[m-1]+': '+n+' provocation'+(n>1?'s':'') : y+' '+MONTHS[m-1]+': none';
-      html += '<td class="'+cls+'" title="'+title+'" data-month="'+key+'" onclick="filterByMonth(this.dataset.month)"></td>';
-    }
-    html += '</tr>';
-  });
-  html += '</tbody>';
-  el.innerHTML = html;
-
-  /* Scroll to show recent years by default */
-  setTimeout(()=>{
-    const wrap = el.closest('.heatmap-wrap');
-    if(wrap) wrap.scrollTop = wrap.scrollHeight;
-  }, 50);
-}
-
-function filterByMonth(key){
-  /* key = YYYY-MM — set month inputs and filter */
-  const mfEl = document.getElementById('monthFromInput');
-  const mtEl = document.getElementById('monthToInput');
-  if(mfEl && mtEl){
-    mfEl.value = key;
-    mtEl.value = key;
-    applyMonthFilter();
-    document.querySelector('.table-wrap').scrollIntoView({behavior:'smooth', block:'start'});
-  }
-}
-
-/* ── CHART CATEGORY TOGGLES ── */
-const hiddenCats = new Set(); /* tracks which categories are toggled off */
-
-const CHART_CAT_COLORS = {
-  missile:       'rgba(210,100,10,0.85)',
-  nuclear_test:  'rgba(168,48,42,0.9)',
-  nuclear_program:'rgba(130,20,60,0.85)',
-  conventional:  'rgba(26,95,168,0.65)',
-  terror:        'rgba(107,63,160,0.7)',
-  hybrid:        'rgba(26,126,110,0.65)',
-  cyber:         'rgba(13,92,138,0.85)',
-  other:         'rgba(110,114,128,0.5)',
-};
-const CHART_CAT_LABELS = {
-  missile:'Missile', nuclear_test:'Nuclear Test', nuclear_program:'Nuclear Program',
-  conventional:'Conventional', terror:'Terror / Assassination', hybrid:'Hybrid / Psyops', cyber:'Cyber Operations', other:'Other',
-};
-
-function buildChartLegend(){
-  const el = document.getElementById('chartLegend');
-  if(!el) return;
-  const cats = ['missile','nuclear_test','nuclear_program','conventional','terror','hybrid','cyber','other'];
-  el.innerHTML = cats.map(cat=>{
-    const hidden = hiddenCats.has(cat);
-    return '<button class="pill '+cat+(hidden?' legend-hidden':'')+'" data-cat="'+cat+'" onclick="toggleCategory(this.dataset.cat)" title="Toggle category in chart">'
-      +CHART_CAT_LABELS[cat]
-    +'</button>';
-  }).join('');
-}
-
-function toggleCategory(cat){
-  if(hiddenCats.has(cat)) hiddenCats.delete(cat);
-  else hiddenCats.add(cat);
-  /* Update chart dataset visibility */
-  const cats = ['missile','nuclear_test','nuclear_program','conventional','terror','hybrid','cyber','other'];
-  const idx = cats.indexOf(cat);
-  if(idx>=0 && chart){
-    const ds = chart.data.datasets[idx];
-    ds.hidden = hiddenCats.has(cat);
-    chart.update();
-  }
-  buildChartLegend();
-}
-
-function populateYearFilters(){
-  const years=[...new Set(RECORDS.map(r=>r.date.slice(0,4)))].sort().reverse();
-  const f=document.getElementById('yearFromFilter'),t=document.getElementById('yearToFilter');
-  years.forEach(y=>{
-    const a=document.createElement('option'),b=document.createElement('option');
-    a.value=b.value=y; a.textContent=b.textContent=y;
-    f.appendChild(a); t.appendChild(b);
-  });
-}
-function buildStats(){
-  const total = RECORDS.length;
-  const missile = RECORDS.filter(r=>r.cat==='missile').length;
-  const kju = RECORDS.filter(r=>r.leader==='kim_jong_un').length;
-  const kjuPct = Math.round(kju/total*100);
-  const yearCounts = {};
-  RECORDS.forEach(r=>{const y=r.date.slice(0,4);yearCounts[y]=(yearCounts[y]||0)+1;});
-  const peakEntry = Object.entries(yearCounts).sort((a,b)=>b[1]-a[1])[0];
-  const peakYear = peakEntry[0];
-  const peakCount = peakEntry[1];
-  const latest = RECORDS.reduce((a,b)=>a.date>b.date?a:b).date;
-  const latestFmt = new Date(latest+'T00:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
-  const s = id => document.getElementById(id);
-  if(s('stat-total'))  s('stat-total').textContent  = total.toLocaleString();
-  if(s('stat-missile'))s('stat-missile').textContent= missile.toLocaleString();
-  if(s('stat-nuclear'))s('stat-nuclear').textContent= RECORDS.filter(r=>r.cat==='nuclear_test').length;
-  if(s('stat-year'))   s('stat-year').textContent   = peakYear;
-  if(s('stat-year-sub'))s('stat-year-sub').textContent = peakCount+' events in '+peakYear+' — most in any single year';
-  if(s('stat-kju'))    s('stat-kju').textContent    = kju.toLocaleString();
-  if(s('stat-kju-sub'))s('stat-kju-sub').textContent= 'Since 2011 · '+kjuPct+'% of all events';
-  if(s('stat-deaths')){
-    s('stat-deaths').innerHTML = String(ESTIMATED_DEATHS).replace(/\+$/, '<span style="font-size:.55em;vertical-align:middle;margin-left:2px;font-weight:400">+</span>');
-  }
-  if(s('stat-deaths-sub'))s('stat-deaths-sub').textContent = 'Across '+ESTIMATED_DEATH_EVENTS+' events · Conventional & terror operations';
-  if(s('metaLine'))    s('metaLine').textContent    = 'Last updated '+latestFmt+' · '+total+' records · CSIS Beyond Parallel';
-}
-
-/* ---- US PRESIDENT ERAS ---- */
-const US_PRES = [
-  {id:'Eisenhower', label:'Eisenhower',  party:'R', start:1953, end:1961},
-  {id:'Kennedy',    label:'Kennedy',     party:'D', start:1961, end:1963},
-  {id:'LBJ',        label:'Johnson',party:'D', start:1963, end:1969},
-  {id:'Nixon',      label:'Nixon',       party:'R', start:1969, end:1974},
-  {id:'Ford',       label:'Ford',        party:'R', start:1974, end:1977},
-  {id:'Carter',     label:'Carter',      party:'D', start:1977, end:1981},
-  {id:'Reagan',     label:'Reagan',      party:'R', start:1981, end:1989},
-  {id:'Bush1',      label:'Bush Sr.',    party:'R', start:1989, end:1993},
-  {id:'Clinton',    label:'Clinton',     party:'D', start:1993, end:2001},
-  {id:'Bush2',      label:'Bush Jr.',    party:'R', start:2001, end:2009},
-  {id:'Obama',      label:'Obama',       party:'D', start:2009, end:2017},
-  {id:'Trump1',     label:'Trump I',     party:'R', start:2017, end:2021},
-  {id:'Biden',      label:'Biden',       party:'D', start:2021, end:2025},
-  {id:'Trump2',     label:'Trump II',    party:'R', start:2025, end:2030},
+/* ===== CATEGORY / ERA META ===== */
+const CAT_ORDER=['missile','conventional','hybrid','other','nuclear_program','terror','cyber','nuclear_test'];
+const CAT_LABEL={missile:'Missile',conventional:'Conventional',hybrid:'Hybrid / psyops',other:'Other',nuclear_program:'Nuclear program',terror:'Terror',cyber:'Cyber',nuclear_test:'Nuclear test'};
+const CAT_SLOT={}; CAT_ORDER.forEach((c,i)=>CAT_SLOT[c]=i+1);
+function catColor(c){return getComputedStyle(document.documentElement).getPropertyValue('--c'+(CAT_SLOT[c]||4)).trim();}
+const LEADERS=[
+ {id:'kim_il_sung',label:'Kim Il-sung',start:1948,end:1994},
+ {id:'kim_jong_il',label:'Kim Jong-il',start:1994,end:2011},
+ {id:'kim_jong_un',label:'Kim Jong-un',start:2011,end:2027}
 ];
-
-function getPresForYear(yr){
-  const p = US_PRES.find(p=>yr>=p.start && yr<p.end);
-  return p ? p.id : '';
-}
-
-/* ---- CHART ERA BANDS ---- */
-let chart;
-let bandMode = 'off';
-
-const LEADER_BANDS = [
-  {label:'Kim Il-sung', start:1958, end:1994, color:'rgba(150,150,150,0.10)', labelColor:'rgba(80,80,80,0.7)'},
-  {label:'Kim Jong-il', start:1994, end:2011, color:'rgba(17,81,120,0.10)', labelColor:'rgba(17,81,120,0.7)'},
-  {label:'Kim Jong-un', start:2011, end:2027, color:'rgba(184,101,26,0.10)', labelColor:'rgba(184,101,26,0.7)'},
+const LEADER_LABEL={}; LEADERS.forEach(l=>LEADER_LABEL[l.id]=l.label);
+const US_PRES=[
+ {id:'Eisenhower',label:'Eisenhower',party:'R',start:1953,end:1961},{id:'Kennedy',label:'Kennedy',party:'D',start:1961,end:1963},
+ {id:'LBJ',label:'Johnson',party:'D',start:1963,end:1969},{id:'Nixon',label:'Nixon',party:'R',start:1969,end:1974},
+ {id:'Ford',label:'Ford',party:'R',start:1974,end:1977},{id:'Carter',label:'Carter',party:'D',start:1977,end:1981},
+ {id:'Reagan',label:'Reagan',party:'R',start:1981,end:1989},{id:'Bush1',label:'Bush Sr.',party:'R',start:1989,end:1993},
+ {id:'Clinton',label:'Clinton',party:'D',start:1993,end:2001},{id:'Bush2',label:'Bush Jr.',party:'R',start:2001,end:2009},
+ {id:'Obama',label:'Obama',party:'D',start:2009,end:2017},{id:'Trump1',label:'Trump I',party:'R',start:2017,end:2021},
+ {id:'Biden',label:'Biden',party:'D',start:2021,end:2025},{id:'Trump2',label:'Trump II',party:'R',start:2025,end:2030}
 ];
+function presForYear(y){const p=US_PRES.find(p=>y>=p.start&&y<p.end);return p?p.id:'';}
+const PRES_LABEL={}; US_PRES.forEach(p=>PRES_LABEL[p.id]=p.label);
 
-const PRES_BANDS = US_PRES.map(p=>({
-  label: p.label,
-  start: p.start,
-  end: p.end,
-  color: p.party==='R' ? 'rgba(180,40,40,0.07)' : 'rgba(26,95,168,0.07)',
-  labelColor: p.party==='R' ? 'rgba(160,40,40,0.6)' : 'rgba(26,95,168,0.6)',
-}));
+/* ===== STATE ===== */
+const state={q:'',cats:new Set(),leader:'',pres:'',yearFrom:'',yearTo:'',sort:'date',dir:'desc',page:1,event:'',tab:'database'};
+const PAGE_SIZE=25;
+let filtered=[]; const expanded=new Set();
 
-/* findLastIndex polyfill for Safari < 15 */
-if(!Array.prototype.findLastIndex){
-  Array.prototype.findLastIndex=function(fn){
-    for(let i=this.length-1;i>=0;i--){if(fn(this[i],i,this))return i;}return -1;
-  };
+/* ===== DERIVED ===== */
+function yearsRange(){let mn=9999,mx=0;RECORDS.forEach(r=>{const y=+r.date.slice(0,4);if(y<mn)mn=y;if(y>mx)mx=y;});return[mn,mx];}
+function yearCatMatrix(){
+ const[mn,mx]=yearsRange();const rows=[];
+ for(let y=mn;y<=mx;y++){const o={year:y};CAT_ORDER.forEach(c=>o[c]=0);rows.push(o);}
+ RECORDS.forEach(r=>{const y=+r.date.slice(0,4);const row=rows[y-mn];if(row)row[r.cat]=(row[r.cat]||0)+1;});
+ return rows;
 }
-
-const eraBandPlugin = {
-  id:'eraBands',
-  beforeDatasetsDraw(chart){
-    if(bandMode==='off') return;
-    const bands = bandMode==='leader' ? LEADER_BANDS : PRES_BANDS;
-    const {ctx, chartArea:{left,right,top,bottom}, scales:{x}, data:{labels}} = chart;
-    if(!labels||!labels.length) return;
-
-    /* Category scale: getPixelForValue takes the INDEX of the category, not the value */
-    const nums = labels.map(Number);
-    const halfBar = labels.length > 1
-      ? Math.abs(x.getPixelForValue(1) - x.getPixelForValue(0)) / 2
-      : 4;
-
-    /* Find pixel for a given year using index-based interpolation */
-    const pxForYear = (yr) => {
-      if(yr <= nums[0]) return left;
-      if(yr >= nums[nums.length-1]) return x.getPixelForValue(nums.length-1) + halfBar;
-      for(let i=0;i<nums.length-1;i++){
-        if(yr >= nums[i] && yr <= nums[i+1]){
-          const t = (yr-nums[i])/(nums[i+1]-nums[i]);
-          return x.getPixelForValue(i) + t*(x.getPixelForValue(i+1)-x.getPixelForValue(i));
-        }
-      }
-      return right;
-    };
-
-    ctx.save();
-    bands.forEach(b=>{
-      const x0 = Math.max(left,  pxForYear(b.start));
-      const x1 = Math.min(right, pxForYear(b.end));
-      if(x1<=x0) return;
-      ctx.fillStyle = b.color;
-      ctx.fillRect(x0, top, x1-x0, bottom-top);
-      /* Divider line at band start */
-      ctx.strokeStyle = b.labelColor.replace(/[\d.]+\)$/,'0.4)');
-      ctx.lineWidth = 1;
-      ctx.setLineDash([3,3]);
-      ctx.beginPath(); ctx.moveTo(x0,top); ctx.lineTo(x0,bottom); ctx.stroke();
-      ctx.setLineDash([]);
-      /* Label centered in band */
-      const w = x1-x0;
-      if(w > 28){
-        ctx.fillStyle = b.labelColor;
-        ctx.font = '500 10px "IBM Plex Mono", monospace';
-        ctx.textAlign = 'center';
-        ctx.fillText(b.label, Math.min(Math.max((x0+x1)/2, x0+14), x1-14), top+11);
-      }
-    });
-    ctx.restore();
-  }
-};
-
-function buildYearData(){
-  const yd = {};
-  RECORDS.forEach(r=>{
-    const y = parseInt(r.date.slice(0,4));
-    if(!yd[y]) yd[y]={missile:0,nuclear_test:0,nuclear_program:0,conventional:0,terror:0,hybrid:0,cyber:0,other:0};
-    yd[y][r.cat]=(yd[y][r.cat]||0)+1;
-  });
-  return yd;
+function stats(){
+ const total=RECORDS.length;
+ const byCat={};CAT_ORDER.forEach(c=>byCat[c]=0);RECORDS.forEach(r=>byCat[r.cat]=(byCat[r.cat]||0)+1);
+ const yc={};RECORDS.forEach(r=>{const y=r.date.slice(0,4);yc[y]=(yc[y]||0)+1;});
+ const peak=Object.entries(yc).sort((a,b)=>b[1]-a[1])[0];
+ const latest=RECORDS.reduce((a,b)=>a.date>b.date?a:b).date;
+ return{total,byCat,peakYear:peak[0],peakCount:peak[1],latest};
 }
+let STATS, YMATRIX;
 
-/* Escalation annotation plugin */
-const ANNOTATIONS = [];
-let showAnnotations = false;
-
-const annotationPlugin = {
-  id:'annotations',
-  afterDraw(chart){
-    if(!showAnnotations) return;
-    const {ctx, chartArea:{left,right,top,bottom}, scales:{x}, data:{labels}} = chart;
-    if(!labels||!labels.length) return;
-    const nums = labels.map(Number);
-    const pxForYear = (yr) => {
-      if(yr<=nums[0]) return left;
-      if(yr>=nums[nums.length-1]) return right;
-      for(let i=0;i<nums.length-1;i++){
-        if(yr>=nums[i]&&yr<=nums[i+1]){
-          const t=(yr-nums[i])/(nums[i+1]-nums[i]);
-          return x.getPixelForValue(i)+t*(x.getPixelForValue(i+1)-x.getPixelForValue(i));
-        }
-      }
-      return right;
-    };
-    ctx.save();
-    ANNOTATIONS.forEach(a=>{
-      const px = pxForYear(a.year);
-      if(px<left||px>right) return;
-      const yBase = top + (a.yOff===1 ? 28 : 14);
-      /* Vertical tick */
-      ctx.strokeStyle = 'rgba(255,199,36,0.7)';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.moveTo(px, top); ctx.lineTo(px, yBase-4); ctx.stroke();
-      /* Diamond marker */
-      ctx.fillStyle = 'rgba(255,199,36,0.9)';
-      ctx.beginPath();
-      ctx.moveTo(px, yBase-4); ctx.lineTo(px+3,yBase); ctx.lineTo(px,yBase+4); ctx.lineTo(px-3,yBase); ctx.closePath();
-      ctx.fill();
-      /* Label */
-      ctx.font = '500 10px "IBM Plex Mono",monospace';
-      ctx.fillStyle = 'rgba(20,20,20,0.75)';
-      ctx.textAlign = 'center';
-      ctx.fillText(a.label, px, yBase+13);
-    });
-    ctx.restore();
-  }
-};
-
-/* Register custom plugin with Chart.js v4 — guarded so the database still
-   renders if the Chart.js CDN is blocked, slow, or unavailable. */
-if(typeof Chart!=='undefined' && Chart.register){
-  Chart.register(eraBandPlugin, annotationPlugin);
-}
-
-function initChart(){
-  /* Degrade gracefully if Chart.js failed to load — the data table,
-     filters and stats must still work without the chart library. */
-  if(typeof Chart==='undefined'){
-    const panel = document.getElementById('section-chart');
-    if(panel && !panel.querySelector('.chart-unavailable')){
-      const note = document.createElement('div');
-      note.className = 'chart-unavailable';
-      note.setAttribute('role','note');
-      note.textContent = 'The frequency chart could not be loaded (the charting library is unavailable). All data below remains fully searchable and filterable.';
-      const wrap = panel.querySelector('.chart-wrap');
-      if(wrap) wrap.replaceWith(note); else panel.appendChild(note);
-    }
-    return;
-  }
-  const yd = buildYearData();
-  const years = Object.keys(yd).map(Number).sort();
-  const ctx = document.getElementById('barChart').getContext('2d');
-  const cats = ['missile','nuclear_test','nuclear_program','conventional','terror','hybrid','cyber','other'];
-  chart = new Chart(ctx, {
-    type:'bar',
-    data:{
-      labels:years,
-      datasets:cats.map(c=>({
-        label:CAT_LABEL[c],
-        data:years.map(y=>yd[y][c]||0),
-        backgroundColor:CAT_COLOR[c],
-        borderWidth:0, borderRadius:2
-      }))
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{
-        backgroundColor:'#1a1e2a',
-        titleFont:{family:'IBM Plex Mono',size:10},
-        bodyFont:{family:'Source Sans 3',size:11},
-        callbacks:{title:i=>'Year: '+i[0].label}
-      }},
-      scales:{
-        x:{stacked:true,grid:{display:false},ticks:{font:{family:'IBM Plex Mono',size:10},color:'#6e7280',maxRotation:45,autoSkip:true,maxTicksLimit:30}},
-        y:{stacked:true,grid:{color:'rgba(0,0,0,0.05)'},ticks:{font:{family:'IBM Plex Mono',size:10},color:'#6e7280'},border:{dash:[3,3]}}
-      },
-      onClick:(evt,els)=>{
-        if(els.length){
-          const yr=chart.data.labels[els[0].index];
-          document.getElementById('yearFromFilter').value=yr;
-          document.getElementById('yearToFilter').value=yr;
-          applyFilters();
-        }
-      }
-    }
-  });
-}
-
-function setBandMode(mode){
-  bandMode=mode;
-  document.querySelectorAll('.era-toggle').forEach(b=>{
-    b.classList.remove('active-leader','active-pres');
-    b.style.cssText='';
-  });
-  if(mode==='leader')    document.getElementById('bandLeader').classList.add('active-leader');
-  else if(mode==='president') document.getElementById('bandPres').classList.add('active-pres');
-  else { /* off — gold highlight */
-    const btn=document.getElementById('bandOff');
-    btn.style.background='var(--gold-alpha)';
-    btn.style.color='var(--navy)';
-    btn.style.borderColor='var(--gold-hover)';
-  }
-  chart.update();
-}
-
-function setChartMode(mode,btn){
-  document.querySelectorAll('.chart-tab').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
-  const yd=buildYearData();
-  const years=Object.keys(yd).map(Number).sort();
-  const cats=['missile','nuclear_test','nuclear_program','conventional','terror','hybrid','other'];
-  if(mode==='stacked'){
-    chart.data.datasets.forEach((ds,i)=>{ds.data=years.map(y=>yd[y][cats[i]]||0);});
-  } else {
-    chart.data.datasets[0].data=years.map(y=>Object.values(yd[y]).reduce((a,b)=>a+b,0));
-    chart.data.datasets.slice(1).forEach(ds=>ds.data=years.map(()=>0));
-  }
-  chart.update();
-}
-
-let filteredData=[...RECORDS];
-let currentPage=1;
-/* PAGE_SIZE is now let, defined in new JS block above */
-let sortField='date',sortDir='desc';
-let activeCategories=new Set();
-let expandedRows=new Set();
-
-function filterPill(cat,el){
-  if(cat==='all'){
-    activeCategories.clear();
-    document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active','inactive'));
-    document.getElementById('pill-all').classList.add('active');
-  } else {
-    document.getElementById('pill-all').classList.remove('active');
-    document.getElementById('pill-all').classList.add('inactive');
-    if(activeCategories.has(cat)){
-      activeCategories.delete(cat);
-      el.classList.remove('active');
-    } else {
-      activeCategories.add(cat);
-      el.classList.add('active');
-    }
-    if(activeCategories.size===0){
-      activeCategories.clear();
-      document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active','inactive'));
-      document.getElementById('pill-all').classList.add('active');
-    }
-  }
-  const hint=document.getElementById('pillsHint');
-  if(hint) hint.classList.toggle('show', activeCategories.size>1);
-  applyFilters();
-}
-
-function applyFilters(){
-  const q=document.getElementById('searchInput').value.toLowerCase();
-  const leader=document.getElementById('leaderFilter').value;
-  const pres=document.getElementById('presFilter').value;
-  const yFrom=parseInt(document.getElementById('yearFromFilter').value)||0;
-  const yTo=parseInt(document.getElementById('yearToFilter').value)||9999;
-  const sev=document.getElementById('sevFilter').value;
-  filteredData=RECORDS.filter(r=>{
-    const yr=parseInt(r.date.slice(0,4));
-    if(activeCategories.size>0 && !activeCategories.has(r.cat)) return false;
-    if(q&&!(r.event.toLowerCase().includes(q)||r.desc.toLowerCase().includes(q))) return false;
-    if(leader&&r.leader!==leader) return false;
-    if(pres&&getPresForYear(yr)!==pres) return false;
-    if(yr<yFrom||yr>yTo) return false;
-    if(sev&&r.sev!==parseInt(sev)) return false;
-    return true;
-  });
-  filteredData.sort((a,b)=>{
-    let av=a[sortField],bv=b[sortField];
-    if(av<bv) return sortDir==='asc'?-1:1;
-    if(av>bv) return sortDir==='asc'?1:-1;
-    return 0;
-  });
-  const _rc=document.getElementById('resultCount'); if(_rc) _rc.textContent='Showing '+filteredData.length+' record'+(filteredData.length!==1?'s':'');
-  document.getElementById('resultCountMobile').textContent=filteredData.length+' result'+(filteredData.length!==1?'s':'');
-  updateFilterBadge();
-  const banner=document.getElementById('contextBanner');
-  if(filteredData.length!==RECORDS.length){
-    banner.classList.add('show');
-    document.getElementById('contextText').textContent=filteredData.length+' of '+RECORDS.length+' records match. Click any chart bar to filter by year.';
-  } else {banner.classList.remove('show');}
-  currentPage=1;
-  renderTable();
-  renderMobileCards();
-  renderPagination();
-  const rcl = document.getElementById('resultCountLabel');
-  if(rcl) rcl.textContent = filteredData.length + ' record' + (filteredData.length!==1?'s':'') + (filteredData.length !== RECORDS.length ? ' (filtered from '+RECORDS.length+')' : ' · sorted by date');
-}
-
-function clearFilters(){
-  document.getElementById('searchInput').value='';
-  ['leaderFilter','presFilter','yearFromFilter','yearToFilter','sevFilter','monthFromInput','monthToInput'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  activeCategories.clear();
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active','inactive'));
-  document.getElementById('pill-all').classList.add('active');
-  applyFilters();
-}
-
-function sortBy(field){
-  if(sortField===field){sortDir=sortDir==='asc'?'desc':'asc';}else{sortField=field;sortDir='desc';}
-  document.querySelectorAll('thead th').forEach(th=>{th.classList.remove('sorted');const a=th.querySelector('.sort-arrow');if(a)a.textContent='↕';});
-  const th=document.getElementById('th-'+field);
-  if(th){th.classList.add('sorted');th.querySelector('.sort-arrow').textContent=sortDir==='asc'?'↑':'↓';}
-  applyFilters();
-}
-
-const LEADER_COLOR={kim_jong_un:'#b8651a',kim_jong_il:'#115178',kim_il_sung:'#989797'};
-const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-function fmtDate(d){
-  const parts=d.split('-');
-  if(parts.length<3) return d;
-  return MONTHS[parseInt(parts[1])-1]+' '+parseInt(parts[2])+', '+parts[0];
-}
-
-function sevHtml(s){
-  const cls = s>=5?'sev-5':s>=4?'sev-4':'';
-  let h='<div class="sev-dots '+cls+'">';
-  for(let i=1;i<=5;i++) h+='<div class="sev-dot '+(i<=s?'sev-filled':'sev-empty')+'"></div>';
-  return h+'</div>';
-}
-
-function renderTable(){
-  const tbody=document.getElementById('tableBody');
-  const empty=document.getElementById('emptyState');
-  const slice=filteredData.slice((currentPage-1)*PAGE_SIZE,currentPage*PAGE_SIZE);
-  if(!slice.length){tbody.innerHTML='';empty.style.display='block';return;}
-  empty.style.display='none';
-  const qRaw=document.getElementById('searchInput').value;
-  const hl=qRaw ? (str=>{
-    try {
-      const escaped=qRaw.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-      const rx=new RegExp('('+escaped+')','gi');
-      return str.replace(rx,'<mark style="background:var(--gold-light);padding:0 1px;border-radius:2px">$1</mark>');
-    } catch(e){ return str; }
-  }) : (str=>str);
-  tbody.innerHTML=slice.map(r=>{
-    const key=(r.date+r.event).replace(/[^a-z0-9]/gi,'');
-    const isExp=expandedRows.has(key);
-    const short=r.desc.length>150?r.desc.slice(0,150)+'…':r.desc;
-    const hasUrl=r.url&&r.url.length>5;
-    const rowClass=(r.cat==='nuclear_test'||r.cat==='nuclear_program')?' class="row-'+r.cat+'"':'';
-    const label=CAT_LABEL[r.cat]||r.cat;
-    const dot='<span class="leader-dot" style="background:'+( LEADER_COLOR[r.leader]||'#ccc')+'"></span>';
-    /* Use data-key on buttons — no inline string escaping needed */
-    return '<tr'+rowClass+' id="event-'+key+'">'
-      +'<td class="td-date">'+dot+r.date+'</td>'
-      +'<td><span class="type-badge badge-'+r.cat+'" data-sev="'+r.sev+'">'+label+'</span></td>'
-      +'<td class="td-event"><div class="td-event-wrap"><span>'+applyGlossary(hl(r.event))+'</span>'
-        +'</div></td>'
-      +'<td><div class="td-desc'+(isExp?'':' clamped')+'">'+(isExp?applyGlossary(hl(r.desc)):applyGlossary(hl(short)))+'</div>'
-        +(r.desc.length>150?'<button class="td-expand" data-key="'+key+'" onclick="toggleExpand(this)">'+(isExp?'Show less':'Show more')+'</button>':'')
-      +'</td>'
-      +'<td class="td-sev" aria-label="Severity '+r.sev+' of 5"><span class="sr-only">Severity '+r.sev+' of 5</span>'+sevHtml(r.sev)+'</td>'
-      +'<td class="td-source">'
-        +(hasUrl?'<a href="'+r.url+'" target="_blank" rel="noopener">'+r.source+'</a>':'<span>'+r.source+'</span>')
-        
-      +'</td>'
-    +'</tr>';
-  }).join('');
-}
-function toggleExpand(btn){
-  const key=btn.dataset.key;
-  if(expandedRows.has(key))expandedRows.delete(key);else expandedRows.add(key);
-  renderTable();
-  renderMobileCards();
-}
-
-function sevDotsHtml(s, small){
-  const sz = small ? '5px' : '7px';
-  const cls = s>=5?'var(--red)':s>=4?'var(--amber)':s>=3?'var(--navy-mid)':'var(--rule-strong)';
-  let h='<div class="m-sev">';
-  for(let i=1;i<=5;i++){
-    const col = i<=s ? (s>=5?'var(--red)':s>=4?'var(--amber)':s>=3?'var(--navy-mid)':'var(--navy)') : 'var(--rule-strong)';
-    h+='<div class="m-sev-dot" style="width:'+sz+';height:'+sz+';background:'+col+'"></div>';
-  }
-  return h+'</div>';
-}
-
-function renderMobileCards(){
-  const container = document.getElementById('mobileCards');
-  if(!container) return;
-  /* Only render on mobile */
-  if(window.innerWidth > 640) return;
-  const slice = filteredData.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
-  if(!slice.length){ container.innerHTML=''; return; }
-  const qRaw = document.getElementById('searchInput').value;
-  const hl = qRaw ? (str=>{
-    try{
-      const rx=new RegExp('('+qRaw.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
-      return str.replace(rx,'<mark style="background:var(--gold-light);padding:0 1px;border-radius:2px">$1</mark>');
-    }catch(e){return str;}
-  }) : (str=>str);
-
-    container.innerHTML = slice.map(r=>{
-    const key=(r.date+r.event).replace(/[^a-z0-9]/gi,'');
-    const isExp=expandedRows.has(key);
-    const hasUrl=r.url&&r.url.length>5;
-    const rowClass=(r.cat==='nuclear_test'||r.cat==='nuclear_program')?' row-'+r.cat:'';
-    const label=CAT_LABEL[r.cat]||r.cat;
-    const dot='<span class="leader-dot" style="background:'+(LEADER_COLOR[r.leader]||'#ccc')+'"></span>';
-    const descFull=applyGlossary(hl(r.desc));
-    const descShort=r.desc.length>220?applyGlossary(hl(r.desc.slice(0,220)+'…')):descFull;
-    const needsExpand=r.desc.length>220;
-
-    /* Severity dots */
-    let sevHtml='<div class="m-card-sev-wrap">';
-    const sevClass=r.sev>=5?'critical':r.sev>=4?'high':'';
-    for(let i=1;i<=5;i++) sevHtml+='<div class="m-sev-dot'+(i<=r.sev?' filled '+sevClass:'')+'"></div>';
-    sevHtml+='</div>';
-
-    return '<div class="m-card badge-'+r.cat+rowClass+'" id="event-'+key+'">'      +'<div class="m-card-inner">'        +'<div class="m-card-header">'          +'<span class="m-card-date">'+dot+r.date+'</span>'          +'<span class="type-badge badge-'+r.cat+'" data-sev="'+r.sev+'">'+label+'</span>'        +'</div>'        +'<div class="m-card-event">'+applyGlossary(hl(r.event))+'</div>'        +'<div class="m-card-desc'+(isExp?'':' clamped')+'">'+(isExp?descFull:descShort)+'</div>'        +'<div class="m-card-footer">'          +sevHtml          +'<div class="m-card-source">'+(hasUrl?'<a href="'+r.url+'" target="_blank" rel="noopener">'+r.source+'</a>':'<span>'+r.source+'</span>')+'</div>'          +(needsExpand?'<button class="m-expand-btn" data-key="'+key+'" onclick="toggleExpand(this)">'+(isExp?'Less ↑':'More ↓')+'</button>':'')        +'</div>'      +'</div>'    +'</div>';
-  }).join('');
-}
-
-function renderPagination(){
-  const total=Math.ceil(filteredData.length/PAGE_SIZE)||1;
-  document.getElementById('pageInfo').textContent=`Page ${currentPage} of ${total}`;
-  const btns=document.getElementById('pageBtns');
-  let h=`<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>←</button>`;
-  const pages=[];const seen=new Set();
-  for(let p=1;p<=total;p++){if(p===1||p===total||Math.abs(p-currentPage)<=1)pages.push(p);else if(Math.abs(p-currentPage)===2)pages.push('…');}
-  pages.forEach(p=>{if(seen.has(p))return;seen.add(p);h+=p==='…'?`<button class="page-btn" disabled>…</button>`:`<button class="page-btn${p===currentPage?' active':''}" onclick="goPage(${p})">${p}</button>`;});
-  h+=`<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===total?'disabled':''}>→</button>`;
-  btns.innerHTML=h;
-}
-
-function goPage(p){
-  const total=Math.ceil(filteredData.length/PAGE_SIZE)||1;
-  if(p<1||p>total) return;
-  currentPage=p;renderTable();renderMobileCards();renderPagination();
-  window.scrollTo({top:document.querySelector('.table-wrap').offsetTop-8,behavior:'smooth'});
-}
-
-function exportCSV(){
-  const rows=[['Date','Category','Event','Description','Severity (1-5)','Source','Source Type','Leader Era','URL']];
-  filteredData.forEach(r=>rows.push([
-    r.date,CAT_LABEL[r.cat]||r.cat,
-    '"'+r.event.replace(/"/g,'""')+'"',
-    '"'+r.desc.replace(/"/g,'""')+'"',
-    r.sev,r.source,SRC_LABEL[r.sourceType]||r.sourceType,
-    r.leader.replace(/_/g,' '),r.url||''
-  ]));
-  const a=document.createElement('a');
-  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(rows.map(r=>r.join(',')).join('\n'));
-  a.download='nk-provocations-'+new Date().toISOString().slice(0,10)+'.csv';
-  a.click();
-}
-
-/* ---- PERMALINK + CITE ---- */
-
-
-let activeCiteTab='chicago';
-
-function switchCiteTab(tab,btn){
-  activeCiteTab=tab;
-  document.querySelectorAll('.cite-tab-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.cite-pane').forEach(p=>p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('pane-'+tab).classList.add('active');
-}
-
-function openCiteByKey(btn){
-  const key=btn.dataset.key;
-  const r=RECORD_MAP.get(key);
-  if(!r) return;
-  openCiteRecord(r);
-}
-
-function openCiteRecord(r){
-  const key=(r.date+r.event).replace(/[^a-z0-9]/gi,'');
-  const date=r.date; const evtName=r.event; const url=r.url||'';
-  const baseUrl=window.location.href.split('#')[0]+'#event-'+key;
-  const accessed=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  const yr=date.slice(0,4);
-  const d=new Date(date+'T00:00:00');
-  const monthLong=d.toLocaleDateString('en-US',{month:'long'});
-  const monthShort=d.toLocaleDateString('en-US',{month:'short'});
-  const day=d.getDate();
-  const citeKey='CSISKoreaChair'+yr;
-
-  document.getElementById('citeChicago').innerHTML=
-    `CSIS Beyond Parallel. "${evtName}." <em>North Korean Provocations Database, 1958–2026</em>. Beyond Parallel. Center for Strategic and International Studies, ${monthLong} ${day}, ${yr}. Accessed ${accessed}. ${baseUrl}`;
-
-  document.getElementById('citeAPA').innerHTML=
-    `CSIS Beyond Parallel. (${yr}, ${monthLong} ${day}). <em>${evtName}</em>. <em>North Korean Provocations Database, 1958–2026</em>. Beyond Parallel, Center for Strategic and International Studies. ${baseUrl}`;
-
-  document.getElementById('citeMLA').innerHTML=
-    `"${evtName}." <em>North Korean Provocations Database, 1958–2026</em>, CSIS Beyond Parallel, Beyond Parallel, Center for Strategic and International Studies, ${day} ${monthShort}. ${yr}, ${baseUrl}. Accessed ${accessed}.`;
-
-  document.getElementById('citeBibTeX').textContent=
-`@misc{${citeKey},
-  author    = {{CSIS Beyond Parallel}},
-  title     = {${evtName}},
-  year      = {${yr}},
-  month     = {${monthShort}},
-  day       = {${day}},
-  howpublished = {\\url{${baseUrl}}},
-  note      = {North Korean Provocations Database, 1958--2026. Beyond Parallel, Center for Strategic and International Studies. Accessed ${accessed}},
-}`;
-
-  document.getElementById('citePermalink').textContent=baseUrl;
-  document.getElementById('citeModal').classList.add('open');
-}
-
-function closeCite(){document.getElementById('citeModal').classList.remove('open');}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCite();});
-
-function copyCite(type){
-  const ids={chicago:'citeChicago',apa:'citeAPA',mla:'citeMLA',bibtex:'citeBibTeX',permalink:'citePermalink'};
-  const text=document.getElementById(ids[type]).textContent;
-  navigator.clipboard.writeText(text).then(()=>toast('✓ Citation copied'));
-}
-
-/* ---- URL HASH STATE ---- */
+/* ===== URL STATE ===== */
 function encodeState(){
-  const p=[];
-  if(activeCategories.size>0) p.push('cat='+[...activeCategories].join(','));
-  const q=document.getElementById('searchInput').value;
-  if(q) p.push('q='+encodeURIComponent(q));
-  const l=document.getElementById('leaderFilter').value;
-  if(l) p.push('leader='+l);
-  const pr=document.getElementById('presFilter').value;
-  if(pr) p.push('pres='+pr);
-  const mf=document.getElementById('monthFromInput')?.value||'';
-  const mt=document.getElementById('monthToInput')?.value||'';
-  if(mf) p.push('mfrom='+mf); else { const yf=document.getElementById('yearFromFilter').value; if(yf) p.push('from='+yf); }
-  if(mt) p.push('mto='+mt);   else { const yt=document.getElementById('yearToFilter').value;   if(yt) p.push('to='+yt);   }
-  const sv=document.getElementById('sevFilter').value;
-  if(sv) p.push('sev='+sv);
-  return p.length?'#'+p.join('&'):'#';
+ const p=new URLSearchParams();
+ if(state.q)p.set('q',state.q);
+ if(state.cats.size)p.set('cat',[...state.cats].join(','));
+ if(state.leader)p.set('leader',state.leader);
+ if(state.pres)p.set('pres',state.pres);
+ if(state.yearFrom)p.set('from',state.yearFrom);
+ if(state.yearTo)p.set('to',state.yearTo);
+ if(state.sort!=='date'||state.dir!=='desc')p.set('sort',state.sort+'.'+state.dir);
+ if(state.page>1)p.set('p',state.page);
+ if(state.tab!=='database')p.set('tab',state.tab);
+ if(state.event)p.set('event',state.event);
+ const s=p.toString();
+ history.replaceState(null,'', s?('?'+s):location.pathname);
+}
+function decodeState(){
+ const p=new URLSearchParams(location.search);
+ state.q=p.get('q')||'';
+ state.cats=new Set((p.get('cat')||'').split(',').filter(Boolean));
+ state.leader=p.get('leader')||'';state.pres=p.get('pres')||'';
+ state.yearFrom=p.get('from')||'';state.yearTo=p.get('to')||'';
+ const so=p.get('sort');if(so){const[s,d]=so.split('.');state.sort=s;state.dir=d||'desc';}
+ state.page=Math.max(1,parseInt(p.get('p')||'1',10));
+ state.tab=p.get('tab')||'database';state.event=p.get('event')||'';
 }
 
-function restoreState(){
-  if(!location.hash||location.hash==='#') return;
-  // handle event permalink anchor
-  if(location.hash.startsWith('#event-')){
-    setTimeout(()=>{
-      const el=document.getElementById(location.hash.slice(1));
-      if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
-    },400);
-    return;
-  }
-  const params={};
-  location.hash.slice(1).split('&').forEach(pair=>{
-    const [k,v]=pair.split('=');
-    if(k) params[k]=decodeURIComponent(v||'');
-  });
-  if(params.q) document.getElementById('searchInput').value=params.q;
-  if(params.leader) document.getElementById('leaderFilter').value=params.leader;
-  if(params.pres) document.getElementById('presFilter').value=params.pres;
-  if(params.from) document.getElementById('yearFromFilter').value=params.from;
-  if(params.to) document.getElementById('yearToFilter').value=params.to;
-  if(params.mfrom && document.getElementById('monthFromInput')) document.getElementById('monthFromInput').value=params.mfrom;
-  if(params.mto   && document.getElementById('monthToInput'))   document.getElementById('monthToInput').value=params.mto;
-  if(params.sev) document.getElementById('sevFilter').value=params.sev;
-  if(params.cat&&params.cat!=='all'){
-    document.getElementById('pill-all').classList.remove('active');
-    document.getElementById('pill-all').classList.add('inactive');
-    params.cat.split(',').forEach(cat=>{
-      activeCategories.add(cat);
-      const pel=document.getElementById('pill-'+cat);
-      if(pel) pel.classList.add('active');
-    });
-  }
+/* ===== FILTERING ===== */
+function matches(r){
+ if(state.cats.size && !state.cats.has(r.cat))return false;
+ if(state.leader && r.leader!==state.leader)return false;
+ if(state.pres){const y=+r.date.slice(0,4);if(presForYear(y)!==state.pres)return false;}
+ const y=+r.date.slice(0,4);
+ if(state.yearFrom && y<+state.yearFrom)return false;
+ if(state.yearTo && y>+state.yearTo)return false;
+ if(state.q){const t=(r.event+' '+r.desc+' '+r.source).toLowerCase();if(!t.includes(state.q.toLowerCase()))return false;}
+ return true;
+}
+function applyFilters(){
+ filtered=RECORDS.filter(matches);
+ filtered.sort((a,b)=>{
+   let x,y;
+   if(state.sort==='cat'){x=CAT_LABEL[a.cat]||a.cat;y=CAT_LABEL[b.cat]||b.cat;}
+   else{x=a.date;y=b.date;}
+   if(x<y)return state.dir==='asc'?-1:1;
+   if(x>y)return state.dir==='asc'?1:-1;
+   return a.date>b.date?-1:1;
+ });
+ const maxp=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE));
+ if(state.page>maxp)state.page=maxp;
+ renderResultline();renderTable();renderCards();renderPager();renderCatCounts();
+ encodeState();
 }
 
-function copyLink(){
-  const url=window.location.href.split('#')[0]+encodeState();
-  navigator.clipboard.writeText(url).then(()=>{
-    ['copyBtn','footerCopyBtn'].forEach(id=>{
-      const b=document.getElementById(id);
-      if(b){const o=b.textContent;b.textContent='✓ Copied';setTimeout(()=>b.textContent=o,2000);}
-    });
-  });
+/* ===== ID / HIGHLIGHT ===== */
+function eventId(r){return (r.date+'-'+r.event).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,60);}
+function hl(str){
+ if(!state.q)return esc(str);
+ try{const rx=new RegExp('('+state.q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');return esc(str).replace(new RegExp('('+state.q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>');}catch(e){return esc(str);}
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+/* ===== RENDER: masthead / about ===== */
+function renderMeta(){
+ STATS=stats();
+ document.getElementById('standfirst').textContent='A record of '+STATS.total+' documented provocations — missile launches, nuclear tests, armed incursions, cyber operations and hybrid actions — across three generations of the Kim regime.';
+ const d=new Date(STATS.latest+'T00:00:00');
+ document.getElementById('updatedLine').textContent='Updated '+d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+ document.getElementById('aboutTotal').textContent=STATS.total;
+ document.getElementById('aboutDeaths').textContent=ESTIMATED_DEATHS;
+ document.getElementById('aboutCats').textContent=CAT_ORDER.map(c=>CAT_LABEL[c]+' ('+STATS.byCat[c]+')').join(', ')+'.';
+ document.getElementById('chartNote').textContent='Activity has accelerated sharply under Kim Jong-un, peaking at '+STATS.peakCount+' events in '+STATS.peakYear+' — dominated by missile launches.';
 }
 
-function toast(msg){
-  const t=document.getElementById('bpToast');
-  t.textContent=msg;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2500);
+/* ===== RENDER: chart (inline SVG) ===== */
+const CH={W:1000,H:210,L:6,R:994,T:14,B:158};
+function buildChart(){
+ const m=YMATRIX;const[mn,mx]=yearsRange();const maxc=75;
+ const band=(CH.R-CH.L)/(mx-mn+1);const bw=Math.min(11,band-3);
+ const bx=yr=>CH.L+(yr-mn)*band+(band-bw)/2;
+ const by=c=>CH.B-(c/maxc)*(CH.B-CH.T);
+ let svg='';
+ [25,50,70].forEach(g=>{const y=by(g);svg+=`<line x1="${CH.L}" x2="${CH.R}" y1="${y}" y2="${y}" stroke="var(--grid)" stroke-width="1"/><text x="${CH.L}" y="${y-3}" class="axnum">${g}</text>`;});
+ const activeCats=CAT_ORDER.filter(c=>!chartHidden.has(c));
+ m.forEach(row=>{
+   let y0=CH.B;const last=CAT_ORDER.filter(c=>row[c]>0&&!chartHidden.has(c)).slice(-1)[0];
+   CAT_ORDER.forEach(c=>{
+     if(chartHidden.has(c))return;const v=row[c];if(!v)return;
+     const h=(v/maxc)*(CH.B-CH.T);const gap=h>2.6?1.3:0;const top=y0-h;
+     svg+=`<rect x="${bx(row.year).toFixed(1)}" y="${(top+gap).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h-gap,0.6).toFixed(1)}" rx="${c===last?1.5:0}" fill="var(--c${CAT_SLOT[c]})"/>`;
+     y0-=h;
+   });
+ });
+ svg+=`<line x1="${CH.L}" x2="${CH.R}" y1="${CH.B}" y2="${CH.B}" stroke="var(--axis)" stroke-width="1"/>`;
+ [1994,2011].forEach(yr=>{const x=bx(yr);svg+=`<line x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="${CH.T}" y2="${CH.B+6}" stroke="var(--hair2)" stroke-width="1"/>`;});
+ LEADERS.forEach(l=>{if(l.end<mn)return;const s=Math.max(l.start,mn),e=Math.min(l.end,mx+1);const xc=(bx(s)+bx(e))/2;svg+=`<text x="${xc.toFixed(1)}" y="190" class="eralab" onclick="filterLeader('${l.id}')">${l.label}</text>`;});
+ for(let yr=1960;yr<=2020;yr+=10){svg+=`<text x="${(bx(yr)+bw/2).toFixed(1)}" y="174" class="axtick">${yr}</text>`;}
+ const px=bx(+STATS.peakYear)+bw/2, py=by(STATS.peakCount);
+ svg+=`<text x="${px.toFixed(1)}" y="${(py-7).toFixed(1)}" class="peak">${STATS.peakYear} · ${STATS.peakCount}</text>`;
+ // hover bands
+ m.forEach(row=>{svg+=`<rect class="hoverband" x="${(CH.L+(row.year-mn)*band).toFixed(1)}" y="${CH.T}" width="${band.toFixed(1)}" height="${CH.B-CH.T}" data-year="${row.year}"/>`;});
+ document.getElementById('chart').innerHTML=`<svg viewBox="0 0 ${CH.W} ${CH.H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="North Korean provocations per year by category, ${mn} to ${mx}, peaking at ${STATS.peakCount} in ${STATS.peakYear}">${svg}</svg>`;
+ wireChart();
+ renderLegend();
+}
+const chartHidden=new Set();
+function renderLegend(){
+ document.getElementById('legend').innerHTML=CAT_ORDER.map(c=>`<span class="lg${chartHidden.has(c)?' off':''}" onclick="toggleChartCat('${c}')" role="button" tabindex="0"><span class="lgdot" style="background:var(--c${CAT_SLOT[c]})"></span>${CAT_LABEL[c]}</span>`).join('');
+}
+function toggleChartCat(c){if(chartHidden.has(c))chartHidden.delete(c);else chartHidden.add(c);buildChart();}
+function wireChart(){
+ const tip=document.getElementById('chartTip');const holder=document.getElementById('chartHolder');
+ const[mn,mx]=yearsRange();
+ document.querySelectorAll('#chart .hoverband').forEach(b=>{
+   b.addEventListener('mousemove',e=>{
+     const yr=+b.dataset.year;const row=YMATRIX[yr-mn];if(!row)return;
+     let rows='';let tot=0;
+     CAT_ORDER.forEach(c=>{if(row[c]>0){tot+=row[c];rows+=`<div class="tt-row"><span class="k"><i style="background:var(--c${CAT_SLOT[c]})"></i>${CAT_LABEL[c]}</span><b>${row[c]}</b></div>`;}});
+     if(!tot){tip.classList.remove('show');return;}
+     tip.innerHTML=`<div class="tt-year">${yr}</div>${rows}<div class="tt-row tt-tot"><span>Total</span><b>${tot}</b></div>`;
+     const hr=holder.getBoundingClientRect();const br=b.getBoundingClientRect();
+     let left=br.left-hr.left+br.width/2;left=Math.max(0,Math.min(left,hr.width-170));
+     tip.style.left=left+'px';tip.style.top=(br.top-hr.top+10)+'px';
+     tip.classList.add('show');
+   });
+   b.addEventListener('mouseleave',()=>tip.classList.remove('show'));
+   b.addEventListener('click',()=>{const yr=b.dataset.year;state.yearFrom=yr;state.yearTo=yr;state.page=1;syncControls();applyFilters();document.getElementById('resultline').scrollIntoView({behavior:'smooth',block:'start'});});
+ });
 }
 
-function shareX(){
-  const txt='North Korean Provocations Database (1958–2026) — 483 verified events compiled by @BeyondParallel @CSIS';
-  const url=window.location.href.split('#')[0]+encodeState();
-  window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt)+'&url='+encodeURIComponent(url),'_blank','noopener');
+/* ===== RENDER: filters UI ===== */
+function buildControls(){
+ const[mn,mx]=yearsRange();
+ const yF=document.getElementById('yearFrom'),yT=document.getElementById('yearTo');
+ let o='<option value="">From year</option>';for(let y=mn;y<=mx;y++)o+=`<option value="${y}">${y}</option>`;yF.innerHTML=o;
+ o='<option value="">To year</option>';for(let y=mn;y<=mx;y++)o+=`<option value="${y}">${y}</option>`;yT.innerHTML=o;
+ const lf=document.getElementById('leaderFilter');lf.innerHTML='<option value="">All leaders</option>'+LEADERS.map(l=>`<option value="${l.id}">${l.label} (${l.start}–${l.end===2027?'':l.end})</option>`).join('');
+ const pf=document.getElementById('presFilter');pf.innerHTML='<option value="">All U.S. presidents</option>'+US_PRES.map(p=>`<option value="${p.id}">${p.label}</option>`).join('');
+ renderCatButtons();
+}
+function renderCatButtons(){
+ const row=document.getElementById('catrow');
+ let h=`<button class="catbtn" aria-pressed="${state.cats.size===0}" onclick="setCat('')">All <span class="cct">${RECORDS.length}</span></button>`;
+ h+=CAT_ORDER.map(c=>`<button class="catbtn" aria-pressed="${state.cats.has(c)}" onclick="setCat('${c}')"><span class="cdot" style="background:var(--c${CAT_SLOT[c]})"></span>${CAT_LABEL[c]} <span class="cct" id="cct-${c}"></span></button>`).join('');
+ row.innerHTML=h;
+}
+function renderCatCounts(){
+ CAT_ORDER.forEach(c=>{const e=document.getElementById('cct-'+c);if(e)e.textContent=STATS.byCat[c];});
+}
+function setCat(c){
+ if(c===''){state.cats.clear();}
+ else{if(state.cats.has(c))state.cats.delete(c);else state.cats.add(c);}
+ state.page=1;renderCatButtons();applyFilters();
+}
+function syncControls(){
+ document.getElementById('q').value=state.q;
+ document.getElementById('leaderFilter').value=state.leader;
+ document.getElementById('presFilter').value=state.pres;
+ document.getElementById('yearFrom').value=state.yearFrom;
+ document.getElementById('yearTo').value=state.yearTo;
+ document.getElementById('ar-date').textContent=state.sort==='date'?(state.dir==='asc'?'↑':'↓'):'↕';
+ document.getElementById('ar-cat').textContent=state.sort==='cat'?(state.dir==='asc'?'↑':'↓'):'↕';
+ renderCatButtons();
+}
+function onFilter(){
+ state.q=document.getElementById('q').value;
+ state.leader=document.getElementById('leaderFilter').value;
+ state.pres=document.getElementById('presFilter').value;
+ state.yearFrom=document.getElementById('yearFrom').value;
+ state.yearTo=document.getElementById('yearTo').value;
+ state.page=1;applyFilters();
+}
+function setSort(col){
+ if(state.sort===col)state.dir=state.dir==='asc'?'desc':'asc';
+ else{state.sort=col;state.dir=col==='date'?'desc':'asc';}
+ document.querySelector('th[onclick*="date"]').setAttribute('aria-sort',state.sort==='date'?(state.dir==='asc'?'ascending':'descending'):'none');
+ document.querySelector('th[onclick*="cat"]').setAttribute('aria-sort',state.sort==='cat'?(state.dir==='asc'?'ascending':'descending'):'none');
+ syncControls();applyFilters();
+}
+function filterLeader(id){showTab('database');state.leader=state.leader===id?'':id;state.page=1;syncControls();applyFilters();document.getElementById('resultline').scrollIntoView({behavior:'smooth',block:'start'});}
+function filterPres(id){showTab('database');state.pres=state.pres===id?'':id;state.page=1;syncControls();applyFilters();document.getElementById('resultline').scrollIntoView({behavior:'smooth',block:'start'});}
+function clearFilters(){state.q='';state.cats.clear();state.leader='';state.pres='';state.yearFrom='';state.yearTo='';state.page=1;syncControls();applyFilters();}
+
+/* ===== RENDER: result line ===== */
+function renderResultline(){
+ const el=document.getElementById('resultline');const n=filtered.length;
+ const active=state.q||state.cats.size||state.leader||state.pres||state.yearFrom||state.yearTo;
+ let parts=[];
+ if(active)parts.push(`<span><b>${n.toLocaleString()}</b> of ${RECORDS.length} events</span>`);
+ else parts.push(`<span>All <b>${RECORDS.length}</b> events</span>`);
+ const chips=[];
+ if(state.q)chips.push('“'+esc(state.q)+'”');
+ [...state.cats].forEach(c=>chips.push(CAT_LABEL[c]));
+ if(state.leader)chips.push(LEADER_LABEL[state.leader]);
+ if(state.pres)chips.push(PRES_LABEL[state.pres]);
+ if(state.yearFrom||state.yearTo)chips.push((state.yearFrom||'…')+'–'+(state.yearTo||'…'));
+ if(chips.length)parts.push('<span>· filtered by '+chips.map(esc).join(', ')+'</span>');
+ if(active)parts.push('<button class="clearall" onclick="clearFilters()">Clear all</button>');
+ el.innerHTML=parts.join(' ');
 }
 
-function shareBluesky(){
-  const txt='North Korean Provocations Database (1958–2026) — 483 verified events, filterable by category, era, and US president. Via @beyondparallel.csis.org';
-  const url=window.location.href.split('#')[0]+encodeState();
-  window.open('https://bsky.app/intent/compose?text='+encodeURIComponent(txt+' '+url),'_blank','noopener');
+/* ===== RENDER: table & cards ===== */
+function pageSlice(){return filtered.slice((state.page-1)*PAGE_SIZE,state.page*PAGE_SIZE);}
+function rowActions(r,id){
+ return `<div class="rowacts"><button onclick="copyPermalink('${id}')">Link</button><button onclick="citeEvent('${id}')">Cite</button></div>`;
+}
+function renderTable(){
+ const tb=document.getElementById('tbody');const slice=pageSlice();
+ document.getElementById('empty').style.display=slice.length?'none':'block';
+ document.getElementById('tbl').style.display=slice.length?'':'none';
+ tb.innerHTML=slice.map(r=>{
+   const id=eventId(r);const hasU=r.url&&r.url.length>5;const isE=expanded.has(id);
+   return `<tr id="ev-${id}"${state.event===id?' class="hl"':''}>`+
+     `<td class="c-date">${r.date}</td>`+
+     `<td class="c-event"><div class="ev">${hl(r.event)}</div><div class="de${isE?'':' clamp'}">${hl(r.desc)}</div>`+
+       (r.desc.length>150?`<div class="rowacts"><button onclick="toggleExp('${id}')">${isE?'Less':'More'}</button><button onclick="copyPermalink('${id}')">Link</button><button onclick="citeEvent('${id}')">Cite</button></div>`:rowActions(r,id))+
+     `</td>`+
+     `<td class="c-cat"><span class="dot" style="background:var(--c${CAT_SLOT[r.cat]})"></span>${CAT_LABEL[r.cat]||r.cat}</td>`+
+     `<td class="c-src">${hasU?`<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.source)}</a>`:esc(r.source)}</td>`+
+   `</tr>`;
+ }).join('');
+}
+function renderCards(){
+ const c=document.getElementById('cards');const slice=pageSlice();
+ c.innerHTML=slice.map(r=>{
+   const id=eventId(r);const hasU=r.url&&r.url.length>5;const isE=expanded.has(id);
+   const desc=isE?r.desc:(r.desc.length>220?r.desc.slice(0,220)+'…':r.desc);
+   return `<div class="card" id="evc-${id}">`+
+     `<div class="top"><span class="cdate">${r.date}</span><span class="ccat"><span class="dot" style="background:var(--c${CAT_SLOT[r.cat]})"></span>${CAT_LABEL[r.cat]||r.cat}</span></div>`+
+     `<div class="cev">${hl(r.event)}</div><div class="cde">${hl(desc)}</div>`+
+     `<div class="cft">`+(hasU?`<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.source)}</a>`:`<span>${esc(r.source)}</span>`)+
+       (r.desc.length>220?`<button onclick="toggleExp('${id}')">${isE?'Less':'More'}</button>`:'')+
+       `<button onclick="citeEvent('${id}')">Cite</button><button onclick="copyPermalink('${id}')">Link</button></div>`+
+   `</div>`;
+ }).join('');
+}
+function toggleExp(id){if(expanded.has(id))expanded.delete(id);else expanded.add(id);renderTable();renderCards();}
+function renderPager(){
+ const maxp=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE));
+ const from=filtered.length?((state.page-1)*PAGE_SIZE+1):0;const to=Math.min(state.page*PAGE_SIZE,filtered.length);
+ document.getElementById('pinfo').textContent=filtered.length?`${from.toLocaleString()}–${to.toLocaleString()} of ${filtered.length.toLocaleString()}`:'';
+ const b=document.getElementById('pbtns');
+ if(maxp<=1){b.innerHTML='';return;}
+ let h=`<button onclick="goPage(${state.page-1})"${state.page<=1?' disabled':''}>‹</button>`;
+ const pages=pageList(state.page,maxp);
+ pages.forEach(p=>{h+=p==='…'?'<button disabled>…</button>':`<button onclick="goPage(${p})"${p===state.page?' aria-current="true"':''}>${p}</button>`;});
+ h+=`<button onclick="goPage(${state.page+1})"${state.page>=maxp?' disabled':''}>›</button>`;
+ b.innerHTML=h;
+}
+function pageList(cur,max){const out=[];const add=(a,b)=>{for(let i=a;i<=b;i++)out.push(i);};if(max<=7){add(1,max);return out;}out.push(1);if(cur>3)out.push('…');add(Math.max(2,cur-1),Math.min(max-1,cur+1));if(cur<max-2)out.push('…');out.push(max);return out;}
+function goPage(p){const maxp=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE));state.page=Math.max(1,Math.min(p,maxp));renderTable();renderCards();renderPager();encodeState();window.scrollTo({top:document.getElementById('resultline').offsetTop-10,behavior:'smooth'});}
+
+/* ===== SUMMARY TABLES ===== */
+function renderSummaries(){
+ const lead={};LEADERS.forEach(l=>lead[l.id]={tot:0});CAT_ORDER.forEach(c=>LEADERS.forEach(l=>lead[l.id][c]=0));
+ const pres={};US_PRES.forEach(p=>{pres[p.id]={tot:0};CAT_ORDER.forEach(c=>pres[p.id][c]=0);});
+ RECORDS.forEach(r=>{const y=+r.date.slice(0,4);if(lead[r.leader]){lead[r.leader][r.cat]++;lead[r.leader].tot++;}const pid=presForYear(y);if(pres[pid]){pres[pid][r.cat]++;pres[pid].tot++;}});
+ const head='<thead><tr><th>'+'</th>'+CAT_ORDER.map(c=>`<th title="${CAT_LABEL[c]}">${CAT_LABEL[c].split(' ')[0]}</th>`).join('')+'<th>Total</th></tr></thead>';
+ let lt='<caption>By DPRK leader — click to filter</caption>'+head+'<tbody>';
+ LEADERS.forEach(l=>{const d=lead[l.id];lt+=`<tr onclick="filterLeader('${l.id}')"><td class="nm">${l.label} <span class="yr">${l.start}–${l.end===2027?'':l.end}</span></td>`+CAT_ORDER.map(c=>`<td class="${d[c]?'':'zero'}">${d[c]||'—'}</td>`).join('')+`<td class="tot">${d.tot}</td></tr>`;});
+ lt+='</tbody>';document.getElementById('leaderTbl').innerHTML=lt;
+ let pt='<caption>By U.S. president — click to filter</caption>'+head+'<tbody>';
+ US_PRES.forEach(p=>{const d=pres[p.id];if(!d.tot)return;pt+=`<tr onclick="filterPres('${p.id}')"><td class="nm">${p.label} <span class="yr">${p.start}–${p.end>=2030?'':p.end}</span></td>`+CAT_ORDER.map(c=>`<td class="${d[c]?'':'zero'}">${d[c]||'—'}</td>`).join('')+`<td class="tot">${d.tot}</td></tr>`;});
+ pt+='</tbody>';document.getElementById('presTbl').innerHTML=pt;
 }
 
-function shareFacebook(){
-  const url=window.location.href.split('#')[0]+encodeState();
-  window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url),'_blank','noopener');
+/* ===== TABS ===== */
+function showTab(t){
+ state.tab=t;
+ ['database','breakdown','about'].forEach(x=>document.getElementById('panel-'+x).classList.toggle('on',x===t));
+ document.querySelectorAll('nav.sec button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t?'true':'false'));
+ encodeState();
 }
 
-function shareLinkedIn(){
-  const url=window.location.href.split('#')[0]+encodeState();
-  window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(url),'_blank','noopener');
+/* ===== CITATION ===== */
+let citeCur=null,citeFmt='chicago';
+function fmtCite(r,fmt){
+ const org='CSIS Korea Chair';
+ if(r==='DB'){
+   const url=location.origin+location.pathname;
+   if(fmt==='chicago')return `CSIS Korea Chair. "North Korean Provocations Database, 1958–2026." Beyond Parallel. Center for Strategic and International Studies, 2026. ${url}.`;
+   if(fmt==='apa')return `CSIS Korea Chair. (2026). North Korean provocations database, 1958–2026. Beyond Parallel. Center for Strategic and International Studies. ${url}`;
+   if(fmt==='mla')return `CSIS Korea Chair. "North Korean Provocations Database, 1958–2026." Beyond Parallel, Center for Strategic and International Studies, 2026, ${url}.`;
+   return `@misc{csis_nk_provocations,\n  author = {{CSIS Korea Chair}},\n  title = {North Korean Provocations Database, 1958--2026},\n  year = {2026},\n  publisher = {Center for Strategic and International Studies, Beyond Parallel},\n  url = {${url}}\n}`;
+ }
+ const url=location.origin+location.pathname+'?event='+eventId(r);
+ const yr=r.date.slice(0,4);const title=r.event;
+ if(fmt==='chicago')return `${org}. "${title}, ${r.date}." North Korean Provocations Database. Beyond Parallel, CSIS, ${yr}. ${url}. Source: ${r.source}.`;
+ if(fmt==='apa')return `${org}. (${yr}). ${title}, ${r.date} [Database entry]. North Korean Provocations Database, Beyond Parallel, CSIS. ${url}`;
+ if(fmt==='mla')return `${org}. "${title}, ${r.date}." North Korean Provocations Database, Beyond Parallel, CSIS, ${yr}, ${url}.`;
+ return `@misc{nk_${eventId(r).replace(/-/g,'_')},\n  author = {{${org}}},\n  title = {${title}, ${r.date}},\n  year = {${yr}},\n  publisher = {Beyond Parallel, CSIS},\n  howpublished = {North Korean Provocations Database},\n  url = {${url}}\n}`;
 }
-
-
-function copyDbCite(){
-  const accessed = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  const year = new Date().getFullYear();
-  const text='CSIS Beyond Parallel. North Korean Provocations Database, 1958–'+year+'. Beyond Parallel. Center for Strategic and International Studies, '+year+'. beyondparallel.csis.org/database-north-korean-provocations/. Accessed '+accessed+'.';
-  navigator.clipboard.writeText(text).then(()=>toast('✓ Database citation copied'));
+function openCite(target,title){
+ citeCur=target;citeFmt='chicago';
+ document.getElementById('citeTitle').textContent=title;
+ document.getElementById('citeTabs').innerHTML=['chicago','apa','mla','bibtex'].map(f=>`<button class="${f==='chicago'?'on':''}" data-fmt="${f}" onclick="setCiteFmt('${f}')">${f==='bibtex'?'BibTeX':f.toUpperCase()}</button>`).join('');
+ renderCite();
+ document.getElementById('citeModal').classList.add('on');
 }
+function setCiteFmt(f){citeFmt=f;document.querySelectorAll('#citeTabs button').forEach(b=>b.classList.toggle('on',b.dataset.fmt===f));renderCite();}
+function renderCite(){const t=document.getElementById('citeText');t.textContent=fmtCite(citeCur,citeFmt);t.classList.toggle('mono',citeFmt==='bibtex');}
+function citeEvent(id){const r=RECORDS.find(x=>eventId(x)===id);if(r)openCite(r,r.event);}
+function citeDatabase(){openCite('DB','Cite this database');}
+function closeCite(){document.getElementById('citeModal').classList.remove('on');}
+function copyCite(){navigator.clipboard.writeText(document.getElementById('citeText').textContent).then(()=>toast('Citation copied'));}
 
-function exportJSON(){
-  const a=document.createElement('a');
-  a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(filteredData,null,2));
-  a.download='nk-provocations-'+new Date().toISOString().slice(0,10)+'.json';
-  a.click();
+/* ===== PERMALINK / SHARE / EXPORT ===== */
+function copyPermalink(id){const u=location.origin+location.pathname+'?event='+id;navigator.clipboard.writeText(u).then(()=>toast('Link copied'));state.event=id;encodeState();}
+function shareDb(){const u=location.href;if(navigator.share){navigator.share({title:'North Korean Provocations, 1958–2026',url:u}).catch(()=>{});}else{navigator.clipboard.writeText(u).then(()=>toast('Link copied'));}}
+function exportCSV(){
+ const cols=['date','cat','event','desc','source','sourceType','url','leader'];
+ const rows=filtered.length?filtered:RECORDS;
+ let csv=cols.join(',')+'\n';
+ rows.forEach(r=>{csv+=cols.map(k=>{let v=(r[k]==null?'':String(r[k]));if(/[",\n]/.test(v))v='"'+v.replace(/"/g,'""')+'"';return v;}).join(',')+'\n';});
+ dl(csv,'nk-provocations.csv','text/csv');
 }
+function exportJSON(){const rows=filtered.length?filtered:RECORDS;dl(JSON.stringify(rows,null,2),'nk-provocations.json','application/json');}
+function dl(data,name,type){const b=new Blob([data],{type});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
 
-/* ---- MOBILE FILTER TOGGLE ---- */
-let filterBarVisible=window.innerWidth>640;
-function toggleFilterBar(){
-  filterBarVisible=!filterBarVisible;
-  const bar=document.getElementById('filterBar');
-  const btn=document.getElementById('filterToggleBtn');
-  bar.style.display=filterBarVisible?'':'none';
-  btn.classList.toggle('active',filterBarVisible);
-}
+/* ===== THEME ===== */
+function curTheme(){return document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light';}
+function toggleTheme(){const n=curTheme()==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('bp-theme',n);}catch(e){}updateThemeBtn();buildChart();}
+function updateThemeBtn(){const b=document.getElementById('themeToggle');const d=curTheme()==='dark';b.textContent=d?'☀ Light':'☾ Dark';b.setAttribute('aria-pressed',d);}
 
-function updateFilterBadge(){
-  let count=0;
-  if(activeCategories.size>0) count+=activeCategories.size;
-  ['searchInput','leaderFilter','presFilter','yearFromFilter','yearToFilter','sevFilter'].forEach(id=>{
-    if(document.getElementById(id)?.value) count++;
-  });
-  const badge=document.getElementById('filterBadge');
-  badge.textContent=count;
-  badge.classList.toggle('show',count>0);
-  document.getElementById('filterToggleBtn').classList.toggle('active',count>0);
-}
-
-/* ---- BACK TO TOP ---- */
-window.addEventListener('scroll',()=>{
-  document.getElementById('backToTop').classList.toggle('visible',window.scrollY>400);
-},{passive:true});
-window.addEventListener('resize',()=>{
-  renderMobileCards();
-  renderTable();
-},{passive:true});
-
-/* ── GLOSSARY ── */
-const GLOSSARY = {
-  'ICBM':  "Intercontinental Ballistic Missile — range >5,500 km; capable of striking the continental US",
-  'IRBM':  "Intermediate-Range Ballistic Missile — range 3,000–5,500 km",
-  'MRBM':  "Medium-Range Ballistic Missile — range 1,000–3,000 km",
-  'SRBM':  "Short-Range Ballistic Missile — range <1,000 km",
-  'SLBM':  "Submarine-Launched Ballistic Missile — launched from underwater vessels",
-  'MLRS':  "Multiple Launch Rocket System — fires salvos of unguided or guided rockets",
-  'MIRV':  "Multiple Independently Targetable Reentry Vehicle — single missile carrying multiple warheads",
-  'THAAD': "Terminal High Altitude Area Defense — US/ROK anti-ballistic missile system",
-  'NLL':   "Northern Limit Line — de facto maritime border between North and South Korea in the Yellow Sea",
-  'DMZ':   "Demilitarized Zone — 4 km-wide buffer separating North and South Korea since 1953",
-  'KN-25': "600mm super-large multiple rocket launcher; may carry tactical nuclear warheads",
-  'KCNA':  "Korean Central News Agency — North Korea official state news outlet",
-  'EEZ':   "Exclusive Economic Zone — maritime zone extending 200 nautical miles from a coast",
-  'NPT':   "Nuclear Non-Proliferation Treaty — international agreement limiting spread of nuclear weapons",
-  'KAL':   "Korean Air Lines — South Korean national carrier; target of multiple DPRK terror attacks",
-  'MDL':   "Military Demarcation Line — the precise line within the DMZ dividing the two Koreas",
-  'CRBM':  "Close-Range Ballistic Missile — range <300 km, used for battlefield targeting",
-  'UAV':   "Unmanned Aerial Vehicle — drone; used by DPRK for reconnaissance and psyops incursions",
-};;
-
-function applyGlossary(str){
-  /* Wrap known acronyms with tooltip spans — only if not already wrapped */
-  const terms = Object.keys(GLOSSARY).sort((a,b)=>b.length-a.length);
-  terms.forEach(t=>{
-    const rx = new RegExp('\\b('+t+')\\b(?![^<]*>)(?![^<]*class="gloss")','g');
-    const def = GLOSSARY[t].replace(/"/g,'&quot;');
-    str = str.replace(rx, '<span class="gloss" data-def="'+def+'">$1</span>');
-  });
-  return str;
-}
-
-/* ── PAGE SIZE ── */
-let PAGE_SIZE = 25;
-function changePageSize(val){
-  PAGE_SIZE = parseInt(val)||15;
-  currentPage = 1;
-  renderTable();
-  renderPagination();
-}
-
-/* ── CHART PNG DOWNLOAD ── */
-function downloadChart(){
-  const canvas = document.getElementById('barChart');
-  /* Compose on offscreen canvas with white bg */
-  const off = document.createElement('canvas');
-  off.width = canvas.width; off.height = canvas.height;
-  const ctx2 = off.getContext('2d');
-  ctx2.fillStyle = '#ffffff';
-  ctx2.fillRect(0,0,off.width,off.height);
-  ctx2.drawImage(canvas,0,0);
-  const a = document.createElement('a');
-  a.href = off.toDataURL('image/png');
-  a.download = 'nk-provocations-chart-'+new Date().toISOString().slice(0,10)+'.png';
-  a.click();
-}
-
-function toggleShareMenu(btn){
-  const dd=document.getElementById('shareDropdown');
-  dd.classList.toggle('open');
-  /* close on outside click */
-  if(dd.classList.contains('open')){
-    setTimeout(()=>document.addEventListener('click',function h(e){
-      if(!dd.contains(e.target)&&e.target!==btn){dd.classList.remove('open');document.removeEventListener('click',h);}
-    }),0);
-  }
-}
-function closeShareMenu(){document.getElementById('shareDropdown').classList.remove('open');}
-
-/* Keyboard shortcut: / focuses search */
+/* ===== MISC ===== */
+let toastT;
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),1900);}
+window.addEventListener('scroll',()=>{document.getElementById('totop').classList.toggle('on',window.scrollY>500);});
 document.addEventListener('keydown',e=>{
-  if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='SELECT'){
-    e.preventDefault();
-    const s=document.getElementById('searchInput');
-    if(s){s.focus();s.select();}
-  }
+ if(e.key==='Escape')closeCite();
+ if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){e.preventDefault();document.getElementById('q').focus();}
+ if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('lg')){e.preventDefault();e.target.click();}
 });
 
-/* ── SUMMARY TABLES ── */
-let _lSortField='year',_lSortDir=1;
-let _pSortField='year',_pSortDir=1;
-function sortLeaderTable(f){if(_lSortField===f)_lSortDir*=-1;else{_lSortField=f;_lSortDir=-1;}buildSummaryTables();}
-function sortPresTable(f){if(_pSortField===f)_pSortDir*=-1;else{_pSortField=f;_pSortDir=-1;}buildSummaryTables();}
-
-function buildSummaryTables(){
-  /* DPRK Leaders */
-  const leaders = [
-    {key:'kim_il_sung',  label:'Kim Il-sung',  years:'1948–1994'},
-    {key:'kim_jong_il',  label:'Kim Jong-il',  years:'1994–2011'},
-    {key:'kim_jong_un',  label:'Kim Jong-un',  years:'2011–'},
-  ];
-  const cats = ['missile','nuclear_test','nuclear_program','conventional','terror','hybrid','cyber','other'];
-  const catShort = {missile:'Missile',nuclear_test:'Nuclear Test',nuclear_program:'Nuclear Program',conventional:'Conventional',terror:'Terror / Assassination',hybrid:'Hybrid / Psyops',cyber:'Cyber Operations',other:'Other'};
-
-  const leaderCounts = {};
-  leaders.forEach(l=>{ leaderCounts[l.key]={total:0}; cats.forEach(cat=>leaderCounts[l.key][cat]=0); });
-  RECORDS.forEach(r=>{
-    if(leaderCounts[r.leader]){
-      leaderCounts[r.leader].total++;
-      leaderCounts[r.leader][r.cat]=(leaderCounts[r.leader][r.cat]||0)+1;
-    }
-  });
-  const lMax = Math.max(...leaders.map(l=>leaderCounts[l.key].total));
-
-  let lHtml = '<thead><tr><th onclick="sortLeaderTable(\'name\')" class="sortable">Leader</th><th>Yrs</th>';
-  cats.forEach(cat=>lHtml+='<th class="sum-cat sortable" onclick="sortLeaderTable(\''+cat+'\')">' +catShort[cat]+'</th>');
-  lHtml+='<th class="sortable" onclick="sortLeaderTable(\'total\')" style="color:var(--navy);font-weight:700">Total</th></tr></thead><tbody>';
-  const sortedLeaders = [...leaders].sort((a,b)=>{
-    if(_lSortField==='year') return _lSortDir*(leaders.indexOf(a)-leaders.indexOf(b));
-    if(_lSortField==='name') return _lSortDir*(a.label.localeCompare(b.label));
-    const av = _lSortField==='total' ? leaderCounts[a.key].total : (leaderCounts[a.key][_lSortField]||0);
-    const bv = _lSortField==='total' ? leaderCounts[b.key].total : (leaderCounts[b.key][_lSortField]||0);
-    return _lSortDir*(bv-av);
-  });
-  sortedLeaders.forEach(l=>{
-    const d=leaderCounts[l.key];
-    lHtml+='<tr data-leader="'+l.key+'" onclick="applyLeaderFilter(this.dataset.leader)" title="Click to filter table">';
-    lHtml+='<td class="name-cell">'+l.label+'</td>';
-    lHtml+='<td>'+l.years+'</td>';
-    cats.forEach(cat=>lHtml+='<td class="sum-cat">'+(d[cat]||0)+'</td>');
-    lHtml+='<td class="total-cell">'+d.total+'</td>';
-    lHtml+='</tr>';
-  });
-  lHtml+='</tbody><tfoot><tr><td colspan="'+(cats.length+2)+'">Click a row to filter the table</td></tr></tfoot>';
-  document.getElementById('leaderSummaryTbl').innerHTML=lHtml;
-
-  /* US Presidents */
-  const presCounts = {};
-  US_PRES.forEach(p=>{ presCounts[p.id]={total:0,label:p.label,party:p.party,start:p.start,end:p.end}; cats.forEach(cat=>presCounts[p.id][cat]=0); });
-  RECORDS.forEach(r=>{
-    const yr=parseInt(r.date.slice(0,4));
-    const presId=getPresForYear(yr);
-    if(presId&&presCounts[presId]){
-      presCounts[presId].total++;
-      presCounts[presId][r.cat]=(presCounts[presId][r.cat]||0)+1;
-    }
-  });
-  const pMax = Math.max(...US_PRES.map(p=>presCounts[p.id].total));
-  // Sort by total desc for this view
-  const sortedPres = [...US_PRES].sort((a,b)=>{
-    if(_pSortField==='name') return _pSortDir*(a.label.localeCompare(b.label));
-    if(_pSortField==='year') return _pSortDir*(a.start-b.start);
-    const av = _pSortField==='total' ? presCounts[a.id].total : (presCounts[a.id][_pSortField]||0);
-    const bv = _pSortField==='total' ? presCounts[b.id].total : (presCounts[b.id][_pSortField]||0);
-    return _pSortDir*(bv-av);
-  });
-
-  let pHtml = '<thead><tr><th class="sortable" onclick="sortPresTable(\'name\')">President</th><th>Party</th>';
-  cats.forEach(cat=>pHtml+='<th class="sum-cat sortable" onclick="sortPresTable(\''+cat+'\')">'+catShort[cat]+'</th>');
-  pHtml+='<th class="sortable" onclick="sortPresTable(\'total\')">Total</th></tr></thead><tbody>';
-  sortedPres.forEach(p=>{
-    const d=presCounts[p.id];
-    const barW = Math.round((d.total/pMax)*80);
-    const partyColor = 'rgba(0,65,101,0.55)';
-    pHtml+='<tr data-pres="'+p.id+'" onclick="applyPresFilter(this.dataset.pres)" title="Click to filter table">';
-    pHtml+='<td class="name-cell">'+d.label+' <span style="font-size:10px;color:var(--muted)">'+p.start+'–'+(p.end===2030?'':p.end)+'</span></td>';
-    pHtml+='<td><span style="font-family:var(--font-mono);font-size:10px;color:var(--muted)">'+d.party+'</span></td>';
-    cats.forEach(cat=>pHtml+='<td class="sum-cat">'+(d[cat]||0)+'</td>');
-    pHtml+='<td class="total-cell">'+d.total+'</td>';
-
-    pHtml+='</tr>';
-  });
-  pHtml+='</tbody><tfoot><tr><td colspan="'+(cats.length+3)+'">Click a row to filter the table · Sorted by total provocations</td></tr></tfoot>';
-  document.getElementById('presSummaryTbl').innerHTML=pHtml;
-}
-
-function applyLeaderFilter(leaderKey){
-  document.getElementById('leaderFilter').value=leaderKey;
-  applyFilters();
-  document.querySelector('.table-wrap').scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-function applyPresFilter(presId){
-  document.getElementById('presFilter').value=presId;
-  applyFilters();
-  document.querySelector('.table-wrap').scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-/* ── Render everything. Data-critical steps run first and are isolated
-   from the chart, so a missing/broken Chart.js never blanks the table. ── */
+/* ===== INIT ===== */
 function renderAll(){
-  populateYearFilters();
-  buildStats();
-  buildSummaryTables();
-  restoreState();
-  applyFilters();
-  /* Chart is enhancement-only — never let it break the page. */
-  try { initChart(); buildChartLegend(); }
-  catch(e){ console.warn('Chart could not be rendered:', e); }
-  enhanceA11y();
-  updateThemeToggle();
+ STATS=stats();YMATRIX=yearCatMatrix();
+ renderMeta();buildControls();buildChart();renderSummaries();
+ decodeState();syncControls();showTab(state.tab);updateThemeBtn();applyFilters();
+ if(state.event){const el=document.getElementById('ev-'+state.event);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});}}
 }
-
-/* ---- THEME TOGGLE ---- */
-function currentTheme(){
-  return document.documentElement.getAttribute('data-theme')==='dark' ? 'dark' : 'light';
-}
-function toggleTheme(){
-  var next = currentTheme()==='dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  try { localStorage.setItem('bp-theme', next); } catch(e){}
-  updateThemeToggle();
-  /* Repaint the chart so its themed colors refresh, if present. */
-  try { if(chart && chart.update) chart.update(); } catch(e){}
-}
-function updateThemeToggle(){
-  var b = document.getElementById('themeToggle');
-  if(!b) return;
-  var dark = currentTheme()==='dark';
-  b.textContent = dark ? '☀ Light' : '☾ Dark';
-  b.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
-  b.setAttribute('aria-pressed', String(dark));
-}
-
-/* Make click-only controls (category pills, sortable headers, clickable
-   summary rows, era toggles) reachable and operable by keyboard. */
-function enhanceA11y(){
-  const sel = '.pill, th[onclick], tr[onclick], .era-toggle, .chart-tab';
-  document.querySelectorAll(sel).forEach(el=>{
-    if(el.tagName==='BUTTON'||el.tagName==='A') return;
-    if(!el.hasAttribute('tabindex')) el.setAttribute('tabindex','0');
-    if(!el.hasAttribute('role')) el.setAttribute('role','button');
-  });
-  if(!window.__a11yKeyBound){
-    window.__a11yKeyBound = true;
-    document.addEventListener('keydown', e=>{
-      if(e.key!=='Enter' && e.key!==' ') return;
-      const t = e.target;
-      if(!t || !t.matches) return;
-      if(t.tagName==='BUTTON'||t.tagName==='A'||t.tagName==='INPUT'||t.tagName==='SELECT'||t.tagName==='TEXTAREA') return;
-      if(t.matches('.pill, th[onclick], tr[onclick], .era-toggle, .chart-tab, [role="button"]')){
-        e.preventDefault();
-        t.click();
-      }
-    });
-  }
-}
-
-/* ── Parse a published-Google-Sheets CSV into record objects. ──
-   Handles CRLF line endings, a UTF-8 BOM, quoted fields containing
-   commas/newlines, and doubled "" escapes. A header row (first cell
-   "date", case-insensitive) is auto-detected and skipped. */
 function parseSheetCSV(text){
-  text = text.replace(/^﻿/, '');
-  const rows=[]; let row=[]; let cur=''; let inQ=false;
-  for(let i=0;i<text.length;i++){
-    const ch=text[i];
-    if(inQ){
-      if(ch==='"'){ if(text[i+1]==='"'){ cur+='"'; i++; } else inQ=false; }
-      else cur+=ch;
-    } else if(ch==='"') inQ=true;
-    else if(ch===','){ row.push(cur); cur=''; }
-    else if(ch==='\n'){ row.push(cur); rows.push(row); row=[]; cur=''; }
-    else if(ch!=='\r') cur+=ch;
-  }
-  if(cur.length||row.length){ row.push(cur); rows.push(row); }
-  return rows
-    .filter(r=>r.some(c=>c.trim()!==''))
-    .filter((r,idx)=>!(idx===0 && (r[0]||'').trim().toLowerCase()==='date'))
-    .map(parts=>{
-      if(parts.length<9) return null;
-      const rec={
-        date:parts[0].trim(), cat:parts[1].trim(), event:parts[2].trim(),
-        desc:parts[3].trim(), sev:parseInt(parts[4],10)||1,
-        source:parts[5].trim(), sourceType:parts[6].trim(),
-        url:parts[7].trim(), leader:parts[8].trim()
-      };
-      if(parts[9]!==undefined && parts[9].trim()!=='') rec.cas=parseInt(parts[9],10)||0;
-      return rec;
-    })
-    .filter(Boolean);
+ text=text.replace(/^﻿/,'');const rows=[];let row=[],cur='',inQ=false;
+ for(let i=0;i<text.length;i++){const ch=text[i];
+   if(inQ){if(ch==='"'){if(text[i+1]==='"'){cur+='"';i++;}else inQ=false;}else cur+=ch;}
+   else if(ch==='"')inQ=true;else if(ch===','){row.push(cur);cur='';}
+   else if(ch==='\n'){row.push(cur);rows.push(row);row=[];cur='';}else if(ch!=='\r')cur+=ch;}
+ if(cur.length||row.length){row.push(cur);rows.push(row);}
+ return rows.filter(r=>r.some(c=>c.trim()!=='')).filter((r,i)=>!(i===0&&(r[0]||'').trim().toLowerCase()==='date')).map(p=>{
+   if(p.length<9)return null;const rec={date:p[0].trim(),cat:p[1].trim(),event:p[2].trim(),desc:p[3].trim(),sev:parseInt(p[4],10)||1,source:p[5].trim(),sourceType:p[6].trim(),url:p[7].trim(),leader:p[8].trim()};return rec;
+ }).filter(Boolean);
 }
-
-/* ── INIT: load from Sheets when configured, else use hardcoded data ── */
 if(SHEET_URL){
-  fetch(SHEET_URL)
-    .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
-    .then(csv=>{
-      const loaded=parseSheetCSV(csv);
-      if(loaded.length>10){
-        RECORDS.length=0;
-        loaded.forEach(r=>RECORDS.push(r));
-        console.log('Loaded '+RECORDS.length+' records from Google Sheets');
-        return true;
-      }
-      console.warn('Sheet returned too few rows ('+loaded.length+'); using hardcoded data.');
-      return false;
-    })
-    .catch(e=>{ console.warn('Sheet load failed, using hardcoded data:',e); return false; })
-    .then(fromSheet=>{
-      renderAll();
-      const meta=document.getElementById('metaLine');
-      if(fromSheet && meta) meta.textContent += ' · synced live';
-    });
-} else {
-  renderAll();
-}
+ fetch(SHEET_URL).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.text();}).then(csv=>{
+   const loaded=parseSheetCSV(csv);if(loaded.length>10){RECORDS.length=0;loaded.forEach(r=>RECORDS.push(r));return true;}return false;
+ }).catch(e=>{console.warn('Sheet load failed, using bundled data:',e);return false;}).then(fromSheet=>{
+   renderAll();if(fromSheet)document.getElementById('syncNote').textContent='· synced live';
+ });
+}else{renderAll();}
 </script>
 </body>
 </html>

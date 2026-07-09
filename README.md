@@ -23,23 +23,25 @@ Hosted via GitHub Pages: <https://andysaulim.github.io/North-Korean-Provocations
 
 Records span the eras of Kim Il-sung (135), Kim Jong-il (90), and Kim Jong-un (315).
 
+The interface is an **editorial data-journalism layout** (in the CSIS Beyond
+Parallel house style) rather than a dashboard: paper-and-ink palette with a
+single gold accent, a serif display face, and a restrained, colorblind-safe
+categorical palette used only where color carries meaning.
+
 ## Features
-- 540 records across **8 categories**
-- Multi-select category filter pills
-- Filter by DPRK leader era and US president
-- Year range and severity filters
-- Full-text search with highlighting
-- Stacked bar chart with DPRK leader / US president era overlays
-- Summary tables — provocations by DPRK leader and by US president (clickable to filter)
-- Sortable columns
-- Per-event permalink and citation (Chicago, APA, MLA, BibTeX)
+- 540 records across **8 categories**, presented as three tabs — the database, a by-leader/by-president breakdown, and an about/methodology page
+- **Interactive inline-SVG chart** — provocations per year stacked by category, with a hover tooltip (per-year breakdown), click-to-filter, a toggleable legend, and leadership-era markers. Built from the data at runtime; **no charting CDN**, so the page is fully self-contained
+- Multi-select category filters with live counts
+- Filter by DPRK leader era and US president; year range; full-text search with highlighting
+- Sortable columns; summary tables (by leader / by president) that filter the database on click
+- **Deep-linkable state** — search, filters, sort, page and individual events are encoded in the URL
+- **Strengthened per-event permalinks and citations** — copy a link to any single event, or cite it (Chicago, APA, MLA, BibTeX); the whole database is citable too
 - CSV and JSON export (respects active filters)
-- Social sharing — X, Bluesky, Facebook, LinkedIn
-- Mobile card layout at ≤640px
-- Glossary tooltips for key acronyms (ICBM, SLBM, MLRS, etc.)
-- **Automatic dark mode** (follows the reader's OS/browser preference)
-- **Keyboard-accessible** filters, sortable headers, and summary rows; screen-reader labels for severity
-- **Resilient rendering** — the database, filters, and stats still work even if the charting library fails to load
+- Manual **light/dark theme toggle** (defaults to the reader's OS preference)
+- Mobile card layout; keyboard-accessible controls and focus styles
+- Google Sheets live-sync (optional) with automatic fallback to the bundled data
+
+> Note: each record still carries an internal `sev` (severity) field, but severity is **no longer surfaced in the UI** — a subjective 1–5 score was judged to imply more precision than the sourcing supports.
 
 ## Deployment
 
@@ -94,14 +96,11 @@ If the sheet fails to load, or returns fewer than ~10 rows, the page automatical
 falls back to the hardcoded `RECORDS` array so the database always renders. When a
 sheet loads successfully, the masthead shows a “· synced live” indicator.
 
-## Severity scale
-| Score | Level | Examples |
-|---|---|---|
-| 5 | Critical | ICBMs, all nuclear tests, Cheonan sinking, Yeonpyeong shelling |
-| 4 | High | IRBMs, long-range cruise missiles, nuclear program events |
-| 3 | Moderate | SRBMs, MLRS tests, exchanges of fire with casualties |
-| 2 | Low | Artillery fire, minor infiltrations, anti-ship missiles |
-| 1 | Minor | Balloon launches, GPS jamming, loudspeakers |
+## Severity field
+Each record retains a `sev` value (1–5) for archival continuity, but it is **not
+displayed in the interface** — a subjective severity score was judged to imply
+more precision than open-source sourcing supports, so the UI leads with date,
+event, category and source instead.
 
 ## A note on aggregate figures
 The database records only **individually documented incidents** with known dates and
