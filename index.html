@@ -210,6 +210,35 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
  .ov-note{text-align:left;max-width:none}
  thead th{position:static}
 }
+/* Jump-to-year rail */
+.yearnav{display:flex;align-items:stretch;gap:0;overflow-x:auto;scrollbar-width:thin;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin-top:4px}
+.yearnav::-webkit-scrollbar{height:6px}
+.yearnav::-webkit-scrollbar-thumb{background:var(--hair2);border-radius:3px}
+.yearnav-label{flex:none;align-self:center;font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 12px 0 2px;white-space:nowrap;position:sticky;left:0;background:var(--paper)}
+.yb{flex:none;background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--ink2);padding:7px 8px;white-space:nowrap;border-bottom:2px solid transparent;font-variant-numeric:tabular-nums}
+.yb:hover{color:var(--ink);background:var(--hover)}
+.yb .yn{color:var(--muted);margin-left:3px;font-size:10px}
+.yb[aria-current="true"]{color:var(--link);border-bottom-color:var(--gold);font-weight:500}
+/* Embed modal */
+.embed-note{font-size:12.5px;color:var(--ink2);margin:0 0 12px;line-height:1.5}
+.embed-snippet{font-family:var(--mono);font-size:12px;line-height:1.55;color:var(--ink);background:var(--surface);border:1px solid var(--hair);border-radius:3px;padding:14px;white-space:pre-wrap;word-break:break-all}
+/* Print */
+.print-head{display:none}
+@media print{
+ body{background:#fff;color:#000}
+ .goldrule,nav.sec,.tools,.catrow,.overview,.yearnav,.resultline,.pager,.totop,.byline,.modal,.toast,.rowacts,.foot{display:none!important}
+ .mast{padding:4px 0 10px}
+ h1{font-size:24px}.standfirst{font-size:13px;max-width:none}
+ #panel-database{display:block!important}#panel-breakdown,#panel-about{display:none!important}
+ .print-head{display:block!important;margin:0 0 14px;font-size:12px;color:#000;border-bottom:1px solid #000;padding-bottom:8px}
+ .print-head b{font-weight:700}
+ table{display:table!important;width:100%}.cards{display:none!important}
+ thead th{position:static;color:#000;border-bottom:1px solid #000}
+ tbody td{border-bottom:1px solid #bbb;page-break-inside:avoid}
+ .c-event .de{-webkit-line-clamp:unset!important;display:block!important;overflow:visible!important}
+ .c-src a,a{color:#000;text-decoration:none}
+ .wrap{max-width:none;padding:0}
+}
 </style>
 </head>
 <body>
@@ -224,6 +253,8 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
      <span id="updatedLine">Updated March 2026</span><span class="sep">·</span>
      <button class="linkbtn" onclick="exportCSV()">Download CSV</button><span class="sep">·</span>
      <button class="linkbtn" onclick="exportJSON()">JSON</button><span class="sep">·</span>
+     <button class="linkbtn" onclick="openEmbed()">Embed</button><span class="sep">·</span>
+     <button class="linkbtn" onclick="printView()">Print</button><span class="sep">·</span>
      <button class="linkbtn" onclick="citeDatabase()">Cite database</button><span class="sep">·</span>
      <button class="linkbtn" onclick="shareDb()">Share</button><span class="sep">·</span>
      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☾ Dark</button>
@@ -250,6 +281,9 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
      <div class="legend" id="legend"></div>
      <div class="source-line">Chart: CSIS Beyond Parallel · Bars stack individually documented incidents by category; vertical rules mark leadership transitions. Hover a year for the breakdown; click to filter the table.</div>
    </div>
+
+   <div class="print-head" id="printHead"></div>
+   <nav class="yearnav" id="yearNav" aria-label="Jump to year"></nav>
 
    <div class="tools">
      <div class="search"><span class="mag">⌕</span><input id="q" type="search" placeholder="Search events, weapons, places…" aria-label="Search events" oninput="onFilter()"></div>
@@ -298,7 +332,7 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
      <h3>Categories</h3>
      <p id="aboutCats"></p>
      <h3>A note on aggregate figures</h3>
-     <p>The database records only <strong>individually documented incidents</strong> with known dates and sources. Some broader figures are estimates that are not derived from the per-record data: the ROK government documented <strong>3,693 armed-agent infiltrations</strong> between 1954–1992 (1967–68 alone accounting for roughly 740), and an estimated <strong id="aboutDeaths">600+</strong> deaths across conventional and terror operations. Those aggregates are noted here but not recorded as individual entries.</p>
+     <p>The database records only <strong>individually documented incidents</strong> with known dates and sources. Some broader figures are estimates that are not derived from the per-record data: the ROK government documented <strong><span id="aboutInfil">3,693</span> armed-agent infiltrations</strong> between <span id="aboutInfilYears">1954–1992</span> (1967–68 alone accounting for roughly 740), and an estimated <strong id="aboutDeaths">600+</strong> deaths across conventional and terror operations. Those aggregates are noted here but not recorded as individual entries.</p>
      <h3>Sourcing &amp; corrections</h3>
      <p>Every event links to at least one open-source citation; see the per-event links in the database. To suggest a correction or a missing incident, contact the Korea Chair team.</p>
    </div>
@@ -322,6 +356,18 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
  </div>
 </div>
 
+<!-- Embed modal -->
+<div class="modal" id="embedModal" onclick="if(event.target===this)closeEmbed()">
+ <div class="modal-box" role="dialog" aria-modal="true" aria-label="Embed this database">
+   <div class="modal-hd"><h3>Embed this database</h3><button onclick="closeEmbed()" aria-label="Close">×</button></div>
+   <div class="modal-body">
+     <p class="embed-note">Paste this snippet into any HTML page. It embeds the live database, reflecting your current filters and view.</p>
+     <div class="embed-snippet" id="embedSnippet"></div>
+     <div class="copybar"><button class="copybtn" onclick="copyEmbed()">Copy embed code</button></div>
+   </div>
+ </div>
+</div>
+
 <div class="toast" id="toast"></div>
 <button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
@@ -332,6 +378,10 @@ mark{background:rgba(191,154,46,0.28);color:inherit;padding:0 1px;border-radius:
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIDbkfo6KR39AvB3mBweX0c0QxJEuLjJQ6hoHc0woW6eLrf64lOS4ff3znKJa0MWjFSRfG8Aw83ItE/pub?gid=1091942285&single=true&output=csv';
 const ESTIMATED_DEATHS = '600+';
 const ESTIMATED_DEATH_EVENTS = 66;
+/* Manual aggregate estimates — NOT derivable from the per-record rows, so they
+   are intentionally constants (not a live count). Edit here to update the page. */
+const ESTIMATED_INFILTRATIONS = '3,693';
+const ESTIMATED_INFILTRATION_YEARS = '1954–1992';
 
 const RECORDS = [
   {date:'2026-07-03',cat:'missile',event:'Strategic Cruise Missile (SCM)',desc:'According to state media, North Korean leader Kim Jong-un oversaw tests of a cruise missile, reportedly a Hwasal-series weapon, plus naval artillery, automatic guns, and electronic warfare systems aboard the destroyer Kang Kon on July 3, 2026. KCNA reported the tests were meant to confirm the ability to "apply various kinds of weapon systems on board the destroyer in combat," while South Korea\'s military stated it detected the cruise missile launch toward the sea between Korea and Japan.',sev:4,source:'Yonhap',sourceType:'yonhap',url:'https://en.yna.co.kr/view/AEN20260705000451315',leader:'kim_jong_un'},
@@ -987,7 +1037,7 @@ function applyFilters(){
  });
  const maxp=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE));
  if(state.page>maxp)state.page=maxp;
- renderResultline();renderTable();renderCards();renderPager();renderCatCounts();
+ renderResultline();renderTable();renderCards();renderPager();renderCatCounts();markYearNav();
  encodeState();
 }
 
@@ -1007,6 +1057,8 @@ function renderMeta(){
  document.getElementById('updatedLine').textContent='Updated '+d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
  document.getElementById('aboutTotal').textContent=STATS.total;
  document.getElementById('aboutDeaths').textContent=ESTIMATED_DEATHS;
+ var ei=document.getElementById('aboutInfil');if(ei)ei.textContent=ESTIMATED_INFILTRATIONS;
+ var ey=document.getElementById('aboutInfilYears');if(ey)ey.textContent=ESTIMATED_INFILTRATION_YEARS;
  document.getElementById('aboutCats').textContent=CAT_ORDER.map(c=>CAT_LABEL[c]+' ('+STATS.byCat[c]+')').join(', ')+'.';
 }
 
@@ -1069,7 +1121,7 @@ function wireChart(){
      tip.classList.add('show');
    });
    b.addEventListener('mouseleave',()=>tip.classList.remove('show'));
-   b.addEventListener('click',()=>{const yr=b.dataset.year;state.yearFrom=yr;state.yearTo=yr;state.page=1;syncControls();applyFilters();document.getElementById('resultline').scrollIntoView({behavior:'smooth',block:'start'});});
+   b.addEventListener('click',()=>filterYear(b.dataset.year));
  });
 }
 
@@ -1122,6 +1174,17 @@ function setSort(col){
  document.querySelector('th[onclick*="cat"]').setAttribute('aria-sort',state.sort==='cat'?(state.dir==='asc'?'ascending':'descending'):'none');
  syncControls();applyFilters();
 }
+function filterYear(y){showTab('database');y=String(y);const cur=(state.yearFrom===y&&state.yearTo===y);state.yearFrom=cur?'':y;state.yearTo=cur?'':y;state.page=1;syncControls();applyFilters();document.getElementById('resultline').scrollIntoView({behavior:'smooth',block:'start'});}
+function buildYearNav(){
+ const nav=document.getElementById('yearNav');if(!nav)return;
+ const yrs=YMATRIX.filter(r=>CAT_ORDER.reduce((s,c)=>s+(r[c]||0),0)>0);
+ nav.innerHTML='<span class="yearnav-label">Jump to year</span>'+yrs.map(r=>{
+   const tot=CAT_ORDER.reduce((s,c)=>s+(r[c]||0),0);
+   return `<button class="yb" data-y="${r.year}" onclick="filterYear(${r.year})" title="${tot} in ${r.year}">${r.year}<span class="yn">${tot}</span></button>`;
+ }).join('');
+ markYearNav();
+}
+function markYearNav(){document.querySelectorAll('#yearNav .yb').forEach(b=>{const y=b.dataset.y;b.setAttribute('aria-current',(state.yearFrom===y&&state.yearTo===y)?'true':'false');});}
 function filterLeader(id){showTab('database');state.leader=state.leader===id?'':id;state.page=1;syncControls();applyFilters();document.getElementById('resultline').scrollIntoView({behavior:'smooth',block:'start'});}
 function filterPres(id){showTab('database');state.pres=state.pres===id?'':id;state.page=1;syncControls();applyFilters();document.getElementById('resultline').scrollIntoView({behavior:'smooth',block:'start'});}
 function clearFilters(){state.q='';state.cats.clear();state.leader='';state.pres='';state.yearFrom='';state.yearTo='';state.page=1;syncControls();applyFilters();}
@@ -1149,8 +1212,8 @@ function pageSlice(){return filtered.slice((state.page-1)*PAGE_SIZE,state.page*P
 function rowActions(r,id){
  return `<div class="rowacts"><button onclick="copyPermalink('${id}')">Link</button><button onclick="citeEvent('${id}')">Cite</button></div>`;
 }
-function renderTable(){
- const tb=document.getElementById('tbody');const slice=pageSlice();
+function renderTable(all){
+ const tb=document.getElementById('tbody');const slice=all?filtered:pageSlice();
  document.getElementById('empty').style.display=slice.length?'none':'block';
  document.getElementById('tbl').style.display=slice.length?'':'none';
  tb.innerHTML=slice.map(r=>{
@@ -1221,12 +1284,15 @@ function showTab(t){
 let citeCur=null,citeFmt='chicago';
 function fmtCite(r,fmt){
  const org='CSIS Korea Chair';
+ const fdate=iso=>{try{return new Date((iso.length>10?iso:iso+'T00:00:00')).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}catch(e){return iso;}};
  if(r==='DB'){
    const url=location.origin+location.pathname;
-   if(fmt==='chicago')return `CSIS Korea Chair. "North Korean Provocations Database, 1958–2026." Beyond Parallel. Center for Strategic and International Studies, 2026. ${url}.`;
-   if(fmt==='apa')return `CSIS Korea Chair. (2026). North Korean provocations database, 1958–2026. Beyond Parallel. Center for Strategic and International Studies. ${url}`;
-   if(fmt==='mla')return `CSIS Korea Chair. "North Korean Provocations Database, 1958–2026." Beyond Parallel, Center for Strategic and International Studies, 2026, ${url}.`;
-   return `@misc{csis_nk_provocations,\n  author = {{CSIS Korea Chair}},\n  title = {North Korean Provocations Database, 1958--2026},\n  year = {2026},\n  publisher = {Center for Strategic and International Studies, Beyond Parallel},\n  url = {${url}}\n}`;
+   const upd=(typeof STATS!=='undefined'&&STATS)?fdate(STATS.latest):'';
+   const acc=fdate(new Date().toISOString());
+   if(fmt==='chicago')return `CSIS Korea Chair. "North Korean Provocations Database, 1958–2026." Beyond Parallel. Center for Strategic and International Studies, 2026. Last updated ${upd}. Accessed ${acc}. ${url}.`;
+   if(fmt==='apa')return `CSIS Korea Chair. (2026). North Korean provocations database, 1958–2026. Beyond Parallel. Center for Strategic and International Studies. Retrieved ${acc}, from ${url}`;
+   if(fmt==='mla')return `CSIS Korea Chair. "North Korean Provocations Database, 1958–2026." Beyond Parallel, Center for Strategic and International Studies, 2026, ${url}. Accessed ${acc}.`;
+   return `@misc{csis_nk_provocations,\n  author = {{CSIS Korea Chair}},\n  title = {North Korean Provocations Database, 1958--2026},\n  year = {2026},\n  publisher = {Center for Strategic and International Studies, Beyond Parallel},\n  note = {Last updated ${upd}},\n  urldate = {${acc}},\n  url = {${url}}\n}`;
  }
  const url=location.origin+location.pathname+'?event='+eventId(r);
  const yr=r.date.slice(0,4);const title=r.event;
@@ -1248,6 +1314,35 @@ function citeEvent(id){const r=RECORDS.find(x=>eventId(x)===id);if(r)openCite(r,
 function citeDatabase(){openCite('DB','Cite this database');}
 function closeCite(){document.getElementById('citeModal').classList.remove('on');}
 function copyCite(){navigator.clipboard.writeText(document.getElementById('citeText').textContent).then(()=>toast('Citation copied'));}
+
+/* ===== EMBED ===== */
+function embedCode(){return `<iframe src="${location.href}" width="100%" height="820" style="border:1px solid #ddd" title="North Korean Provocations, 1958–2026 — CSIS Beyond Parallel" loading="lazy"></iframe>`;}
+function openEmbed(){document.getElementById('embedSnippet').textContent=embedCode();document.getElementById('embedModal').classList.add('on');}
+function closeEmbed(){document.getElementById('embedModal').classList.remove('on');}
+function copyEmbed(){navigator.clipboard.writeText(embedCode()).then(()=>toast('Embed code copied'));}
+
+/* ===== PRINT ===== */
+function activeFilterSummary(){
+ const p=[];
+ if(state.q)p.push('search “'+state.q+'”');
+ [...state.cats].forEach(c=>p.push(CAT_LABEL[c]));
+ if(state.leader)p.push(LEADER_LABEL[state.leader]);
+ if(state.pres)p.push(PRES_LABEL[state.pres]);
+ if(state.yearFrom||state.yearTo)p.push((state.yearFrom||'…')+'–'+(state.yearTo||'…'));
+ return p.length?('Filtered by '+p.join(', ')):'All records';
+}
+function preparePrint(){
+ renderTable(true);
+ const ph=document.getElementById('printHead');
+ if(ph){
+   const acc=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+   ph.innerHTML='<b>North Korean Provocations, 1958–2026</b> · CSIS Beyond Parallel · '+
+     filtered.length+' of '+RECORDS.length+' records · '+activeFilterSummary()+' · Printed '+acc;
+ }
+}
+function printView(){preparePrint();window.print();}
+window.addEventListener('beforeprint',preparePrint);
+window.addEventListener('afterprint',()=>renderTable());
 
 /* ===== PERMALINK / SHARE / EXPORT ===== */
 function copyPermalink(id){const u=location.origin+location.pathname+'?event='+id;navigator.clipboard.writeText(u).then(()=>toast('Link copied'));state.event=id;encodeState();}
@@ -1272,7 +1367,7 @@ let toastT;
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),1900);}
 window.addEventListener('scroll',()=>{document.getElementById('totop').classList.toggle('on',window.scrollY>500);});
 document.addEventListener('keydown',e=>{
- if(e.key==='Escape')closeCite();
+ if(e.key==='Escape'){closeCite();closeEmbed();}
  if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){e.preventDefault();document.getElementById('q').focus();}
  if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('lg')){e.preventDefault();e.target.click();}
 });
@@ -1280,7 +1375,7 @@ document.addEventListener('keydown',e=>{
 /* ===== INIT ===== */
 function renderAll(){
  STATS=stats();YMATRIX=yearCatMatrix();
- renderMeta();buildControls();buildChart();renderSummaries();
+ renderMeta();buildControls();buildChart();buildYearNav();renderSummaries();
  decodeState();syncControls();showTab(state.tab);updateThemeBtn();applyFilters();
  if(state.event){const el=document.getElementById('ev-'+state.event);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});}}
 }
